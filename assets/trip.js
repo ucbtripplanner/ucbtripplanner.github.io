@@ -184,7 +184,7 @@
   const itemHref = (kind, id) => `${T.base}${T.pages[KINDS[kind].page].href}#${encodeURIComponent(id)}`;
   const linksHtml = (links) => (links && links.length ? `<div class="item-links">${links.map((l) => ext(l.url, l.label)).join('')}</div>` : '');
 
-  function cardHtml(kind, it) {
+  function cardHtml(kind, it, badgeOverride) {
     const im = img(it.img);
     let sub = '', tags = '', line = '';
     if (kind === 'place') {
@@ -194,14 +194,15 @@
     } else if (kind === 'stay') {
       sub = it.area || '';
       tags = mapTag(STATUS, it.status) + groupTag(T.stayGroups, it.group);
-      line = `<div class="gcard-line">${[it.drive && '🚗 ' + it.drive, it.price && '💵 ' + it.price].filter(Boolean).map(esc).join(' · ')}</div>`;
+      const pr = it.priceShort || it.price;
+      line = `<div class="gcard-line">${[it.drive && '🚗 ' + it.drive, pr && '💵 ' + pr].filter(Boolean).map(md).join(' · ')}</div>`;
     } else {
       sub = [it.area, it.cuisine].filter(Boolean).join(' · ');
       tags = mapTag(PICKS, it.pick) + tag(it.price, 'gray') + groupTag(T.foodGroups, it.group);
-      line = it.hours ? `<div class="gcard-line">🕒 ${esc(it.hours)}</div>` : '';
+      line = it.hours ? `<div class="gcard-line">🕒 ${md(it.hours)}</div>` : '';
     }
     const v = votesHtml(it.votes);
-    return `<button type="button" class="gcard" data-peek="${kind}:${esc(it.id)}">${thumb(im, it.emoji || KINDS[kind].emoji, it.name)}
+    return `<button type="button" class="gcard" data-peek="${kind}:${esc(it.id)}">${thumb(im, it.emoji || KINDS[kind].emoji, it.name, badgeOverride || it.badge)}
       <div class="gcard-body"><div class="gcard-title">${esc(it.name)}</div>${sub ? `<div class="gcard-sub">${esc(sub)}</div>` : ''}
       <div class="gcard-tags">${tags}</div>${it.summary ? `<p class="gcard-text">${md(it.summary)}</p>` : ''}${line}${v ? `<div class="gcard-foot">${v}</div>` : ''}</div></button>`;
   }
@@ -235,7 +236,7 @@
     if (it.details && it.details.length) body += `<h3 class="h3">자세히</h3>${list(it.details)}`;
     if (it.caveat) body += callout({ icon: '⚠️', color: 'yellow', text: it.caveat });
     const links = (it.links || []).slice();
-    if (it.ll) links.push({ label: '🗺️ 구글 지도', url: `https://www.google.com/maps/search/?api=1&query=${it.ll[0]},${it.ll[1]}` });
+    if (it.mapq || it.ll) links.push({ label: '🗺️ 구글 지도', url: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.mapq || (it.name + ' ' + (it.area || '')))}` });
     body += linksHtml(links);
     const kpage = T.pages[KINDS[kind].page];
     return `<div class="peek-top"><span class="peek-kind">${esc(kpage.icon)} ${esc(kpage.title)}</span>
@@ -273,11 +274,12 @@
   });
 
   // ---------------------------------------------------------------- database view (gallery / table + filters)
-  function database(kind, cfg) {
-    const all = KINDS[kind].items();
+  // cfg.featured(x) → shortlist shown first; everything else goes into a collapsed "more" database.
+  let dbSeq = 0;
+  function dbView(kind, all, cfg) {
     const viewKey = 'view:' + T.id + ':' + kind;
     const state = { view: store.get(viewKey) === 'table' ? 'table' : 'gallery', filter: 'all' };
-    const id = 'db-' + kind;
+    const id = 'db-' + kind + '-' + (++dbSeq);
     const filters = [{ id: 'all', label: '전체', test: () => true }].concat((cfg.filters || []).filter((f) => all.some(f.test)));
     function rows(items) {
       if (!items.length) return '<p class="empty">해당하는 항목이 없어요.</p>';
@@ -291,7 +293,7 @@
         <button type="button" role="tab" data-view="gallery" aria-selected="${state.view === 'gallery'}">🖼️ 갤러리</button>
         <button type="button" role="tab" data-view="table" aria-selected="${state.view === 'table'}">▦ 표로 비교</button>
         <span class="views-count">${all.length}개</span></div>
-      <div class="pills">${filters.map((f) => `<button type="button" class="pill" data-filter="${esc(f.id)}" aria-pressed="${state.filter === f.id}">${esc(f.label)} <span class="pill-n">${all.filter(f.test).length}</span></button>`).join('')}</div>`;
+      ${filters.length > 2 ? `<div class="pills">${filters.map((f) => `<button type="button" class="pill" data-filter="${esc(f.id)}" aria-pressed="${state.filter === f.id}">${esc(f.label)} <span class="pill-n">${all.filter(f.test).length}</span></button>`).join('')}</div>` : ''}`;
     function draw() {
       const f = filters.find((x) => x.id === state.filter) || filters[0];
       document.getElementById(id).innerHTML = controls() + `<div class="db-body">${rows(all.filter(f.test))}</div>`;
@@ -306,9 +308,21 @@
         if (fl) { state.filter = fl.dataset.filter; draw(); }
       });
     });
-    // register images for credits even when starting in table view
-    all.forEach((it) => img(it.img));
+    all.forEach((it) => img(it.img)); // register images for credits even when starting in table view
     return `<div class="db" id="${id}">${controls()}<div class="db-body">${rows(all)}</div></div>`;
+  }
+  function database(kind, cfg) {
+    let all = KINDS[kind].items();
+    if (!cfg.featured) return dbView(kind, all, cfg);
+    let feat = all.filter(cfg.featured);
+    if (cfg.order) feat = feat.slice().sort(cfg.order);
+    const rest = all.filter((x) => !cfg.featured(x));
+    let h = `<div class="gallery featured">${feat.map((it) => cardHtml(kind, it, cfg.badge && cfg.badge(it))).join('')}</div>`;
+    if (rest.length) {
+      h += `<details class="more-block"><summary><span class="more-title">${esc(cfg.moreLabel || '다른 후보')} <span class="more-n">${rest.length}</span></span><span class="more-hint">${esc(cfg.moreHint || '눌러서 펼치기')}</span></summary>
+        <div class="more-body">${dbView(kind, rest, cfg)}</div></details>`;
+    }
+    return h;
   }
 
   // ---------------------------------------------------------------- checklists
@@ -360,7 +374,12 @@
           title = `<button type="button" class="ref" data-peek="${esc(it.ref)}">${esc(s.name)}</button>`;
           if (s.im) th = `<button type="button" class="t-thumb" data-peek="${esc(it.ref)}" aria-label="${esc(s.name)} 자세히"><img src="${esc(s.im.src)}" alt="" loading="lazy"></button>`;
         }
-        return `<li><span class="t-time">${esc(it.time || '')}</span><div class="t-what"><div class="t-title">${title}${it.tag ? ' ' + tag(it.tag[0], it.tag[1]) : ''}</div>${it.note ? `<div class="t-note">${md(it.note)}</div>` : ''}</div>${th}</li>`;
+        const alts = (it.alts || []).map((a) => {
+          const r = a.ref && findItem(...a.ref.split(':'));
+          const label = r ? `<button type="button" class="ref" data-peek="${esc(a.ref)}">${esc(a.title || r.name)}</button>` : md(a.title);
+          return label + (a.note ? ` <span class="faint">— ${md(a.note)}</span>` : '');
+        });
+        return `<li><span class="t-time">${esc(it.time || '')}</span><div class="t-what"><div class="t-title">${title}${it.tag ? ' ' + tag(it.tag[0], it.tag[1]) : ''}</div>${it.note ? `<div class="t-note">${md(it.note)}</div>` : ''}${alts.length ? `<div class="t-alt"><span class="t-alt-k">${esc(it.altLabel || '🔁 대안')}</span>${alts.join('<br>')}</div>` : ''}</div>${th}</li>`;
       }).join('')}</ol></details>`).join('');
   }
 
@@ -590,7 +609,7 @@
   // ================================================================ pages
   function renderHome() {
     const countOf = {
-      course: () => `${plans.length}가지 플랜`,
+      course: () => (plans.length > 1 ? `${plans.length}가지 플랜` : `${plans[0] ? plans[0].days.length : 0}일 일정`),
       places: () => `${(T.places || []).length}곳`,
       stay: () => `${(T.stays || []).length}곳`,
       food: () => `${((T.food && T.food.items) || []).length}곳`,
@@ -618,7 +637,7 @@
     if (T.decisions && T.decisions.length) {
       const doneN = T.decisions.filter((d) => d.done).length;
       h += h2('🤔', '정해야 할 것', `${doneN}/${T.decisions.length} 결정`);
-      h += T.decisions.map((d) => toggle(`<b>${esc(d.title)}</b><span class="decision-meta">${d.status ? tag(d.status[0], d.status[1]) : ''}${d.owner ? avatar(d.owner) : ''}${d.due ? `<span class="faint small">~${esc(d.due)}</span>` : ''}</span>`,
+      h += T.decisions.map((d) => toggle(`<b>${d.done ? '✅ ' : ''}${esc(d.title)}</b><span class="decision-meta">${d.status ? tag(d.status[0], d.status[1]) : ''}${d.owner ? avatar(d.owner) : ''}${d.due ? `<span class="faint small">~${esc(d.due)}</span>` : ''}</span>`,
         `${d.desc ? `<p class="muted">${md(d.desc)}</p>` : ''}${d.options ? `<div class="compare">${d.options.map((o) => `<div class="compare-opt${o.pick ? ' pick' : ''}"><div class="compare-h">${o.pick ? '✅ ' : ''}${esc(o.label)} ${votesHtml(o.votes)}</div>${o.pros ? `<div class="pc-h">👍 장점</div>${list(o.pros)}` : ''}${o.cons ? `<div class="pc-h">👎 단점</div>${list(o.cons)}` : ''}</div>`).join('')}</div>` : ''}`, d.open)).join('');
     }
     if (T.todo && T.todo.length) {
@@ -649,9 +668,13 @@
     });
     const planBody = (p) => `${p.summary ? callout({ icon: p.icon || '🧭', color: 'blue', title: p.label, text: p.summary }) : ''}${(p.callouts || []).map(callout).join('')}${dayCards(p)}`;
     let h = (T.courseCallouts || []).map(callout).join('');
-    h += `<div id="plans"><div class="views plan-tabs" role="tablist">${plans.map((p) => `<button type="button" role="tab" data-plan="${esc(p.id)}" aria-selected="${p.id === (cur && cur.id)}">${esc(p.label)}</button>`).join('')}</div>
+    h += `<div id="plans">${plans.length > 1 ? `<div class="views plan-tabs" role="tablist">${plans.map((p) => `<button type="button" role="tab" data-plan="${esc(p.id)}" aria-selected="${p.id === (cur && cur.id)}">${esc(p.label)}</button>`).join('')}</div>` : ''}
       ${mapBlock({ planTabs: false })}
       <div class="plan-body">${cur ? planBody(cur) : ''}</div></div>`;
+    if (T.variants && T.variants.length) {
+      h += h2('🔀', '상황별로 바뀌는 것');
+      h += T.variants.map((v) => toggle(`<b>${esc(v.title)}</b>${v.hint ? ` <span class="faint small">${esc(v.hint)}</span>` : ''}`, (v.text ? `<p>${md(v.text)}</p>` : '') + list(v.items), v.open)).join('');
+    }
     if (T.rainPlan && T.rainPlan.length) {
       h += h2('🌧️', '비 · 눈 오는 날 플랜');
       h += callout({ icon: '☔', color: 'blue', items: T.rainPlan });
@@ -659,8 +682,29 @@
     return h;
   }
 
+  // where each place/stay/food item appears in the (first) plan → "Day 1 · 16:05"
+  function planIndex() {
+    const idx = {};
+    const p = plans[0];
+    if (!p) return idx;
+    p.days.forEach((d, di) => d.items.forEach((it, ii) => {
+      if (it.ref) (idx[it.ref] = idx[it.ref] || []).push({ day: di + 1, time: it.time, order: di * 100 + ii });
+      (it.alts || []).forEach((a) => { if (a.ref) (idx['alt:' + a.ref] = idx['alt:' + a.ref] || []).push({ day: di + 1, time: it.time }); });
+    }));
+    return idx;
+  }
   function renderPlaces() {
-    return (T.placeCallouts || []).map(callout).join('') + database('place', {
+    const pi = planIndex();
+    const inPlan = (x) => !!pi['place:' + x.id];
+    const n = (T.places || []).filter(inPlan).length;
+    let h = (T.placeCallouts || []).map(callout).join('');
+    h += h2('🗓️', '코스에 들어간 곳', `${n}곳 · 일정 순서`);
+    return h + database('place', {
+      featured: inPlan,
+      order: (a, b) => pi['place:' + a.id][0].order - pi['place:' + b.id][0].order,
+      badge: (x) => pi['place:' + x.id].map((o) => `Day ${o.day} · ${o.time}`).join(' / '),
+      moreLabel: '대안 · 시간 남으면 · 이번엔 패스',
+      moreHint: '코스에 없는 곳',
       filters: [
         { id: 'must', label: '🔴 필수', test: (x) => x.tier === 'must' },
         { id: 'rec', label: '🟢 추천', test: (x) => x.tier === 'rec' },
@@ -675,7 +719,14 @@
   }
 
   function renderStay() {
-    return (T.stayCallouts || []).map(callout).join('') + database('stay', {
+    const feat = (T.stays || []).filter((x) => x.featured);
+    let h = (T.stayCallouts || []).map(callout).join('');
+    if (feat.length) h += h2('⭐', '추천 후보', `${feat.length}곳`);
+    return h + database('stay', {
+      featured: feat.length ? (x) => !!x.featured : null,
+      order: (a, b) => (a.featured || 9) - (b.featured || 9),
+      moreLabel: '다른 후보',
+      moreHint: '멀거나 비싸거나 조건이 안 맞는 곳',
       filters: (T.stayGroups || []).map((g) => ({ id: g.id, label: g.label, test: (x) => x.group === g.id })),
       cols: [
         ['상태', (x) => mapTag(STATUS, x.status)], ['위치', (x) => esc(x.area || '')], ['Valley까지', (x) => esc(x.drive || '')],
@@ -688,12 +739,23 @@
     const F = T.food || {};
     let h = (F.callouts || []).map(callout).join('');
     if (F.thanksgiving && F.thanksgiving.length) {
-      h += h2('🦃', 'Thanksgiving 당일 저녁 (11/26 목)');
-      h += `<div class="tg-list">${F.thanksgiving.map((t) => `<div class="tg"><div class="tg-head"><b>${esc(t.name)}</b> ${t.state ? tag(t.state[0], t.state[1]) : ''}</div>
-        <div class="muted small">${[t.where, t.price, t.time].filter(Boolean).map(esc).join(' · ')}</div>${t.note ? `<p>${md(t.note)}</p>` : ''}${linksHtml(t.links)}</div>`).join('')}</div>`;
+      const tgCard = (t) => `<div class="tg"><div class="tg-head"><b>${esc(t.name)}</b> ${t.state ? tag(t.state[0], t.state[1]) : ''}</div>
+        <div class="muted small">${[t.where, t.price, t.time].filter(Boolean).map(esc).join(' · ')}</div>${t.note ? `<p>${md(t.note)}</p>` : ''}${linksHtml(t.links)}</div>`;
+      const tf = F.thanksgiving.filter((t) => t.featured);
+      const tr = F.thanksgiving.filter((t) => !t.featured);
+      h += h2('🦃', 'Thanksgiving 저녁 (11/26 목)', tf.length ? '셋 중 하나' : '');
+      h += `<div class="tg-list">${(tf.length ? tf : F.thanksgiving).map(tgCard).join('')}</div>`;
+      if (tf.length && tr.length) h += `<details class="more-block"><summary><span class="more-title">다른 Thanksgiving 옵션 <span class="more-n">${tr.length}</span></span><span class="more-hint">멀거나 정보가 불확실한 곳</span></summary><div class="more-body"><div class="tg-list">${tr.map(tgCard).join('')}</div></div></details>`;
     }
-    h += h2('🍽️', '식당 · 카페 · 장보기');
+    const ff = (F.items || []).filter((x) => x.featured);
+    h += h2('🍽️', ff.length ? '목–토 동선에 맞는 곳' : '식당 · 카페 · 장보기', ff.length ? `${ff.length}곳` : '');
+    const pi = planIndex();
     h += database('food', {
+      badge: (x) => (pi['food:' + x.id] || []).map((o) => `Day ${o.day} · ${o.time}`).join(' / ') || x.badge,
+      featured: ff.length ? (x) => !!x.featured : null,
+      order: (a, b) => (a.featured || 99) - (b.featured || 99),
+      moreLabel: '다른 식당 · 카페 · 마트',
+      moreHint: '다른 루트 · 백업',
       filters: (T.foodGroups || []).map((g) => ({ id: g.id, label: g.label, test: (x) => x.group === g.id })),
       cols: [
         ['구분', (x) => mapTag(PICKS, x.pick)], ['위치', (x) => esc(x.area || '')], ['종류', (x) => esc(x.cuisine || '')],

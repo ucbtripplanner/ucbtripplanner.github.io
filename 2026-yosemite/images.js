@@ -379,5 +379,96 @@ window.TRIP_IMAGES = {
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Yosemite_-_Royal_Arches.jpg",
   "title": "Royal Arches"
+ },
+ "og-yosemite-view": {
+  "src": "https://webbox.imgix.net/images/zlsvkhbnotwuyhhf/713ec5d7-d946-44af-96b2-07e5680d9fba.png?w=960&auto=format,compress",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.stayyosemiteviewlodge.com/",
+  "title": "Yosemite View Lodge"
+ },
+ "og-rush-creek": {
+  "src": "https://wsrv.nl/?url=admin.rushcreeklodge.com/wp-content/uploads/sites/3/1-Rush-Creek-Pool-Area-at-Sunset-Kim-Carroll.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.rushcreeklodge.com/",
+  "title": "Rush Creek Lodge"
+ },
+ "og-evergreen": {
+  "src": "https://wsrv.nl/?url=admin.evergreenlodge.com/wp-content/uploads/Evergreen-Lodge-Main-Plaza-at-Dusk-Kim-Carroll-3-15-800-x-600.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.evergreenlodge.com/",
+  "title": "Evergreen Lodge"
+ },
+ "og-tenaya": {
+  "src": "https://wsrv.nl/?url=www.visittenaya.com/wp-content/uploads/2026/06/Tenaya-Yosemite-Open-Graph.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.visittenaya.com/",
+  "title": "Tenaya at Yosemite"
+ },
+ "og-autocamp": {
+  "src": "https://wsrv.nl/?url=autocamp.com/wp-content/uploads/2024/10/Feinblatt_20190610_0027_WEB-ONLY-adj-1.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://autocamp.com/location/yosemite/",
+  "title": "AutoCamp Yosemite"
+ },
+ "og-redwoods": {
+  "src": "https://wsrv.nl/?url=redwoodsinyosemite.com/wp-content/uploads/2019/06/Camper-Cabins-Results-Page-Banner-Image-e1562829911570.jpeg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://redwoodsinyosemite.com/",
+  "title": "Redwoods In Yosemite"
+ },
+ "og-scenic-wonders": {
+  "src": "https://wsrv.nl/?url=www.scenicwonders.com/crm/uploads/blog_images/916e6e43-2623-4298-ae52-b216a7982afe.png&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.scenicwonders.com/",
+  "title": "Scenic Wonders (Yosemite West)"
+ },
+ "og-groveland-hotel": {
+  "src": "https://wsrv.nl/?url=assets.simplotel.com/simplotel/image/upload/x_0%2Cy_106%2Cw_2048%2Ch_1153%2Cr_0%2Cc_crop/q_80%2Cw_900%2Cdpr_1%2Cf_auto%2Cfl_progressive%2Cc_limit/the-groveland-hotel/groveland-hotel-historic-facade-main-street&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.theserenite.com/the-groveland-hotel/",
+  "title": "The Groveland Hotel"
+ },
+ "og-tv-yvl-dining": {
+  "src": "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/aramark-parent/yosemite-national-park/site-images/dining/yosemite-national-park-lodging-and-activities-california-united-states-grilled-steak-topped-with-herbs-served-with-mashed-potatoes-and-brussels-sprouts.jpg?cropY=725&cropW=5930&cropH=2162&width=1200&height=630",
+  "credit": "Travel Yosemite 공식 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.travelyosemite.com/dining/yosemite-valley-lodge",
+  "title": "Mountain Room (Yosemite Valley Lodge)"
+ },
+ "og-tv-village-dining": {
+  "src": "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/aramark-parent/yosemite-national-park/site-images/dining/village-dining-with-casual-and-grab-and-go-options-yosemite-national-park-lodging-and-activities-california-united-states.jpg?cropY=1597&cropW=7359&cropH=2683&width=1200&height=630",
+  "credit": "Travel Yosemite 공식 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.travelyosemite.com/dining/yosemite-village",
+  "title": "Degnan's Kitchen (Yosemite Village)"
+ },
+ "og-tv-curry-dining": {
+  "src": "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/aramark-parent/yosemite-national-park/site-images/lodging/curry-village-welcome-1.png?cropW=1920&cropH=700&width=1200&height=630",
+  "credit": "Travel Yosemite 공식 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.travelyosemite.com/dining/curry-village-dining",
+  "title": "Curry Village"
+ },
+ "og-cedar-room": {
+  "src": "https://wsrv.nl/?url=yosemiteresorts.com/wp-content/uploads/2025/07/CL_Double-Queen-LOdge.webp&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://yosemiteresorts.com/cedar-lodge/",
+  "title": "Cedar Lodge 퀸 2개 객실"
+ },
+ "og-junebug": {
+  "src": "https://wsrv.nl/?url=www.yosemitebug.com/wp-content/uploads/2018/03/DSCF9122.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.yosemitebug.com/cafe",
+  "title": "June Bug Cafe"
  }
 };
