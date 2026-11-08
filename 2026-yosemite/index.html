@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yosemite 2026</title>
+  <meta name="description" content="2026 Thanksgiving 요세미티 2박 3일 계획">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="crumb"><a href="../">UCB Trip Planner</a> / 2026-yosemite</div>
+    <h1>Thanksgiving 2026 · Yosemite</h1>
+    <p class="lead">2박 3일 요세미티 여행 계획 (초안 — 계속 업데이트 중)</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">날짜</div>
+        <div class="value">11/26(목) – 11/28(토)?</div>
+      </div>
+      <div class="fact">
+        <div class="label">출발까지</div>
+        <div class="value" id="dday">–</div>
+      </div>
+      <div class="fact">
+        <div class="label">인원</div>
+        <div class="value">TBD</div>
+      </div>
+      <div class="fact">
+        <div class="label">숙소</div>
+        <div class="value"><span class="chip todo">미정</span></div>
+      </div>
+    </div>
+
+    <!-- ============ 결정할 것 / 할 일 ============ -->
+    <section id="todo">
+      <h2>결정할 것 · 할 일</h2>
+      <div class="card">
+        <!-- 끝난 항목은 li에 class="is-done" 추가하고 ☐ → ☑ 로 바꾸기 -->
+        <ul class="checklist">
+          <li><span class="box">☐</span><span class="text">날짜 확정 — 11/26–28(목–토) vs 11/27–29(금–일)</span></li>
+          <li><span class="box">☐</span><span class="text">인원 확정</span></li>
+          <li><span class="box">☐</span><span class="text">숙소 예약 (아래 후보 중에서)</span></li>
+          <li><span class="box">☐</span><span class="text">차 — 누구 차 / 렌트, 몇 대</span></li>
+          <li><span class="box">☐</span><span class="text">타이어 체인 준비 (겨울철엔 휴대 요구될 수 있음)</span></li>
+          <li><span class="box">☐</span><span class="text">입장료 · 연간 패스 확인 (비거주자 추가 요금 해당 여부 포함)</span></li>
+          <li><span class="box">☐</span><span class="text">Thanksgiving 저녁 — 식당 예약 or 직접 해먹기</span></li>
+          <li><span class="box">☐</span><span class="text">장보기 리스트</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 숙소 후보 ============ -->
+    <section id="lodging">
+      <h2>숙소 후보</h2>
+      <div class="card table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>숙소</th>
+              <th>위치</th>
+              <th>Valley까지</th>
+              <th>1박 가격</th>
+              <th>상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.travelyosemite.com/" target="_blank" rel="noopener">Yosemite Valley Lodge</a></td>
+              <td>공원 안 (Valley)</td>
+              <td>바로</td>
+              <td class="num">TBD</td>
+              <td><span class="chip">후보</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.travelyosemite.com/" target="_blank" rel="noopener">Curry Village</a></td>
+              <td>공원 안 (Valley)</td>
+              <td>바로</td>
+              <td class="num">TBD</td>
+              <td><span class="chip">후보</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.google.com/maps/search/?api=1&amp;query=Rush+Creek+Lodge+Yosemite" target="_blank" rel="noopener">Rush Creek Lodge</a></td>
+              <td>Groveland (120번)</td>
+              <td>약 45분</td>
+              <td class="num">TBD</td>
+              <td><span class="chip">후보</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.google.com/maps/search/?api=1&amp;query=Evergreen+Lodge+Yosemite" target="_blank" rel="noopener">Evergreen Lodge</a></td>
+              <td>Groveland (120번)</td>
+              <td>약 1시간</td>
+              <td class="num">TBD</td>
+              <td><span class="chip">후보</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.google.com/maps/search/?api=1&amp;query=Yosemite+View+Lodge+El+Portal" target="_blank" rel="noopener">Yosemite View Lodge</a></td>
+              <td>El Portal (140번)</td>
+              <td>약 30분</td>
+              <td class="num">TBD</td>
+              <td><span class="chip">후보</span></td>
+            </tr>
+            <tr>
+              <td>Airbnb</td>
+              <td>Mariposa / Groveland / Oakhurst</td>
+              <td>40분 – 1시간+</td>
+              <td class="num">TBD</td>
+              <td><span class="chip">후보</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">상태: <span class="chip">후보</span> <span class="chip idea">유력</span> <span class="chip done">예약 완료</span> · 소요 시간은 대략적인 값. Curry Village 텐트 캐빈은 11월 말엔 추울 수 있음.</p>
+    </section>
+
+    <!-- ============ 일정 ============ -->
+    <section id="itinerary">
+      <h2>일정 (초안)</h2>
+
+      <div class="card">
+        <div class="day-head">
+          <h3>Day 1 — 이동 · Valley 둘러보기</h3>
+          <span class="date">11/26 (목)?</span>
+        </div>
+        <ul class="timeline">
+          <li><span class="time">08:00</span><span class="what"><strong>Berkeley 출발</strong><span class="small muted">약 3.5–4시간 (120번 또는 140번)</span></span></li>
+          <li><span class="time">12:00</span><span class="what"><strong>점심</strong><span class="small muted">가는 길 (Oakdale / Groveland 등)</span></span></li>
+          <li><span class="time">14:00</span><span class="what"><strong>Tunnel View</strong><span class="small muted">El Capitan · Half Dome · Bridalveil Fall 한 번에 보이는 뷰포인트</span></span></li>
+          <li><span class="time">15:00</span><span class="what"><strong>Bridalveil Fall · El Capitan Meadow</strong></span></li>
+          <li><span class="time">17:00</span><span class="what"><strong>숙소 체크인</strong></span></li>
+          <li><span class="time">18:30</span><span class="what"><strong>Thanksgiving 저녁</strong> <span class="chip todo">미정</span></span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="day-head">
+          <h3>Day 2 — 하이킹</h3>
+          <span class="date">11/27 (금)?</span>
+        </div>
+        <ul class="timeline">
+          <li><span class="time">09:00</span><span class="what"><strong>하이킹 (택1)</strong>
+            <span class="small muted">· Lower Yosemite Fall — 쉬움, 1마일 루프</span>
+            <span class="small muted">· Mirror Lake — 쉬움~보통</span>
+            <span class="small muted">· Mist Trail → Vernal Fall Footbridge — 보통 (겨울엔 미끄러울 수 있음)</span>
+            <span class="small muted">· Four Mile Trail — 힘듦, Glacier Point 방향</span>
+          </span></li>
+          <li><span class="time">13:00</span><span class="what"><strong>점심</strong><span class="small muted">Valley 안 (Village Store / Valley Lodge 등)</span></span></li>
+          <li><span class="time">15:00</span><span class="what"><strong>The Ahwahnee 구경 · Valley 산책</strong></span></li>
+          <li><span class="time">19:00</span><span class="what"><strong>저녁 · 별 보기</strong></span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="day-head">
+          <h3>Day 3 — 세쿼이아 숲 · 귀가</h3>
+          <span class="date">11/28 (토)?</span>
+        </div>
+        <ul class="timeline">
+          <li><span class="time">09:00</span><span class="what"><strong>체크아웃</strong></span></li>
+          <li><span class="time">10:00</span><span class="what"><strong>Tuolumne Grove</strong><span class="small muted">자이언트 세쿼이아, 왕복 약 2.5마일 · 120번 귀갓길 (Crane Flat)</span></span></li>
+          <li><span class="time">13:00</span><span class="what"><strong>Berkeley로 출발</strong><span class="small muted">연휴 주말이라 막힐 수 있음 — 일찍 출발</span></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 예산 ============ -->
+    <section id="budget">
+      <h2>예산 (1인 기준)</h2>
+      <div class="card table-scroll">
+        <table>
+          <thead><tr><th>항목</th><th>메모</th><th>금액</th></tr></thead>
+          <tbody>
+            <tr><td>숙소</td><td>2박 ÷ 인원</td><td class="num">TBD</td></tr>
+            <tr><td>기름</td><td>왕복 약 400마일 ÷ 인원</td><td class="num">TBD</td></tr>
+            <tr><td>입장료</td><td>차량당 ÷ 인원</td><td class="num">TBD</td></tr>
+            <tr><td>식비</td><td>3일</td><td class="num">TBD</td></tr>
+            <tr><td><strong>합계</strong></td><td></td><td class="num"><strong>TBD</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 참고 ============ -->
+    <section id="notes">
+      <h2>참고</h2>
+      <div class="note">
+        출발 전에 꼭 확인: <a href="https://www.nps.gov/yose/planyourvisit/conditions.htm" target="_blank" rel="noopener">NPS 도로 · 날씨 상황</a>.
+        11월 말에는 Tioga Road · Glacier Point Road가 보통 닫혀 있고, 눈 오면 체인 규제가 걸릴 수 있음.
+        Valley는 낮엔 선선하고 밤엔 영하 근처까지 내려갈 수 있으니 따뜻한 옷 챙기기.
+      </div>
+      <div class="card" style="margin-top:12px">
+        <h3>링크</h3>
+        <ul class="small" style="margin:0;padding-left:18px">
+          <li><a href="https://www.nps.gov/yose/" target="_blank" rel="noopener">NPS Yosemite 공식</a></li>
+          <li><a href="https://www.travelyosemite.com/" target="_blank" rel="noopener">공원 안 숙소 예약 (Travel Yosemite)</a></li>
+          <li><a href="https://www.recreation.gov/" target="_blank" rel="noopener">캠핑장 예약 (Recreation.gov)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>마지막 업데이트: 2026-11-07</footer>
+  </main>
+
+  <script>
+    // D-day: 출발일 바뀌면 여기만 수정
+    (function () {
+      var start = new Date(2026, 10, 26); // 월은 0부터 시작 (10 = 11월)
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      var diff = Math.round((start - today) / 86400000);
+      var el = document.getElementById('dday');
+      el.textContent = diff > 0 ? 'D-' + diff : diff === 0 ? 'D-Day!' : '다녀옴';
+    })();
+  </script>
+</body>
+</html>
