@@ -20,17 +20,21 @@
 <body data-page="hub">
   <div id="app"></div>
   <noscript><p>이 페이지는 JavaScript가 필요해요. <a href="/2026-yosemite/">2026 Yosemite</a></p></noscript>
-  <script src="/2026-yosemite/images.js"></script>
   <script>
     window.HUB = {
       title: 'UCB Trip Planner',
-      desc: 'UC Berkeley 친구들의 여행 계획 모음. 일정 · 숙소 · 맛집 후보를 같이 모으고 정해요.',
-      cover: 'half-dome',
+      desc: 'UC Berkeley 친구들의 여행 계획 모음. 올해 Thanksgiving(11/26–28)은 **요세미티 vs LA** 두 안을 비교 중이에요.',
+      cover: {"src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg/960px-Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg", "big": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg/1280px-Half_Dome_with_Eastern_Yosemite_Valley_%28Zuschnitt%29.jpg", "credit": "Thomas Wolf, www.foto-tw.de", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Half_Dome_with_Eastern_Yosemite_Valley_(Zuschnitt).jpg", "title": "Half Dome", "pos": "center 40%"},
       trips: [
         {
-          href: '/2026-yosemite/', icon: '🏔️', title: 'Thanksgiving 2026 · Yosemite', cover: 'tunnel-view', badge: '계획 중',
-          when: '2026년 11월 26–29일 중 2박 3일', desc: '버클리에서 차로 떠나는 첫 요세미티. 근본 코스로.',
+          href: '/2026-yosemite/', icon: '🏔️', title: 'Thanksgiving 2026 · Yosemite', cover: {"src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg/960px-Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg", "big": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg/1280px-Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg", "credit": "Diliff", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Tunnel_View,_Yosemite_Valley,_Yosemite_NP_-_Diliff.jpg", "title": "Tunnel View", "pos": "center 60%"}, badge: '후보 A',
+          when: '2026년 11월 26–28일 (목–토) 2박 3일', desc: '버클리에서 차로 떠나는 첫 요세미티. 근본 코스로.',
           tags: [['🚗 자차', 'gray'], ['👥 3–4명', 'blue'], ['🌲 국립공원', 'green']],
+        },
+        {
+          href: '/2026-la/', icon: '🌴', title: 'Thanksgiving 2026 · LA', cover: {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Griffith_Observatory_with_Downtown_Los_Angeles_In_The_Background_-_54084315490.jpg/960px-Griffith_Observatory_with_Downtown_Los_Angeles_In_The_Background_-_54084315490.jpg","big":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Griffith_Observatory_with_Downtown_Los_Angeles_In_The_Background_-_54084315490.jpg/1280px-Griffith_Observatory_with_Downtown_Los_Angeles_In_The_Background_-_54084315490.jpg","credit":"The Fun Chronicles","license":"CC0","page":"https://commons.wikimedia.org/wiki/File:Griffith_Observatory_with_Downtown_Los_Angeles_In_The_Background_-_54084315490.jpg","title":"Griffith Observatory & Downtown LA"}, badge: '후보 B',
+          when: '2026년 11월 26–28일 (목–토) 2박 3일', desc: '버클리에서 차로 LA 근본 코스 — I-5로 내려가서 101 해안길로 돌아오기.',
+          tags: [['🚗 자차', 'gray'], ['👥 3–4명', 'blue'], ['🌴 도시 + 해안', 'orange']],
         },
       ],
     };

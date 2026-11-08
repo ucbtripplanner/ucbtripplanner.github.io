@@ -327,7 +327,7 @@ dialog.peek::backdrop { background: rgba(15, 15, 15, .32); }
 .ext:hover { background: var(--hover); box-shadow: inset 0 0 0 1px var(--line-2); }
 
 /* ================= itinerary ================= */
-.day { border-radius: var(--radius); box-shadow: var(--card-shadow); background: var(--card); margin: 14px 0; overflow: hidden; }
+.day { border-radius: var(--radius); box-shadow: var(--card-shadow); background: var(--card); margin: 14px 0; overflow: clip; scroll-margin-top: 104px; }
 .day > summary { list-style: none; cursor: pointer; }
 .day > summary::-webkit-details-marker { display: none; }
 .day-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--bg-softer); border-bottom: 1px solid var(--line); }
@@ -460,7 +460,7 @@ dialog.peek::backdrop { background: rgba(15, 15, 15, .32); }
 .tg .ext { background: rgba(255, 255, 255, .55); }
 :root[data-theme="dark"] .tg .ext { background: rgba(255, 255, 255, .06); }
 
-.prep-grid { columns: 3 290px; column-gap: 14px; margin: 14px 0; }
+.prep-grid { columns: 2 400px; column-gap: 14px; margin: 14px 0; }
 .prep-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--card-shadow); padding: 16px 18px; font-size: 15.5px; break-inside: avoid; margin: 0 0 14px; }
 .prep-h { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
 
@@ -566,4 +566,54 @@ dialog.peek::backdrop { background: rgba(15, 15, 15, .32); }
   dialog.peek { height: 90dvh; max-height: 90dvh; }
   .gallery-pages { grid-template-columns: 1fr 1fr; }
   .stages .stage { flex: 0 0 auto; min-width: 104px; }
+}
+
+/* ================= LA review fixes (2026-11-08) ================= */
+/* collapsed callouts */
+.callout-toggle { display: block; padding: 0; }
+.callout-toggle > summary { padding: 12px 16px 12px 34px; }
+.callout-toggle > summary::before { left: 14px; }
+.callout-toggle .callout-icon { font-size: 17px; }
+.callout-toggle .toggle-body { padding: 0 18px 14px 34px; }
+/* timeline alternatives as a disclosure */
+details.t-alt > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+details.t-alt > summary::-webkit-details-marker { display: none; }
+details.t-alt:not([open]) { padding-bottom: 6px; }
+details.t-alt:not([open]) > summary::after { content: "펼치기"; font-size: 12px; font-weight: 500; color: var(--text-3); margin-left: 4px; }
+/* day jump chips */
+.day-jump { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 4px; }
+.day-jump .pill { text-decoration: none; display: inline-flex; align-items: center; }
+.day-jump .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
+/* budget note rows */
+.budget tr.b-note td { font-size: 13px; color: var(--text-3); padding-top: 0; border-top: 0; text-align: left; white-space: normal; }
+.budget tbody tr:not(.b-note) td { border-bottom: 0; }
+.budget tr.b-note td { border-bottom: 1px solid var(--line); }
+.dbtable td .cell { max-width: 340px; }
+
+@media (max-width: 640px) {
+  .day-head { position: sticky; top: 44px; z-index: 5; }
+  .day { scroll-margin-top: 52px; }
+  .dbtable td .cell { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; max-width: 200px; }
+  .pills { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); padding-bottom: 2px; }
+  .pills::-webkit-scrollbar { display: none; }
+  .pills .pill { flex: none; min-height: 36px; }
+  .gallery.featured .thumb { aspect-ratio: 2 / 1; }
+  /* "more" lists → compact rows */
+  .more-body .gallery { gap: 8px; }
+  .more-body .gcard { flex-direction: row; align-items: stretch; }
+  .more-body .gcard .thumb { width: 96px; aspect-ratio: auto; min-height: 84px; flex: none; }
+  .more-body .gcard .thumb.noimg .thumb-emoji { font-size: 26px; }
+  .more-body .gcard .thumb-badge { display: none; }
+  .more-body .gcard-body { padding: 10px 12px; gap: 4px; }
+  .more-body .gcard-text { display: none; }
+  .more-body .gcard-line, .more-body .gcard-warn { -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+  .callout { padding: 14px; gap: 8px; }
+  .callout .bullets { padding-left: 1.05em; }
+  .wx { display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; }
+  .wx::-webkit-scrollbar { display: none; }
+  .wx-day { flex: 0 0 104px; }
+  .peek-close, .peek-open { width: 44px; height: 44px; font-size: 18px; }
+  .t-alt .ref { display: inline-block; padding: 4px 0; }
+  .day-jump { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .day-jump .pill { flex: none; }
 }

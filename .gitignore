@@ -6,3 +6,6 @@ __pycache__/
 node_modules/
 # personal Claude Code settings (shared settings live in .claude/settings.json)
 .claude/settings.local.json
+
+# one-off build scratch for new trips
+*/_build/

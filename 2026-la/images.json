@@ -1,0 +1,338 @@
+{
+ "food-bravo-farms": {
+  "file": "Bravoland_in_Kettleman_City.jpg",
+  "title": "Bravo Farms (Bravoland), Kettleman City",
+  "pos": "center 35%"
+ },
+ "food-lawrys": {
+  "file": "Lawrys02.jpg",
+  "title": "Lawry's The Prime Rib, Beverly Hills"
+ },
+ "food-grand-central-market": {
+  "file": "Grand_Central_Market_Los_Angeles_P1000560.jpg",
+  "title": "Grand Central Market"
+ },
+ "food-baekjeong": {
+  "file": "Cast_iron_prime_ribeye.jpg",
+  "title": "Kang Ho-dong Baekjeong (Buena Park 지점, 참고 사진)"
+ },
+ "food-bcd-tofu": {
+  "file": "Soon_tofu,_beef_(30620619616).jpg",
+  "title": "BCD Tofu House, Koreatown"
+ },
+ "food-leos-tacos": {
+  "file": "Leo's_Taco_Truck_(4896653712).jpg",
+  "title": "Leo's Taco Truck"
+ },
+ "food-portos": {
+  "file": "Pastries.jpg",
+  "title": "Porto's Bakery, Burbank"
+ },
+ "food-solvang-bakeries": {
+  "file": "Danish_bakery,_Solvang,_CA,_USA_(9503103424).jpg",
+  "title": "Solvang 덴마크 베이커리"
+ },
+ "food-madonna-inn": {
+  "file": "Cake_-_Madonna_Inn_-_DSC05852.JPG",
+  "title": "Madonna Inn 베이커리 케이크"
+ },
+ "food-parks-bbq": {
+  "src": "https://wsrv.nl/?url=parksbbq.com/wp-content/uploads/2020/06/parks_home_img02.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.parksbbq.com/",
+  "title": "Park's BBQ"
+ },
+ "food-tam-oshanter": {
+  "src": "https://wsrv.nl/?url=www.lawrysonline.com/wp-content/uploads/2026/05/OMIT-Tam_Main_med.webp&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.lawrysonline.com/tam-o-shanter/",
+  "title": "Tam O'Shanter"
+ },
+ "food-harris-ranch": {
+  "file": "Harris_Ranch_Inn_and_Restaurant_-_October_2022_-_Sarah_Stierch_01.jpg",
+  "title": "Harris Ranch Inn & Restaurant, Coalinga"
+ },
+ "food-philippe": {
+  "file": "120207-LA-Philippes.jpg",
+  "title": "Philippe the Original",
+  "pos": "center 40%"
+ },
+ "food-langers": {
+  "file": "Langer's_Delicatessen-Restaurant_—_704_S._Alvarado_Street_—_Los_Angeles_-_Flickr_-_dalecruse.jpg",
+  "title": "Langer's Delicatessen"
+ },
+ "food-hangari": {
+  "file": "Korean.noodle-Kalguksu-01.jpg",
+  "title": "칼국수 (예시 사진)"
+ },
+ "food-sb-shellfish": {
+  "file": "Santa_Barbara_Shellfish_on_pier_(3609584244).jpg",
+  "title": "Santa Barbara Shellfish Co., Stearns Wharf"
+ },
+ "food-in-n-out": {
+  "file": "In-N-Out_Burger_Double_Double_in_Fresno,_California.jpg",
+  "title": "In-N-Out Double-Double"
+ },
+ "food-pea-soup": {
+  "file": "Pea_Soup_Andersen's_restaurant_in_Santa_Nella.jpg",
+  "title": "Pea Soup Andersen's, Santa Nella"
+ },
+ "food-pinks": {
+  "file": "Pinks_Hot_Dogs.jpg",
+  "title": "Pink's Hot Dogs"
+ },
+ "food-farmers-market": {
+  "file": "Farmers_Market_Los_Angeles_P1000554.jpg",
+  "title": "The Original Farmers Market"
+ },
+ "food-din-tai-fung": {
+  "file": "Xiaolongbao_on_a_tang_chi_by_jslander_at_Din_Tai_Fung,_Arcadia.jpg",
+  "title": "Din Tai Fung 샤오롱바오 (Arcadia)"
+ },
+ "food-sonoratown": {
+  "file": "Caramelo_tacos.jpg",
+  "title": "Sonoratown 카라멜로"
+ },
+ "food-guisados": {
+  "file": "Cochinita_pibil,_chicharron,_steak_picado,_mole_poblano,_tinga_de_pollo,_bistek_en_salsa_roja_(24532765744).jpg",
+  "title": "Guisados 샘플러"
+ },
+ "food-sun-nong-dan": {
+  "file": "Galbi-jjim_2.jpg",
+  "title": "갈비찜 (예시 사진)"
+ },
+ "food-salt-straw": {
+  "file": "Dill_pickle_sorbet,_fish_sauce_caramel_and_palm_sugar_ice_cream_(27443533281).jpg",
+  "title": "Salt & Straw (Venice)"
+ },
+ "cover-home": {
+  "file": "Griffith_Observatory_with_Downtown_Los_Angeles_In_The_Background_-_54084315490.jpg",
+  "title": "Griffith Observatory & Downtown LA",
+  "pos": "center 55%"
+ },
+ "cover-course": {
+  "file": "Santa_Monica_pier_(32613513350).jpg",
+  "title": "Santa Monica Pier at sunset",
+  "pos": "center 60%"
+ },
+ "cover-places": {
+  "file": "Hollywood_Sign_(Zuschnitt).jpg",
+  "title": "Hollywood Sign",
+  "pos": "center 45%"
+ },
+ "cover-stay": {
+  "file": "Los_Angeles,_Koreatown,_Palm_Trees.jpg",
+  "title": "Koreatown, Los Angeles",
+  "pos": "center 40%"
+ },
+ "cover-food": {
+  "file": "Grand_Central_Market,_Los_Angeles,_Interior_view_20110807_1.jpg",
+  "title": "Grand Central Market",
+  "pos": "center 40%"
+ },
+ "cover-prep": {
+  "file": "Grapevine,_California_July_2021.JPG",
+  "title": "I-5 at the Grapevine",
+  "pos": "center 55%"
+ },
+ "beverly-hills": {
+  "file": "Written_\"BEVERLY_HILLS\"_in_Beverly_Gardens_Park.jpg",
+  "title": "Beverly Hills sign, Beverly Gardens Park",
+  "pos": "center 45%"
+ },
+ "santa-monica-pier": {
+  "file": "Santa_Monica_Pier_-_5404865545.jpg",
+  "title": "Santa Monica Pier",
+  "pos": "center 55%"
+ },
+ "urban-light": {
+  "file": "Giant_white_pillars_(Unsplash).jpg",
+  "title": "Urban Light (Chris Burden), LACMA",
+  "pos": "center 40%"
+ },
+ "lake-hollywood": {
+  "file": "Hollywood_Sign_from_Park_on_Canyon_Lake_Drive_-_panoramio.jpg",
+  "title": "Hollywood Sign from Lake Hollywood Park",
+  "pos": "center 45%"
+ },
+ "walk-of-fame": {
+  "file": "TCL_Chinese_Theatre_(26776687980).jpg",
+  "title": "TCL Chinese Theatre, Hollywood Blvd",
+  "pos": "center 35%"
+ },
+ "the-broad": {
+  "file": "Nighttime_view_of_the_Broad_in_LA,_corner_dllu.jpg",
+  "title": "The Broad",
+  "pos": "center 60%"
+ },
+ "disney-hall": {
+  "file": "Image-Disney_Concert_Hall_by_Carol_Highsmith_edit.jpg",
+  "title": "Walt Disney Concert Hall",
+  "pos": "center 45%"
+ },
+ "angels-flight": {
+  "file": "Los_Angeles_(California,_USA),_South_Olive_Street,_Angel's_Flight_--_2012_--_4797.jpg",
+  "title": "Angels Flight",
+  "pos": "center 40%"
+ },
+ "griffith": {
+  "file": "Griffith_Observatory_After_Sunset.jpg",
+  "title": "Griffith Observatory after sunset",
+  "pos": "center 45%"
+ },
+ "sb-mission": {
+  "file": "Old_Mission_Santa_Barbara_California.jpg",
+  "title": "Old Mission Santa Barbara",
+  "pos": "center 50%"
+ },
+ "sb-courthouse": {
+  "file": "Santa_Barbara_County_Courthouse.jpg",
+  "title": "Santa Barbara County Courthouse (view from El Mirador)",
+  "pos": "center 50%"
+ },
+ "stearns-wharf": {
+  "file": "Stearns_Wharf_-_Santa_Barbara,_California.jpg",
+  "title": "Stearns Wharf",
+  "pos": "center 55%"
+ },
+ "solvang": {
+  "file": "Solvang_California_Windmill.jpg",
+  "title": "Solvang",
+  "pos": "center 45%"
+ },
+ "getty-center": {
+  "file": "2024_Getty_Center_08.jpg",
+  "title": "Getty Center",
+  "pos": "center 50%"
+ },
+ "endeavour": {
+  "file": "Construction_of_a_viewing_gallery_around_Space_Shuttle_Endeavour,_its_external_tank,_and_solid_rocket_boosters_at_Samuel_Oschin_Air_and_Space_Center,_Los_Angeles,_California,_US.jpg",
+  "title": "Endeavour stack, Samuel Oschin Air and Space Center (construction)",
+  "pos": "center 40%"
+ },
+ "venice": {
+  "file": "Los_Angeles_-_Venice_Canal_Historic_District_05.jpg",
+  "title": "Venice Canals",
+  "pos": "center 50%"
+ },
+ "big-sur": {
+  "file": "Bixby_Creek_Bridge,_California,_USA_-_May_2013.jpg",
+  "title": "Bixby Creek Bridge, Big Sur",
+  "pos": "center 50%"
+ },
+ "pismo-monarch": {
+  "file": "A_cluster_of_monarch_butterflies_roosts_on_the_branch_of_a_Eucalyptus_tree_at_the_Pismo_Beach_Monarch_Butterfly_Grove._(32748447355).jpg",
+  "title": "Monarch butterflies, Pismo Beach grove",
+  "pos": "center 45%"
+ },
+ "hollywood-bowl-overlook": {
+  "file": "HOLLYWOOD_BOWL_OVERLOOK.jpg",
+  "title": "Hollywood Bowl Overlook",
+  "pos": "center 50%"
+ },
+ "lacma": {
+  "file": "LACMA-Exterior-View-ROLM-ArchEyes-5.jpg",
+  "title": "LACMA David Geffen Galleries",
+  "pos": "center 45%"
+ },
+ "universal": {
+  "file": "Universal_Studios_Hollywood_(4)_(7962961388).jpg",
+  "title": "Universal Studios Hollywood",
+  "pos": "center 45%"
+ },
+ "wb-tour": {
+  "file": "Warner_Bros._Studio_VIP_Tour_(15608791758).jpg",
+  "title": "Warner Bros. Studio Tour",
+  "pos": "center 50%"
+ },
+ "the-grove": {
+  "file": "THE_GROVE_Los_Angeles.jpg",
+  "title": "The Grove trolley",
+  "pos": "center 45%"
+ },
+ "last-bookstore": {
+  "file": "Graffiti_last_bookstore.jpg",
+  "title": "The Last Bookstore",
+  "pos": "center 45%"
+ },
+ "union-station": {
+  "file": "Los_Angeles._Union_Station._Waiting_Room._2022-03-02_15-43-55.jpg",
+  "title": "Union Station waiting room",
+  "pos": "center 50%"
+ },
+ "little-tokyo": {
+  "file": "Japanese_Village_Plaza,_Little_Tokyo_(19293489684).jpg",
+  "title": "Japanese Village Plaza, Little Tokyo",
+  "pos": "center 40%"
+ },
+ "hearst-castle": {
+  "file": "Hearst_Castle_Neptune_Pool_September_2012_004.jpg",
+  "title": "Hearst Castle, Neptune Pool",
+  "pos": "center 50%"
+ },
+ "elephant-seals": {
+  "file": "Seals_at_Piedras_Blancas_elephant_seal_rookery_2013_01.jpg",
+  "title": "Piedras Blancas elephant seals",
+  "pos": "center 55%"
+ },
+ "morro-rock": {
+  "file": "Morro_Rock_-_September_2023_-_Sarah_Stierch_05.jpg",
+  "title": "Morro Rock",
+  "pos": "center 45%"
+ },
+ "getty-villa": {
+  "file": "Getty_Villa_(3).jpg",
+  "title": "Getty Villa",
+  "pos": "center 50%"
+ },
+ "disneyland": {
+  "file": "Sleeping_Beauty_Castle_2019.jpg",
+  "title": "Sleeping Beauty Castle, Disneyland",
+  "pos": "center 40%"
+ },
+ "janm": {
+  "file": "Japanese_American_National_Museum_(Los_Angeles)_August_2024.JPG",
+  "title": "Japanese American National Museum",
+  "pos": "center 50%"
+ },
+ "stay-hometel": {
+  "src": "https://wsrv.nl/?url=hometelsuites.com/img/gallery/protfolio-img09.png&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://hometelsuites.com/gallery.php",
+  "title": "Hometel Suites 외관 (8th St)"
+ },
+ "stay-koxie": {
+  "src": "https://wsrv.nl/?url=images.squarespace-cdn.com/content/v1/64cb42c8f28c686366a0e92a/0936ab8d-a3a3-4d37-9c53-3aeb88dc0811/3411+W+Olympic+Blvd.-14.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.hotelkoxie.com/gallery",
+  "title": "Hotel Koxie 객실"
+ },
+ "stay-normandie": {
+  "file": "HotelNormandie_Lobby96.jpg",
+  "title": "Hotel Normandie 로비",
+  "pos": "center 55%"
+ },
+ "stay-ramada": {
+  "src": "https://wsrv.nl/?url=www.wyndhamhotels.com/content/dam/property-images/en-us/ra/us/ca/los-angeles/04311/04311_exterior_view_1.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.wyndhamhotels.com/ramada/los-angeles-california/ramada-wilshire-center/overview",
+  "title": "Ramada Wilshire Center 외관"
+ },
+ "stay-surestay-sm": {
+  "src": "https://wsrv.nl/?url=www.surestaysantamonica.com/sites/default/files/styles/p100_paragraph_image_w_text_default/public/2021-09/Exterior_01_medrez-small-min.png&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.surestaysantamonica.com/about-our-hotel",
+  "title": "SureStay Santa Monica 외관 (Pico Blvd)"
+ },
+ "stay-bw-midtown": {
+  "file": "6th_Street_at_Catalina,_Los_Angeles,_looking_west.jpg",
+  "title": "6th St (호텔 한 블록 옆 거리, Koreatown)",
+  "pos": "center 55%"
+ }
+}

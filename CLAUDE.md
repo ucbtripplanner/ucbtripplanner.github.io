@@ -4,12 +4,16 @@ Public trip-planning site for a group of friends, served by GitHub Pages at
 **https://ucbtripplanner.github.io** from the `main` branch of `ucbtripplanner/ucbtripplanner.github.io`.
 UI language is **Korean** (casual, friendly "~해요" tone). Talk to the user in the language they use.
 
-Current trip: **`2026-yosemite/`** — Thanksgiving, **Thu 11/26 – Sat 11/28/2026 (fixed)**, 3 people (+ maybe 1),
-driving from Berkeley, all first-timers → classic Valley course.
+Trips (same dates — **Thu 11/26 – Sat 11/28/2026, fixed** — same group of 3 (+ maybe 1), driving from Berkeley; two alternatives):
+- **`2026-yosemite/`** — first-timers, classic Yosemite Valley course (120 in, 140 out).
+- **`2026-la/`** — classic LA course: I-5 down Thu (Santa Monica sunset, Thanksgiving dinner), Hollywood → DTLA → Griffith Fri,
+  US-101 coast home Sat (Santa Barbara · Solvang · Madonna Inn). Lodging base: Koreatown.
+
+Each trip folder is self-contained; replace `2026-yosemite` with the trip you're editing in the paths below.
 
 ## How the site works (read this first)
 
-- **All content lives in one file: `2026-yosemite/data.js`** (`window.TRIP = {…}`). Edit that, nothing else, for content changes.
+- **All content of a trip lives in one file: `<trip>/data.js`** (`window.TRIP = {…}`). Edit that, nothing else, for content changes.
 - `assets/trip.js` renders every page client-side from `data.js` (Notion-style: cover, properties, callouts, toggles,
   gallery/table "databases", side-peek detail panel, Leaflet map, weather, GitHub "recent changes" feed).
 - `assets/style.css` — light theme by default (the users asked for bright & readable), dark via the 🌙 toggle.
@@ -20,10 +24,10 @@ driving from Berkeley, all first-timers → classic Valley course.
 - Field reference for `data.js`: **`docs/DATA.md`**.
 
 ```
-index.html              hub (trip list; data inline in the file)
+index.html              hub (trip list + inline cover images; add new trips here)
 assets/style.css, trip.js
 sw.js                   service worker (offline)
-2026-yosemite/
+2026-yosemite/, 2026-la/   (same layout)
   data.js               ✏️ THE content file
   images.json → images.js    photo registry (generated)
   routes.json → geo.js       map driving routes (generated)
@@ -37,7 +41,7 @@ docs/DATA.md            data.js schema
 ## Workflow for any change
 
 1. Edit `2026-yosemite/data.js` (keep the existing style; Korean text; `**bold**` and `[label](url)` / `[label](/internal/path)` work inside strings).
-2. **Validate:** `node tools/check_data.mjs` — must print `✓ OK` (checks ids, refs, images, members, statuses, pins).
+2. **Validate:** `node tools/check_data.mjs <trip>` (e.g. `2026-la`; default `2026-yosemite`) — must print `✓ OK`.
 3. **Preview:** `python3 tools/serve.py` → http://127.0.0.1:8765/2026-yosemite/  
    Visual check: `tools/screenshot.sh /2026-yosemite/stay/ [desktop|mobile] /tmp/x.png`, then look at the PNG.
    - ⚠️ Use `tools/serve.py`, not `python3 -m http.server`: the plain server makes Chrome *download* `.md` files into
@@ -74,7 +78,10 @@ Member ids: `mk` Minseo Kim · `ms` Minhyuk Seo · `jp` Jongseok Park · `plus` 
   - add alternatives as `alts` on a course slot rather than as new top-level options.
 - Photos: prefer Wikimedia Commons (license is fetched + credited automatically). Official-site images only as link
   previews for lodging/restaurants, credited "공식 사이트 이미지". No logos.
-- Valley roads are one-way: **Southside Dr = eastbound, Northside Dr = westbound** (an earlier draft got this wrong).
+- Yosemite Valley roads are one-way: **Southside Dr = eastbound, Northside Dr = westbound** (an earlier draft got this wrong).
+- LA: Thanksgiving Day closes most museums (Griffith building, The Broad, Getty, LACMA…) — always re-check day-specific hours;
+  car break-ins are the #1 visitor risk (nothing visible in the car; unload at the hotel). Per-trip wording lives in
+  `labels`, the map's zoom button in `mapFocus`, the weather heading in `weather.title`.
 
 ## Tools (`tools/`, Python stdlib / Node only)
 
@@ -91,9 +98,11 @@ Member ids: `mk` Minseo Kim · `ms` Minhyuk Seo · `jp` Jongseok Park · `plus` 
 
 ## Adding a new trip
 
-Copy `2026-yosemite/` to e.g. `2027-tahoe/`, rewrite `data.js` (`id`, `base: '/2027-tahoe/'`, pages, content),
-`images.json`, `routes.json`; run `build_images.py`, `build_routes.py`, `gen_pages.mjs`, `check_data.mjs`;
-add a card to `window.HUB.trips` in the root `index.html`; add the new pages to `PRECACHE` in `sw.js`.
+Copy `2026-yosemite/` to e.g. `2027-tahoe/`, rewrite `data.js` (`id`, `base: '/2027-tahoe/'`, `labels`, `mapFocus`,
+pages, content), `images.json`, `routes.json`; run `build_images.py`, `build_routes.py`, `gen_pages.mjs`, `check_data.mjs`
+(each with the trip folder as argument); add a card to `window.HUB.trips` in the root `index.html` (cover as an inline image
+object); add the new pages to `PRECACHE` in `sw.js` and bump `VERSION`. The 2026-la trip was built this way:
+research agents → itinerary judge → section writers → adversarial fact-check (see `2026-la/research/`).
 
 ## Repo access
 

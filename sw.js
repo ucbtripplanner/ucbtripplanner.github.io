@@ -5,7 +5,7 @@
  * Open every page once (with signal) before driving in, and they'll all open offline.
  * Bump VERSION if you change this file's caching rules.
  */
-const VERSION = 'utp-v1';
+const VERSION = 'utp-v2';
 const CORE = `${VERSION}-core`;
 const RUNTIME = `${VERSION}-rt`;
 const MAX_RUNTIME = 600;
@@ -14,10 +14,13 @@ const PRECACHE = [
   '/2026-yosemite/', '/2026-yosemite/course/', '/2026-yosemite/places/', '/2026-yosemite/stay/',
   '/2026-yosemite/food/', '/2026-yosemite/prep/',
   '/2026-yosemite/data.js', '/2026-yosemite/images.js', '/2026-yosemite/geo.js',
+  '/2026-la/', '/2026-la/course/', '/2026-la/places/', '/2026-la/stay/', '/2026-la/food/', '/2026-la/prep/',
+  '/2026-la/data.js', '/2026-la/images.js', '/2026-la/geo.js',
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CORE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
+  // allSettled: one missing file must not break offline support for everything else
+  e.waitUntil(caches.open(CORE).then((c) => Promise.allSettled(PRECACHE.map((u) => c.add(u)))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (e) => {

@@ -26,6 +26,8 @@ window.TRIP = {
   start: '2026-11-26',
   end: '2026-11-28',
   updated: '2026-11-07',
+  labels: { drive: 'Valley까지', season: '11월 말', open: '11월 말 영업', entrance: '입구' },
+  mapFocus: { label: 'Valley 확대', ll: [37.7456, -119.5936], km: 20 },
 
   members: [
     { id: 'mk', name: 'Minseo Kim', initial: 'MK', color: '#2383e2', url: 'https://minseokim.org/' },
@@ -138,7 +140,7 @@ window.TRIP = {
   },
 
   weather: {
-    name: 'Yosemite Valley', ll: [37.7456, -119.5936],
+    name: 'Yosemite Valley', title: '요세미티 날씨', ll: [37.7456, -119.5936],
     normal: '11/26–28 평년: **낮 ~10°C / 밤 ~-1°C**. 과거 절반 정도는 이 무렵 비 · 눈이 하루 이상 왔고, Valley에 눈이 온 해는 약 5분의 1.',
     nws: 'https://forecast.weather.gov/MapClick.php?lon=-119.59244728088379&lat=37.74539308593381',
   },

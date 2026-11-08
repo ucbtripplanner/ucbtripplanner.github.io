@@ -5,10 +5,11 @@
 | 여행 | 날짜 | 페이지 |
 |---|---|---|
 | 🏔️ Thanksgiving 2026 · Yosemite | 2026-11-26 (목) – 11-28 (토) | [/2026-yosemite/](https://ucbtripplanner.github.io/2026-yosemite/) |
+| 🌴 Thanksgiving 2026 · LA | 2026-11-26 (목) – 11-28 (토) | [/2026-la/](https://ucbtripplanner.github.io/2026-la/) |
 
 ## 수정하는 법
 
-**내용은 전부 `2026-yosemite/data.js` 한 파일에 있어요.**
+**여행마다 내용은 전부 `<여행 폴더>/data.js` 한 파일에 있어요** (`2026-yosemite/data.js`, `2026-la/data.js`).
 
 - **GitHub 웹에서:** 사이트 오른쪽 위 ✏️ → `data.js` 편집 → Commit. 1–2분 뒤 반영.
 - **Claude Code로:** 이 레포를 열고 "숙소 Cedar Lodge 예약 완료로 바꿔줘", "이 식당 추가해줘", "출발 전에 도로 상황 다시 확인해줘"처럼 말하면 돼요. 에이전트용 가이드는 [`CLAUDE.md`](CLAUDE.md)에 있어요 (다른 에이전트는 [`AGENTS.md`](AGENTS.md)).
@@ -16,7 +17,7 @@
   - 찜하기 → 항목의 `votes: ['mk', 'ms', 'jp']`
   - 숙소 상태 → `status: 'cand' | 'top' | 'booked' | 'full' | 'na' | 'closed'`
   - 할 일 완료 → `done: true`
-- 수정 후 확인: `node tools/check_data.mjs` → `✓ OK`
+- 수정 후 확인: `node tools/check_data.mjs 2026-la` (또는 `2026-yosemite`) → `✓ OK`
 
 필드 설명은 [`docs/DATA.md`](docs/DATA.md), 출처가 달린 리서치 노트와 출발 전 확인 목록은 [`2026-yosemite/research/`](2026-yosemite/research/).
 

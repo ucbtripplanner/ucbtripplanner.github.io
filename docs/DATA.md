@@ -16,6 +16,8 @@ After editing run `node tools/check_data.mjs`.
 | `updated` | `'2026-11-07'` | footer "마지막 업데이트" |
 | `members` | `[{ id:'mk', name:'Minseo Kim', initial:'MK', color:'#2383e2', url }]` | ids used by `votes`, `owner`, `who` |
 | `pageOrder`, `pages` | see below | subpages + their covers |
+| `labels` | `{ drive: 'Valley까지', season: '11월 말', open: '11월 말 영업', entrance: '입구' }` | per-trip wording of a few property labels (defaults are generic) |
+| `mapFocus` | `{ label: 'Valley 확대', ll: [37.7456, -119.5936], km: 20, auto: false }` | the map's "🔍" button zooms to stops within `km` of `ll`; `auto: true` opens the map already zoomed there |
 
 ### `pages`
 
@@ -69,10 +71,11 @@ Shared: `id` (lowercase-hyphen, unique per kind), `name`, `en`, `emoji`, `img` (
 
 | Kind | Extra fields | Enums |
 |---|---|---|
-| `places[]` | `tier`, `kindLabel`, `area`, `time`, `distance`, `difficulty`, `best`, `parking`, `status` (e.g. '도로 폐쇄 가능성') | `tier`: `must rec opt skip` |
-| `stays[]` | `group`, `status`, `featured` (1,2,3… shortlist order), `area`, `entrance`, `drive`, `price`, `priceShort`, `beds`, `kitchen`, `open`, `cancel` | `status`: `cand top booked full na closed` (`na` = not bookable for our dates) |
+| `places[]` | `tier`, `kindLabel`, `area`, `time`, `distance`, `difficulty`, `best`, `parking`, `tickets`, `cost`, `hours`, `status` (e.g. '도로 폐쇄 가능성') | `tier`: `must rec opt skip` |
+| `stays[]` | `group`, `status`, `featured` (1,2,3… shortlist order), `area`, `entrance`, `drive`, `parking`, `price`, `priceShort`, `beds`, `kitchen`, `open`, `cancel` | `status`: `cand top booked full na closed` (`na` = not bookable for our dates) |
 | `food.items[]` | `group`, `pick`, `featured`, `area`, `cuisine`, `price`, `hours`, `reserve` | `pick`: `top good backup` |
 | `food.thanksgiving[]` | `{ name, state: [label,color], where, price, time, note, links, featured }` | |
+| `food.thanksgivingTitle`, `food.thanksgivingAside` | heading + right-side note of the Thanksgiving section | |
 
 `stayGroups` / `foodGroups`: `[{ id, label, color }]` — filter pills inside "더 보기".
 `placeCallouts`, `stayCallouts`, `food.callouts`: callouts at the top of each page.
