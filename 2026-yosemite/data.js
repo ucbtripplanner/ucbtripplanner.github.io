@@ -9,7 +9,11 @@
  *  ✍️ 문장 안에서 **굵게**, [링크](https://...) 사용 가능
  *
  *  멤버 id: mk = Minseo Kim · ms = Minhyuk Seo · jp = Jongseok Park · plus = +α
- *  리서치 기준일: 2026-11-07 (출처는 각 항목 링크 · 준비 페이지 하단)
+ *  🏨 숙소 status 에 'na' = 이번 날짜엔 불가 (예: 최소 숙박일 때문에)
+ *  📅 할 일 due: '11/19' 같은 마감 표시
+ *
+ *  리서치 기준일: 2026-11-07 (출처는 각 항목 링크 · 준비 페이지 하단 · research/*.md)
+ *  수정 후: node tools/check_data.mjs  → 사이트 구조는 CLAUDE.md, 필드 설명은 docs/DATA.md
  * ===================================================================== */
 window.TRIP = {
   id: '2026-yosemite',
@@ -51,7 +55,7 @@ window.TRIP = {
     { icon: '⏳', label: '출발까지', dday: true },
     { icon: '👥', label: '멤버', members: true },
     { icon: '🚗', label: '이동', value: '자차 · Berkeley ↔ Valley 약 182–203mi · 연휴엔 4.5–5h 잡기' },
-    { icon: '🏨', label: '숙소', tags: [['미정', 'yellow']] },
+    { icon: '🏨', label: '숙소', tags: [['미예약', 'red']], value: '[백업(Cedar Lodge) 먼저 →](/2026-yosemite/stay/)' },
     { icon: '🧭', label: '스타일', tags: [['첫 방문', 'blue'], ['근본 코스', 'green'], ['Valley 중심', 'purple']] },
   ],
 
@@ -64,17 +68,17 @@ window.TRIP = {
   ],
 
   homeCallouts: [
-    { icon: '📌', color: 'yellow', title: '지금 제일 급한 것: 숙소 + Thanksgiving 디너', items: [
-      '**숙소:** 환불 가능한 백업(Cedar Lodge 2박 $388 — 11/7 기준 1개 남음)을 먼저 잡고, 11/17–21에 Valley Lodge · Curry 취소분 노리기 → [숙소](/2026-yosemite/stay/)',
-      '**디너:** Ahwahnee Feast로 갈 거면 지금 전화 예약 (888-413-8869) → [식당](/2026-yosemite/food/)',
+    { icon: '📌', color: 'yellow', title: '오늘 할 것', items: [
+      '**숙소 백업:** Cedar Lodge 예약 (2박 $388, 11/7 기준 1개 남음 — 가격은 예약 화면에서 다시 확인) · 매진이면 Yosemite View Lodge → [숙소](/2026-yosemite/stay/)',
+      '**전화 888-413-8869:** Ahwahnee Thanksgiving Feast 예약 + Base Camp Thanksgiving 예약 필요한지 문의 → [식당](/2026-yosemite/food/)',
+      '나머지 마감은 아래 **할 일 · 마감**에 날짜순으로.',
     ] },
     { icon: '💡', color: 'blue', title: '한눈에 보는 핵심', items: [
       '**입장 예약 필요 없음** (2026년 폐지) · 차 1대 $35, 카드만',
-      '**비거주자는 1인당 $100 추가** → 연간 패스 1장(Resident $80 / Non-Resident $250)이 차 전체를 커버 → [준비](/2026-yosemite/prep/) 참고',
+      '**비거주자는 1인당 $100 추가** → 연간 패스 1장이 차 전체를 커버. **누가 살지는 신분 기준** (카드가 아니라) → [준비](/2026-yosemite/prep/)',
       '**체인 필수 소지** (11–3월) · **Valley에 주유소 없음**',
       '**Glacier Point · Tioga Road는 아마 닫혀 있음** · 폭포 수량 적은 시기',
-      '**토요일 오후(13–20시) 귀경 정체** — 일찍 나오거나 140번으로 천천히',
-      '일출 6:50 · **일몰 16:41** — 하루가 짧아요',
+      '**토요일 오후(13–20시) 귀경 정체** · 일출 6:50 · **일몰 16:41** — 하루가 짧아요',
     ] },
   ],
 
@@ -82,7 +86,7 @@ window.TRIP = {
     { title: '날짜: 목–토 (11/26–28)', status: ['확정', 'green'], done: true,
       desc: 'Thanksgiving 당일 아침 출발이 교통 "최소" · Thanksgiving 디너를 요세미티에서 · 일요일 귀경 정체(최악) 회피 · Curry Village 휴업(11/29~) 전.' },
     { title: '숙소: 백업 먼저 → 공원 안 노리기', status: ['진행 중', 'yellow'], open: true,
-      desc: '추천 흐름: **① Cedar Lodge 지금 예약** (7일 전까지 $15로 취소 가능) → **② 11/17–21 Valley Lodge · Curry 취소분 확인** → 잡히면 ①을 취소. Cedar가 매진이면 Yosemite View Lodge. 찜(👍)은 [숙소 페이지](/2026-yosemite/stay/)에서.' },
+      desc: '추천 흐름: **1) Cedar Lodge 지금 예약** (11/19까지 $15로 취소 가능) → **2) 11/17–19 Valley Lodge · Curry 취소분 매일 확인** → 잡히면 1)을 취소. 11/20 이후에 취소하면 첫날 25% + $15. Cedar가 매진이면 Yosemite View Lodge. 찜(👍)은 [숙소 페이지](/2026-yosemite/stay/)에서.' },
     {
       title: 'Thanksgiving 디너: 셋 중 하나', status: ['논의 중', 'yellow'],
       options: [
@@ -91,18 +95,23 @@ window.TRIP = {
         { label: '🐛 June Bug Cafe', pros: ['칠면조 $28 · 예약 없음', '140번(El Portal) 숙소면 가까움'], cons: ['Valley에서 ~45분 · 밤 산길 운전', '일찍 가야 함'] },
       ] },
     { title: '입장 패스: 누가 어떤 걸 살까', status: ['확인 필요', 'gray'],
-      desc: '미국 여권 · 영주권 · 미국 주 운전면허/ID 있는 사람이 있는지 → Resident $80 vs Non-Resident $250. 자세한 건 [준비](/2026-yosemite/prep/).' },
+      desc: '**신분 기준이에요 (가진 카드가 아니라).** 미국 시민 · 영주권자가 있으면 그 사람이 패스 소지자 ($70 Yosemite Annual 또는 $80 Resident) → 차 전체 커버. 전원 비자(F-1/J-1 등)면 Resident 자격이 불분명 → **$250 Non-Resident** (누구나 구매 가능) 또는 입구에서 레인저에게 문의. 잘못 사면 입구에서 업그레이드 요구될 수 있어요 → [준비](/2026-yosemite/prep/).' },
     { title: '+α 인원 확정 (3명 vs 4명)', status: ['미정', 'gray'], desc: '숙소 방 타입이 달라져요 (추천 숙소들은 4명도 같은 가격).' },
   ],
 
   todo: [
-    { text: '날짜 확정 — 목–토 (11/26–28)', who: 'mk', done: true },
+    { due: '11/7', text: '날짜 확정 — 목–토 (11/26–28)', who: 'mk', done: true },
+    { due: '지금', text: '숙소 백업 예약 — Cedar Lodge (환불 가능)', note: '매진이면 Yosemite View Lodge. 예약하면 숙소 페이지에서 status를 booked로' },
+    { due: '지금', text: 'Thanksgiving 디너 정하기 → Ahwahnee면 전화 예약', note: '888-413-8869 · Base Camp 예약 필요 여부도 같이 문의' },
+    { due: '지금', text: '(선택) Mountain Room 금요일 저녁 · Valley Floor Tour 예약', note: 'Mountain Room은 OpenTable' },
+    { due: '11/17–19', text: '공원 안 숙소(Valley Lodge · Curry) 취소분 매일 확인', note: '**11/19 = 백업 숙소 $15 취소 마감** (도착 7일 전). 그 뒤 취소는 첫날 25% + $15' },
+    { due: '~11/22', text: '체인 구매 (타이어 사이즈 확인) + 집에서 한 번 연습', note: 'Les Schwab — 안 쓴 체인은 봄에 환불' },
+    { due: '~11/22', text: '입장 패스 결정 (신분 기준)', note: '애매하면 미리 사지 말고 입구에서 레인저에게 → [준비](/2026-yosemite/prep/)' },
+    { due: '~11/22', text: '아이젠 · 헤드램프 준비' },
+    { due: '11/24', text: '새 Yosemite Guide 확인 (11/25부터 적용)', note: '셔틀 · 식당 시간 · 트레일 폐쇄 — [NPS Guide](https://www.nps.gov/yose/planyourvisit/guide.htm)' },
+    { due: '11/25', text: '장보기 (버클리) · 오프라인 지도 받기 · 이 사이트 모든 페이지 한 번씩 열기', note: '한 번 연 페이지 · 사진은 신호 없어도 보여요' },
+    { due: '11/25', text: '도로 · 체인 · 날씨 최종 확인 → 120 vs 140 결정', note: '209-372-0200 (1 → 1) · Caltrans QuickMap' },
     { text: '+α 인원 확정' },
-    { text: '숙소 예약', note: '예약 후 숙소 페이지에서 status를 booked로' },
-    { text: 'Thanksgiving 디너 정하기 · 예약', note: 'Ahwahnee면 전화 예약 888-413-8869' },
-    { text: '입장 패스 정하기 · 구매', note: 'recreation.gov 디지털 패스' },
-    { text: '체인 구매 (타이어 사이즈 확인)', note: 'Les Schwab — 안 쓰면 봄에 환불' },
-    { text: '아이젠 · 헤드램프 준비' },
     { text: '차 · 운전 순서 정하기' },
   ],
 
@@ -110,8 +119,23 @@ window.TRIP = {
     '오른쪽 위 **✏️** 버튼 → GitHub에서 `data.js`를 바로 수정할 수 있어요 (ucbtripplanner 레포 협업자 권한 필요).',
     '**찜하기:** 마음에 드는 장소 · 숙소 · 식당의 `votes`에 내 id(mk / ms / jp)를 추가 → 카드에 아바타가 떠요.',
     '수정 후 1–2분 뒤 사이트에 반영. 아래 "최근 변경"에 누가 뭘 바꿨는지 떠요.',
-    'Claude(Claude Code)에게 "숙소 X 예약 완료로 바꿔줘"처럼 말해도 돼요.',
+    '**Claude Code로:** 이 레포를 열고 "숙소 X 예약 완료로 바꿔줘", "이 식당 추가해줘", "출발 전에 도로 상황 확인해줘"처럼 말하면 돼요 — 에이전트는 레포의 `CLAUDE.md`를 읽고 시작해요.',
+    '출처 · 미확인 목록: 레포의 `2026-yosemite/research/` (OPEN_QUESTIONS.md에 출발 전 확인할 것).',
   ],
+
+  budget: {
+    aside: '3명 · 2박 기준 (대략)',
+    note: '이 사이트에 정리된 가격으로 계산한 대략치예요. 체인 ($50–100)은 별도 — 안 쓰면 Les Schwab에서 봄에 환불.',
+    cols: ['아끼면', '보통', '여유'],
+    rows: [
+      ['숙소 (2박 ÷ 3)', '~$150', '~$250', '~$510', 'Cedar Lodge / Yosemite View / Rush Creek (세금 · 수수료 대략 포함)'],
+      ['입장 패스 (÷ 3)', '$27–83', '$27–83', '$27–83', 'Resident $80 / Non-Resident $250 — 신분에 따라'],
+      ['기름 (÷ 3)', '~$30', '~$30', '~$30', '왕복 ~420mi · ~$5.6/gal'],
+      ['식비 3일', '~$75', '~$105', '~$135', '공원 안 하루 $25–45'],
+      ['Thanksgiving 디너', '~$35', '~$35', '$165', 'June Bug / Base Camp / Ahwahnee Feast'],
+    ],
+    total: ['~$320–370', '~$450–500', '~$870–920'],
+  },
 
   weather: {
     name: 'Yosemite Valley', ll: [37.7456, -119.5936],
@@ -123,7 +147,8 @@ window.TRIP = {
   // ------------------------------------------------------------------ 코스 (목–토 확정)
   courseCallouts: [
     { icon: '🅿️', color: 'gray', title: '코스 공통 원칙', items: [
-      '**Valley에선 한 번 주차하면 그대로** — 이후엔 무료 셔틀(7:00–22:00) + 도보. 차는 Tunnel View · Bridalveil · El Cap Meadow · Valley View 갈 때만 (셔틀이 안 가요).',
+      '**Valley에선 한 번 주차하면 그대로** — 이후엔 무료 셔틀(7:00–22:00) + 도보. 차는 Tunnel View · Bridalveil · Valley View 갈 때만 (셔틀이 안 가요 · El Capitan은 셔틀 #8).',
+      '**Valley 도로는 일방통행:** Southside Dr = 동쪽(들어가는 방향), Northside Dr = 서쪽(나가는 방향). 다리(El Capitan · Sentinel · Pohono)로 건너요.',
       '연휴 Valley 주차장은 **오전 8시 전**에 차요. 하이킹은 **오후 4시 전**에 끝내기 (일몰 4:41).',
       '각 시간대의 **🔁 대안**은 날씨 · 체력 · 숙소에 따라 바꿔 끼우면 돼요. 아래 "상황별로 바뀌는 것"도 참고.',
     ] },
@@ -131,23 +156,23 @@ window.TRIP = {
   courses: [
     {
       id: 'thu-sat', label: '목–토 (11/26–28)', short: '목–토', icon: '⭐', routes: ['hwy120', 'hwy140'],
-      summary: '**Thanksgiving 당일 아침 = 1년 중 가장 한산한 출발 타이밍** (AAA/INRIX 2025: 목요일 "교통 영향 최소"). 120번으로 들어가서 140번으로 나와요 (풍경이 달라요).',
+      summary: '**Thanksgiving 당일 = 연휴 주간 중 가장 한산한 날** (AAA/INRIX 2025 패턴: 목요일 "교통 영향 최소"). 120번으로 들어가서 140번으로 나와요 (풍경이 달라요).',
       days: [
         { title: '출발 · Valley 하이라이트', date: '11/26 (목) Thanksgiving', items: [
           { time: '06:30', title: 'Berkeley 출발', note: 'I-580 → I-205 → Hwy 120. **체인은 트렁크에.** Manteca/Oakdale에서 주유 (Valley엔 주유소 없음)', ll: [37.8716, -122.2727] },
-          { time: '09:00', ref: 'food:priest-station', title: 'Priest Station — 커피 · 화장실', note: 'Thanksgiving 당일 영업은 미확인',
-            alts: [{ title: 'Groveland 마을 (Mar-Val 마트 7:00–)', note: '문 닫았으면' }] },
-          { time: '09:45', title: 'Big Oak Flat 입구', note: '카드 결제만 · 연간 패스 있으면 제시 (패스 소지자 ID 필요)', ll: [37.80042, -119.87517] },
-          { time: '10:00', ref: 'place:tuolumne-grove', tag: ['선택', 'gray'], note: '자이언트 세쿼이아. 왕복 2mi, 돌아오는 오르막이 힘들어요',
+          { time: '09:15', ref: 'food:priest-station', title: 'Priest Station — 커피 · 화장실', note: 'Thanksgiving 당일 영업은 미확인',
+            alts: [{ title: 'Groveland 마을 (Mar-Val 마트)', note: '문 닫았으면 — 여기도 Thanksgiving 영업시간은 미확인' }] },
+          { time: '10:00', title: 'Big Oak Flat 입구', note: '카드 결제만 · 연간 패스 있으면 제시 (패스 소지자 사진 ID 필요)', ll: [37.80042, -119.87517] },
+          { time: '10:15', ref: 'place:tuolumne-grove', tag: ['선택', 'gray'], note: '자이언트 세쿼이아. 왕복 2mi, 돌아오는 오르막이 힘들어요',
             alts: [{ title: '건너뛰고 바로 Valley로', note: 'Valley 일정에 1시간 여유' }] },
-          { time: '12:00', ref: 'food:degnans', title: "Valley 도착 · 점심 (Degnan's)", note: '숙소나 Yosemite Village에 주차하고 그대로',
+          { time: '12:15', ref: 'food:degnans', title: "Valley 도착 · 점심 (Degnan's)", note: '**주차:** Valley 숙소면 숙소 주차장 (체크인 16시 전에 세워도 되는지 확인). El Portal 숙소면 당일 방문자라 자리가 없을 수 있어요 → Yosemite Falls 주차장, 안 되면 서쪽 일정(Bridalveil · Tunnel View)부터',
             alts: [{ ref: 'food:base-camp' }] },
-          { time: '13:00', ref: 'place:lower-falls', note: '30분, 시계 방향으로' },
-          { time: '13:45', ref: 'place:cooks-meadow', note: 'Sentinel Bridge까지 30분 → Welcome Center 영상 · 전시',
+          { time: '13:15', ref: 'place:lower-falls', note: '30분, 시계 방향으로' },
+          { time: '14:00', ref: 'place:cooks-meadow', note: 'Sentinel Bridge까지 30분 → Welcome Center 영상 · 전시',
             alts: [{ ref: 'place:village', title: 'Yosemite Village (Museum · Ansel Adams Gallery)', note: '추우면 실내로' }] },
-          { time: '15:15', ref: 'place:bridalveil', note: 'Southside Dr로 서쪽 이동, 20분' },
+          { time: '15:15', ref: 'place:bridalveil', note: '**Northside Dr로 서쪽** → Pohono Bridge 건너 Bridalveil 주차장 (Southside는 동쪽 일방통행) · 약 20–25분' },
           { time: '16:05', ref: 'place:tunnel-view', tag: ['🌅 일몰 16:41', 'orange'], note: '일몰 20–30분 전 도착 — 주차 경쟁' },
-          { time: '17:30', title: '숙소 체크인', note: 'Valley 안이면 15분 · El Portal(140번)이면 Tunnel View에서 약 40분' },
+          { time: '17:30', title: '숙소 체크인', note: 'Valley 안이면 15분 · El Portal(140번)이면 Southside 동쪽 → El Capitan 다리 → Northside 서쪽 → 140번, 약 40–45분 (어두워요 — 천천히)' },
           { time: '18:30', title: '🦃 Thanksgiving 디너 — 셋 중 하나', tag: ['예약 필요', 'red'], note: '월출 18:49 → 달빛 받은 El Capitan', altLabel: '🍽️ 선택지',
             alts: [
               { ref: 'food:ahwahnee-dining', title: 'Ahwahnee Thanksgiving Feast', note: '$165/인 (세금 · 팁 포함), 12–20시, **전화 예약만** 888-413-8869' },
@@ -167,7 +192,7 @@ window.TRIP = {
           { time: '13:30', ref: 'place:mirror-lake', note: '셔틀 #17, 북쪽으로 왕복 약 1h',
             alts: [
               { ref: 'place:valley-floor-tour', note: '2h 버스 투어 (미리 예약) — 다리 쉬기' },
-              { ref: 'place:glacier-point', note: '**도로가 열려 있으면** 일몰까지 (왕복 2.5–3h, 어두운 산길 주의)' },
+              { ref: 'place:glacier-point', note: '**도로가 열려 있으면** 일몰까지 (편도 ~1h, 돌아오면 17:45–18:00 · 어두운 산길) → 저녁 예약은 18:30 이후로' },
             ] },
           { time: '16:00', ref: 'place:sentinel-bridge', tag: ['🌅 일몰', 'orange'], note: 'Merced 강에 비친 Half Dome',
             alts: [{ ref: 'place:el-cap-meadow', note: '절벽 위 클라이머 헤드램프' }] },
@@ -176,18 +201,18 @@ window.TRIP = {
           { time: '19:00', ref: 'place:ice-rink', tag: ['선택', 'gray'], note: '저녁 세션 19:00–21:30',
             alts: [{ title: '✨ 별 보기', note: '월출 20:05 전까지가 어두운 시간' }] },
         ] },
-        { title: '아침 하이킹 · 작별 뷰 · 귀가', date: '11/28 (토)', note: '토요일 오후 1–8시가 귀경 정체 시간 (2025 패턴). 막히는 게 싫으면 Columbia Rock을 빼고 9시에 출발 → 오후 3시쯤 도착.', items: [
+        { title: '아침 하이킹 · 작별 뷰 · 귀가', date: '11/28 (토)', note: '체크아웃은 11시 — **하이킹 전에 체크아웃**하고 짐을 차에. 토요일 13–20시가 귀경 정체 (2025 패턴) → 막히는 게 싫으면 Columbia Rock을 빼고 9시 출발 → 13–14시쯤 도착.', items: [
           { time: '06:45', ref: 'place:cooks-meadow', title: "일출 — Cook's Meadow", tag: ['🌄 일출 6:52', 'yellow'], note: '선택 · 안개 끼면 Tunnel View도 좋아요' },
-          { time: '07:30', ref: 'food:degnans', title: '아침',
+          { time: '07:30', ref: 'food:degnans', title: '아침 · 체크아웃 · 짐 싣기', note: 'Yosemite Falls 주차장으로 옮겨두기 (Columbia Rock 출발점 · Camp 4 주차장은 캠퍼 전용)',
             alts: [{ ref: 'food:ahwahnee-dining', title: 'Ahwahnee 아침 뷔페 ($32)', note: '한 끼 제대로 — 그 유명한 홀' }] },
           { time: '08:30', ref: 'place:columbia-rock', note: '2–3h, 가파른 지그재그',
             alts: [{ title: '건너뛰고 9시 출발', note: '정체 피하기' }] },
-          { time: '11:00', ref: 'place:el-cap-meadow', note: '체크아웃 → Northside Dr로 나가면서' },
-          { time: '11:30', ref: 'place:valley-view', note: '마지막 작별 뷰' },
+          { time: '11:15', ref: 'place:el-cap-meadow', note: 'Northside Dr로 나가면서' },
+          { time: '11:45', ref: 'place:valley-view', note: '마지막 작별 뷰' },
           { time: '12:00', title: 'Hwy 140으로 출발', note: 'Arch Rock 입구 → Merced 강 협곡 드라이브' },
           { time: '13:15', ref: 'food:1850', title: 'Mariposa 점심 — 1850 Brewing', alts: [{ ref: 'food:happy-burger', note: '싸고 빠르게' }] },
-          { time: '14:30', title: 'Mariposa 출발', note: 'Merced → Hwy 99 → I-5/I-205/I-580' },
-          { time: '17:30', title: 'Berkeley 도착', note: '정체 감안 17–18시', ll: [37.8716, -122.2727] },
+          { time: '14:15', title: 'Mariposa 출발', note: 'Merced → Hwy 99 → I-5/I-205/I-580 (무정체 약 3h)' },
+          { time: '18:00', title: 'Berkeley 도착', note: '정체 시간대라 17:30–19:00 사이', ll: [37.8716, -122.2727] },
         ] },
       ],
     },
@@ -195,11 +220,13 @@ window.TRIP = {
   variants: [
     { title: '🏨 숙소에 따라', hint: '어디서 자느냐에 따라 아침 시간이 달라져요', open: true, items: [
       '**Valley 안 (Valley Lodge · Curry):** 위 일정 그대로. 차는 세워두고 셔틀 · 도보.',
-      '**El Portal (Cedar Lodge · Yosemite View Lodge):** 매일 아침 **30–45분 일찍** 출발. Day 1은 Tunnel View 일몰 후 140번으로 바로 체크인 (약 40분). 금요일 Curry Village 8시 전 주차 → 7시 전 출발.',
-      '**Thanksgiving 디너:** Valley면 Ahwahnee · Base Camp, El Portal이면 같은 140번 라인의 June Bug Cafe(Midpines)도 선택지.',
+      '**El Portal (Cedar Lodge · Yosemite View Lodge):** 매일 아침 **30–45분 일찍** 출발 — 금요일은 8시 전 Curry Village 주차라 **6:30쯤 출발 (해 뜨기 전, 일출 6:51)**. Day 1 점심 때 Valley 주차가 어려울 수 있어요 (12:15 항목 참고).',
+      '**밤길 운전:** Thanksgiving 디너 후 El Portal까지 30–45분 산길 — 블랙아이스 · 사슴 주의, 천천히. 그래서 El Portal 숙소면 같은 140번 라인의 **June Bug Cafe**(Midpines)도 좋은 선택지.',
+      '**Yosemite West · Wawona (Redwoods) 숙소는 비추:** 매일 저녁 Wawona Rd(해발 ~6,000ft)를 넘어야 하는데, 여기가 체인 규제가 가장 자주 걸리는 길이에요.',
     ] },
     { title: '🌨️ 눈 · 비 예보가 있으면', hint: '출발 1–2일 전 확인', items: [
       '**140번으로 왕복** (해발이 제일 낮아 체인 규제가 덜해요) → Day 1의 Priest Station · Tuolumne Grove가 빠지고 Mariposa · El Portal 경유.',
+      '단, **140번도 2026년에 낙석(4월) · 산불(9월)로 닫힌 적**이 있고 Ferguson Slide 구간은 신호 대기 → 출발 전 [Caltrans QuickMap](https://quickmap.dot.ca.gov/) 확인.',
       'Mist Trail → **Columbia Rock** · Mirror Lake → 북쪽 왕복만 · 실내(Museum · Valley Floor Tour) 늘리기.',
       '자세한 건 아래 "비 · 눈 오는 날 플랜".',
     ] },
@@ -263,7 +290,7 @@ window.TRIP = {
       img: 'vernal-fall', ll: [37.7261, -119.55162],
       summary: '요세미티 대표 폭포 하이킹. 최소 Vernal Fall Footbridge까지는 꼭 — 여유 있으면 돌계단으로 폭포 꼭대기까지.',
       details: [
-        '11/6 기준 폐쇄 아님. 하지만 폭포 옆 구간은 겨울에 얼음 · 낙석으로 닫히기도 해요 (최근: 2024 12/20, 2022 11/11, 2019 11/26 폐쇄) → 반반',
+        '11/6 기준 폐쇄 아님. 폭포 옆 구간은 겨울에 얼음 · 낙석으로 닫혀요 — 2016–2025년 중 **3년은 11/27 전에 이미 닫혔어요** (2016 11/25 · 2019 11/26 · 2022 11/11) → 약 3분의 1 확률',
         '닫히면 John Muir Trail → Clark Point 우회로로 꼭대기 가능 (더 김)',
         '다리 쪽 화장실 · 물은 5–10월만. 트레일헤드에서 물 챙기기',
         '체력 좋으면 Nevada Fall까지 (왕복 5.4mi, 5–6h, 8시 출발 필수)',
@@ -301,7 +328,7 @@ window.TRIP = {
       details: ['성인(13+) $41.25', '예약: 888-413-8869 또는 온라인, 출발 15분 전 Lodge 프런트에서 티켓 수령', '11월 말 출발 시간은 미확인 → 연휴라 미리 예약'],
       links: [{ label: 'Travel Yosemite · 투어', url: 'https://www.travelyosemite.com/things-to-do/guided-bus-tours' }] },
     { id: 'ice-rink', name: 'Curry Village 아이스링크', en: 'Curry Village Ice Skating Rink', emoji: '⛸️', tier: 'rec', kindLabel: '저녁 액티비티', area: 'Curry Village', time: '2.5h 세션',
-      img: 'half-dome', ll: [37.73854, -119.57351],
+      img: 'og-tv-curry-dining', ll: [37.73854, -119.57351],
       summary: 'Half Dome · Glacier Point를 보며 타는 야외 링크. 2026. 11. 13 – 2027. 3. 1 운영.',
       details: ['세션 12:00–14:30 · 15:30–18:00 · 19:00–21:30 (+ 주말 · 공휴일 8:30–11:00)', '가격 미확인 · 문의 209-372-8210', '날씨에 따라 운영 안 할 수 있음'],
       links: [{ label: 'Travel Yosemite · 아이스링크', url: 'https://www.travelyosemite.com/winter/curry-village-ice-skating-rink' }] },
@@ -341,9 +368,10 @@ window.TRIP = {
   // ------------------------------------------------------------------ 숙소
   stayCallouts: [
     { icon: '🎯', color: 'blue', title: '추천 흐름 (목–토 2박, 11/7 리서치 기준)', items: [
-      '**① 지금:** 환불 가능한 **Cedar Lodge** 예약 (2박 $388, 7일 전까지 $15로 취소). 매진이면 **Yosemite View Lodge** ($680).',
-      '**② 11/17–21:** 공원 안 숙소는 도착 7일 전까지 취소해야 환불돼서 이때 취소분이 많이 풀려요 → **Valley Lodge · Curry Village** 매일 확인 (웹에 없으면 888-413-8869).',
-      '**③ 잡히면** ①을 취소. 1박씩 나눠 묵는 것(1박 Curry + 1박 Valley Lodge)도 OK.',
+      '**1) 지금:** 환불 가능한 **Cedar Lodge** 예약 (2박 $388, **11/19까지** $15로 취소). 매진이면 **Yosemite View Lodge** ($680, 같은 규정).',
+      '**2) 11/17–19:** 공원 안 숙소는 도착 7일 전까지 취소해야 환불돼서 이때 취소분이 풀릴 가능성이 높아요 → **Valley Lodge · Curry Village** 매일 확인 (웹에 없으면 888-413-8869).',
+      '**3) 잡히면** 1)을 취소. 11/20 이후 취소는 첫날 요금 25% + $15. 1박씩 나눠 묵는 것(1박 Curry + 1박 Valley Lodge)도 OK.',
+      '가격 · 남은 객실은 **11/7 17시 스냅샷** — 예약 화면에서 다시 확인하세요.',
     ] },
     { icon: '🚫', color: 'gray', title: '이번엔 안 되는 곳', text: 'Wawona Hotel (2024. 12부터 무기한 휴업) · Housekeeping Camp (10/12 시즌 종료) · White Wolf · Tuolumne Meadows Lodge · Under Canvas (여름만) · Upper Pines 캠핑장 (11/26–28 전부 예약됨).' },
   ],
@@ -356,12 +384,12 @@ window.TRIP = {
     { id: 'camp', label: '⛺ 캠핑', color: 'brown' },
   ],
   stays: [
-    { id: 'valley-lodge', name: 'Yosemite Valley Lodge', emoji: '🏨', group: 'park', status: 'top', featured: 3, badge: '③ 취소분 노리기 · 1순위', img: 'valley-lodge-ext', ll: [37.74326, -119.59842],
+    { id: 'valley-lodge', name: 'Yosemite Valley Lodge', emoji: '🏨', group: 'park', status: 'top', featured: 3, badge: '3 · 취소분 노리기 (1순위)', img: 'valley-lodge-ext', ll: [37.74326, -119.59842],
       area: 'Yosemite Valley — Yosemite Falls 바로 앞', drive: '0분', priceShort: '가격 미확인', price: '미확인 (예약 사이트 자동 조회 차단)', beds: '2 Double 룸 · **Bunk Room** (퀸 + 이층침대, 4명 OK) · Family Room (킹 + 이층 + 소파, 4–5명, 4개뿐)', kitchen: '미니 냉장고 · 커피메이커', open: '✓ 연중 무휴', cancel: '첫날 1박 요금 선결제 · 도착 7일 전까지 취소해야 환불',
       summary: '첫 방문 베이스로 최고. 걸어서 Lower Yosemite Fall, 셔틀 · Base Camp Eatery가 바로 옆, 눈길 산길 운전이 없어요.',
       pros: ['위치 최강 — 매일 운전 0', 'Bunk · Family Room은 4명 가능', 'Base Camp Eatery에서 Thanksgiving 식사'], cons: ['아마 매진 → 취소분 노리기', '모텔 스타일 객실'],
       links: [{ label: '예약 (Travel Yosemite)', url: 'https://www.travelyosemite.com/lodging/yosemite-valley-lodge/' }] },
-    { id: 'curry', name: 'Curry Village', emoji: '⛺', group: 'park', status: 'cand', featured: 4, badge: '③ 취소분 노리기', img: 'curry-cabin', ll: [37.73809, -119.57342],
+    { id: 'curry', name: 'Curry Village', emoji: '⛺', group: 'park', status: 'cand', featured: 4, badge: '3 · 취소분 노리기', img: 'curry-cabin', ll: [37.73809, -119.57342],
       area: 'Yosemite Valley — Glacier Point 아래 (동쪽)', drive: '0분', priceShort: '가격 미확인', price: '미확인', beds: '욕실 딸린 캐빈 (더블+싱글 / 더블 2) · **Stoneman 객실 (더블 최대 3개 → 4명)** · 난방 텐트 캐빈', kitchen: '없음 (Curry 전체 취사 금지)', open: '✓ 11/26–28 영업 (11/29–12/10 휴업)', cancel: '7일 전까지 취소 시 환불',
       summary: 'Valley 안에서 가장 저렴하게 자는 방법. 아이스링크 · Pizza Deck이 바로 앞.',
       pros: ['Valley 안 최저가', '아이스링크 · 피자 · 커피 코너 (6:30 오픈)'], cons: ['텐트 캐빈은 11월 말에 춥고 방음 약함 · 공용 화장실', '2명 초과 1인당 추가요금 ($9.75–17.50)', '남쪽이라 하루 종일 그늘 · 추움'],
@@ -374,32 +402,32 @@ window.TRIP = {
       links: [{ label: 'Travel Yosemite · Ahwahnee', url: 'https://www.travelyosemite.com/lodging/the-ahwahnee/' }] },
 
     { id: 'yosemite-west', name: 'Yosemite West 콘도 · 캐빈', emoji: '🏡', group: 'park2', status: 'cand', badge: '부엌 있음', img: 'og-scenic-wonders', ll: [37.64743, -119.7185],
-      area: '공원 게이트 안 사유지 (Wawona Rd, 해발 ~6,000ft)', drive: '약 30분', priceShort: '2박 **$680–790**', price: 'Airbnb 목–토 2박 총 **$680–790** (수수료 포함) · 1인 ~$227–264', beds: '스튜디오/로프트: 퀸 + 퀸 소파베드 (4명 OK) · 2–3BR 집 6–8명', kitchen: '✓ 풀 키친', open: '✓ 연중', cancel: '⚠️ 엄격 — Scenic Wonders: 14일 이내 100%, 날씨 환불 없음',
+      area: '공원 게이트 안 사유지 (Wawona Rd, 해발 ~6,000ft)', drive: '약 30분', priceShort: '2박 **$680–790**', price: 'Airbnb 목–토 2박 총 **$680–790** (수수료 포함) · 1인 ~$227–264', beds: '로프트 · 2BR 이상 추천 (운영사: 스튜디오는 성인 4명 비추 — 소파베드는 어린이용)', kitchen: '✓ 풀 키친', open: '✓ 연중', cancel: '⚠️ 엄격 — Scenic Wonders: 항상 10% 수수료 · 30일 이내 25% · 14일 이내 100% · 날씨 환불 없음 (지금 예약하면 이미 25% 구간)',
       summary: 'Aramark 아닌 숙소 중 Valley에서 가장 가까움. 부엌이 있어서 Thanksgiving에 직접 해먹기 가능.',
-      pros: ['풀 키친', '4명이어도 같은 가격', 'Valley 30분'], cons: ['해발 6,000ft → 눈 · 체인 위험, 가파른 진입로', '주변에 가게 · 식당 없음', 'Scenic Wonders는 연휴 3박 최소 (Thanksgiving 해당 여부 미확인)'],
+      pros: ['풀 키친', '최대 인원까지 같은 가격', 'Valley 30분'], cons: ['해발 6,000ft + 매일 Wawona Rd → 체인 규제가 가장 잦은 길 · 밤 운전', '주변에 가게 · 식당 없음', 'Scenic Wonders는 연휴 3박 최소 (Thanksgiving 해당 여부 미확인)'],
       caveat: 'Airbnb에 "Yosemite Valley"라고 적힌 매물도 실제론 Yosemite West인 경우가 있어요 — 지도에서 위치 확인.',
       links: [{ label: 'Airbnb 검색', url: 'https://www.airbnb.com/s/Yosemite-West--CA--United-States/homes?checkin=2026-11-26&checkout=2026-11-28&adults=3' }, { label: 'Scenic Wonders', url: 'https://www.scenicwonders.com/' }, { label: 'Yosemite West Reservations', url: 'https://www.yosemitewestreservations.com/' }] },
-    { id: 'redwoods', name: 'Redwoods In Yosemite', emoji: '🛖', group: 'park2', status: 'cand', img: 'og-redwoods', ll: [37.5418, -119.644],
-      area: 'Wawona (공원 안, 남쪽 게이트에서 4.5mi)', drive: '약 1시간', priceShort: '2박 **$752–800**', price: '목–토 2박 총 **$752–800** (세금 · 수수료 포함, 겨울 25% 할인 적용) · 1인 ~$250–267', beds: '1BR (4명) · 2BR (6명) — 남은 건 대부분 2BR', kitchen: '✓ 부엌', open: '✓ (11/7 기준 목–토 7채 남음)', cancel: '미확인',
+    { id: 'redwoods', name: 'Redwoods In Yosemite', emoji: '🛖', group: 'park2', status: 'na', img: 'og-redwoods', ll: [37.5418, -119.644],
+      area: 'Wawona (공원 안, 남쪽 게이트에서 4.5mi)', drive: '약 45분 (NPS)', priceShort: '목–토 2박 불가', price: '**11/26 도착은 3박 최소** → 목–토 2박 예약 불가 (11/7 18시 확인). 참고: 3박 · 금–일은 가능', beds: '1BR (4명) · 2BR (6명) — 남은 건 대부분 2BR', kitchen: '✓ 부엌', open: '✓ 영업 (단, 목 도착 2박은 불가)', cancel: '⚠️ 보증금 60% — 도착 30일 이내면 **환불 불가** · 14일 전 잔금 결제 · 날씨 · 도로 사유도 환불 없음',
       summary: '호텔 방 가격에 통나무집 한 채. Mariposa Grove 근처.',
-      pros: ['집 한 채 · 부엌', '겨울 할인 (Thanksgiving 블랙아웃 아님)'], cons: ['Valley까지 매일 왕복 ~2시간', '버클리에서 오면 Valley를 지나서 더 가야 함'],
+      pros: ['집 한 채 · 부엌', '겨울 25% 할인'], cons: ['**목–토 2박 불가 (3박 최소)**', '보증금 환불 불가 구간', '매일 Wawona Rd (해발 ~6,000ft, 체인 규제 잦음) · Valley 왕복 ~1.5h'],
       links: [{ label: 'Redwoods In Yosemite', url: 'https://redwoodsinyosemite.com/' }] },
 
-    { id: 'cedar-lodge', name: 'Yosemite Cedar Lodge', emoji: '💰', group: 'hwy140', status: 'top', featured: 1, badge: '① 지금 예약 · 가성비 1위', img: 'og-cedar-room', ll: [37.66006, -119.8525],
+    { id: 'cedar-lodge', name: 'Yosemite Cedar Lodge', emoji: '💰', group: 'hwy140', status: 'top', featured: 1, badge: '1 · 지금 예약 (가성비 1위)', img: 'og-cedar-room', ll: [37.66006, -119.8525],
       area: 'El Portal 근처 (Hwy 140, Arch Rock 입구까지 8mi)', entrance: 'Arch Rock', drive: '약 40–45분 (추정)', priceShort: '2박 **$388**', price: '2박 총 **$388** (2Q, 1개 남음) · 1인 ~$129 · 2Q+소파 $408 · 키치네트 스위트 $532', beds: '퀸 2개 (4명) · 퀸 2 + 소파베드 (6명)', kitchen: '미니 냉장고 (스위트는 키치네트)', open: '✓', cancel: '7일 전까지 $15 · 이후 첫날 25% + $15',
       summary: '관찰된 가격 중 **압도적 가성비.** 3명이든 4명이든 같은 가격, 연중 무난한 140번 루트, 로비 앞 YARTS 버스 정류장.',
       pros: ['$388 / 2박 — 1인 약 $129', '4명도 같은 가격', '저지대 140번 → 눈 걱정 적음'], cons: ['Yosemite View Lodge보다 멂', '오래된 건물일 수 있음 (미확인)', '주변 식당 적음'],
       caveat: '프런트에서 1박 $5 화재 부담금 + 세금 별도. 엔진 표시가에 세금 포함 여부 미확인.',
       links: [{ label: '예약 (공식)', url: 'https://direct-book.com/properties/CedarLodgedirect?checkInDate=2026-11-26&checkOutDate=2026-11-28&items[0][adults]=3&currency=USD' }, { label: 'Cedar Lodge 소개', url: 'https://yosemiteresorts.com/cedar-lodge/' }] },
-    { id: 'yosemite-view', name: 'Yosemite View Lodge', emoji: '🏞️', group: 'hwy140', status: 'cand', featured: 2, badge: '① Cedar 매진 시', img: 'og-yosemite-view', ll: [37.67823, -119.76533],
-      area: 'El Portal — Merced 강변 (Hwy 140)', entrance: 'Arch Rock', drive: '약 30분', priceShort: '2박 **$680**', price: '2박 총 **$680** (2Q 키치네트) · 1인 ~$227 · 강 전망 $788', beds: '퀸 2개 (4명) · 킹 + 소파베드 (4명) · 스위트 5–8명', kitchen: '✓ 키치네트 (스토브 · 전자레인지 · 냉장고)', open: '✓', cancel: '7일 전까지 $15',
+    { id: 'yosemite-view', name: 'Yosemite View Lodge', emoji: '🏞️', group: 'hwy140', status: 'cand', featured: 2, badge: '2 · Cedar 매진 시', img: 'og-yosemite-view', ll: [37.67823, -119.76533],
+      area: 'El Portal — Merced 강변 (Hwy 140)', entrance: 'Arch Rock', drive: '약 30분', priceShort: '2박 **$680**', price: '2박 총 **$680** (2Q 키치네트) · 1인 ~$227 · 강 전망 $788', beds: '퀸 2개 (4명) · 킹 + 소파베드 (4명) · 스위트 5–8명', kitchen: '✓ 키치네트', open: '✓', cancel: '7일 전까지 $15 · 이후 첫날 25% + $15 · 당일 · 노쇼는 첫날 전액',
       summary: '공원 밖에서 Valley와 가장 가까운 큰 호텔. 키치네트가 있어서 Thanksgiving 식당이 꽉 차도 OK.',
       pros: ['Valley 30분', '키치네트', '4명도 같은 가격', '강 전망 · 벽난로 객실'], cons: ['Cedar Lodge보다 비쌈', '일부 객실 타입 매진'],
       links: [{ label: '예약 (공식)', url: 'https://direct-book.com/properties/yosemiteviewlodge?checkInDate=2026-11-26&checkOutDate=2026-11-28&items[0][adults]=3&currency=USD' }, { label: '공식 사이트', url: 'https://www.stayyosemiteviewlodge.com/' }] },
     { id: 'autocamp', name: 'AutoCamp Yosemite', emoji: '🚐', group: 'hwy140', status: 'cand', img: 'og-autocamp', ll: [37.5425, -119.92075],
-      area: 'Midpines (Hwy 140, Mariposa와 El Portal 사이)', entrance: 'Arch Rock', drive: '약 45–60분 (추정)', priceShort: '2박 $746 (환불 X)', price: '2박 총 **$746** (수수료 포함, 환불 불가) · 유연 요금 $784–918', beds: 'Airstream: 퀸 1 + ? ("4명") — 3–4명은 빡빡', kitchen: '키치네트', open: '✓', cancel: '최저가는 환불 불가',
+      area: 'Midpines (Hwy 140, Mariposa와 El Portal 사이)', entrance: 'Arch Rock', drive: '약 45–60분 (추정)', priceShort: '2박 $746 (환불 X)', price: '2박 총 **$746** (수수료 포함, 환불 불가) · 유연 요금 $784–918', beds: 'Airstream 1대 **최대 성인 3명** (4명이면 2대) · 1박 $35 + 세금 어메니티 피 (총액 포함 여부 미확인)', kitchen: '키치네트', open: '✓', cancel: '최저가는 환불 불가',
       summary: '감성 Airstream 캠프. 사진은 예쁘지만 3–4명이 자기엔 좁아요.',
-      pros: ['디자인 · 분위기'], cons: ['퀸 1개 → 3명 이상 좁음', '최저가 환불 불가'],
+      pros: ['디자인 · 분위기'], cons: ['퀸 1개 → 3명도 좁고 4명은 불가', '최저가 환불 불가'],
       links: [{ label: 'AutoCamp Yosemite', url: 'https://autocamp.com/location/yosemite/' }] },
     { id: 'yosemite-bug', name: 'Yosemite Bug (호스텔)', emoji: '🎒', group: 'hwy140', status: 'cand', badge: '최저가 백업', ll: [37.57443, -119.95109],
       area: 'Midpines (Hwy 140, Valley에서 27mi)', entrance: 'Arch Rock', drive: '약 45분+', priceShort: '1인 $29~', price: '도미토리 침대 1인 $29부터 (11/7 조회 땐 개인실 없음)', beds: '도미토리', kitchen: '공용 주방', open: '✓', cancel: '7일 전까지 · 7일 전 전액 선결제',
@@ -407,7 +435,7 @@ window.TRIP = {
       links: [{ label: 'Yosemite Bug', url: 'https://www.yosemitebug.com/' }] },
 
     { id: 'rush-creek', name: 'Rush Creek Lodge', emoji: '♨️', group: 'hwy120', status: 'cand', badge: '버클리에서 최단', img: 'og-rush-creek', ll: [37.81258, -119.88102],
-      area: 'Hwy 120 — Big Oak Flat 입구에서 0.5mi', entrance: 'Big Oak Flat', drive: '약 50–55분 (추정)', priceShort: '1박 $694 + 세금', price: '목–토 1박 **$694** (킹 + 퀸 소파) · 더블 퀸 $793 · 세금 별도 → 2박 ~$1,390+', beds: '킹 + 퀸 소파베드 (4명) · 더블 퀸 (4명) · 2BR 빌라 (6명)', kitchen: '미확인', open: '✓', cancel: 'Best Flexible: 7일 전까지 **무료 취소**',
+      area: 'Hwy 120 — Big Oak Flat 입구에서 0.5mi', entrance: 'Big Oak Flat', drive: '약 50–55분 (추정)', priceShort: '1박 $694 + 세금', price: '목–토 1박 **$694** (킹 + 퀸 소파) · 더블 퀸 $793 · 세금 별도 → 2박 ~$1,390+', beds: '킹 + 퀸 소파베드 (4명) · 더블 퀸 (4명) · 2BR 빌라 (6명)', kitchen: '미확인', open: '✓', cancel: 'Best Flexible: 7일 전까지 **무료 취소** (11/7 예약 화면 기준 — 재확인 필요)',
       summary: '버클리에서 가장 가깝고 리조트 시설(온수풀 · 핫텁 · 스파 · 레스토랑 · 스모어) 좋음. Thanksgiving 디너도 있어요.',
       pros: ['버클리 쪽 입구 바로 앞', '무료 취소', '시설 · 그룹 공간', '"리조트피 없음"'], cons: ['Valley까지 ~50분 (눈 오면 더)', 'Thanksgiving이라 비쌈'],
       links: [{ label: '예약 (공식)', url: 'https://reservations.rushcreeklodge.com/?hotel=40026&adult=3&arrive=2026-11-26&nights=2&rooms=1' }, { label: '공식 사이트', url: 'https://www.rushcreeklodge.com/' }] },
@@ -423,7 +451,7 @@ window.TRIP = {
       links: [{ label: 'Airbnb Groveland', url: 'https://www.airbnb.com/s/Groveland--CA--United-States/homes?checkin=2026-11-26&checkout=2026-11-28&adults=3' }, { label: 'Hotel Charlotte', url: 'https://www.hotelcharlotte.com/' }, { label: 'The Groveland Hotel', url: 'https://www.theserenite.com/the-groveland-hotel/' }] },
 
     { id: 'tenaya', name: 'Tenaya at Yosemite', emoji: '🏔️', group: 'hwy41', status: 'cand', img: 'og-tenaya', ll: [37.47778, -119.63889],
-      area: 'Fish Camp — South 입구 바로 밖 (Hwy 41)', entrance: 'South', drive: '1h15m', priceShort: '1박 $575~', price: '목–토 1박 **$575**부터 (세금 포함)', beds: '디럭스 2Q ("5명")', kitchen: '미니 냉장고', open: '✓', cancel: '미확인',
+      area: 'Fish Camp — South 입구 바로 밖 (Hwy 41)', entrance: 'South', drive: '1h15m', priceShort: '1박 $575~', price: '목–토 1박 **$575**부터 (세금 포함)', beds: '디럭스 2Q ("5명")', kitchen: '미니 냉장고', open: '✓', cancel: '리조트 기본 정책: 체크인 48시간 전까지 (관찰된 "Book Early" 요금은 다를 수 있음)',
       summary: '대형 리조트 (식당 · 아이스링크). Mariposa Grove와 가깝지만 버클리 · Valley에서 모두 멀어요.',
       pros: ['리조트 시설', 'Thanksgiving 뷔페'], cons: ['버클리에서 가장 멂', 'Valley까지 매일 왕복 2.5h'],
       links: [{ label: '공식 사이트', url: 'https://www.visittenaya.com/' }] },
@@ -449,19 +477,19 @@ window.TRIP = {
         '**매일 먹을 곳 (공원 안):** 아침 · 점심은 **Degnan\'s Kitchen** ($8–13), 저녁은 **Base Camp Eatery** ($8–18) 또는 **Curry Village Pizza Deck** (라지 한 판 $21.75–41로 3명).',
         '**제일 이른 커피:** Curry Village Coffee Corner **6:30** (나머지는 7:00).',
         '**한 끼 제대로:** Thanksgiving Feast($165)가 부담되면 Ahwahnee **아침 뷔페 $32** (토요일 아침) — 그 홀을 훨씬 싸게.',
-        '**장은 수요일(11/25)에 버클리에서** — Thanksgiving 당일엔 Costco · Walmart · Target 휴무, 작은 식당들은 대부분 시간 미공개.',
+        '**장은 수요일(11/25)에 버클리에서** — Thanksgiving 당일엔 Walmart · Target 휴무 (2026 공지), Costco도 보통 휴무, 작은 식당들은 대부분 시간 미공개.',
         '밤에 차 안에 음식 · 음료 · 아이스박스 금지 (곰). 최대 $5,000 벌금.',
       ] },
       { icon: '🚫', color: 'gray', title: '닫혀 있는 곳', text: 'Wawona Hotel 식당 (무기한 휴업) · Village Grill · Meadow Grill Taqueria · Jennie\'s Ice Cream (시즌 종료) · Lucky Buck Cafe (11/12–3/14 휴무) · Groveland Hotel Aroma (무기한 휴업).' },
     ],
     thanksgiving: [
       { name: '🏰 The Ahwahnee Thanksgiving Feast', featured: true, state: ['전화 예약만', 'red'], where: 'Yosemite Valley', price: '성인 $165 (세금 · 팁 포함) → 3명 $495', time: '12:00–20:00',
-        note: '칠면조 · 프라임립 · 햄 · 철갑상어 · 비건 퀴노아 + 수프 · 샐러드 · 파이 4종. 매진 여부는 전화로만 확인 가능 → **빨리 전화.** 드레스 코드 적용 추정.', links: [{ label: '공식 페이지', url: 'https://www.travelyosemite.com/things-to-do/specialty-events/holiday-events/thanksgiving-dinner' }, { label: '2026 메뉴 PDF', url: 'https://assets.milestoneinternet.com/aramark-parent/yosemite-national-park/pdf/ahwahnee-thanksgiving-w-allergens.pdf' }] },
+        note: '칠면조 · 프라임립 · 햄 · 철갑상어 · 비건 퀴노아 + 수프 · 샐러드 · 파이 4종. 매진 여부는 전화로만 확인 가능 → **빨리 전화.** 드레스 코드는 명시 안 됨 — 디너처럼 깔끔하게 입는 걸 추천. 그날은 이 Feast가 평소 점심 · 디너를 대신하는 것으로 보여요.', links: [{ label: '공식 페이지', url: 'https://www.travelyosemite.com/things-to-do/specialty-events/holiday-events/thanksgiving-dinner' }, { label: '2026 메뉴 PDF', url: 'https://assets.milestoneinternet.com/aramark-parent/yosemite-national-park/pdf/ahwahnee-thanksgiving-w-allergens.pdf' }] },
       { name: '🍗 Base Camp Eatery Thanksgiving', featured: true, state: ['세부 미공개', 'gray'], where: 'Yosemite Valley Lodge', price: '미공개', time: '평소 11:00–20:00',
-        note: '공식 페이지에 "가족 친화적인 식사"라고만 나와 있어요. 공원 안 저렴한 옵션 — 현장 확인.' },
+        note: '공식 페이지엔 "가족 친화적인 식사"라고만 나와요. 공원 숙소 예약 시스템에 **"Basecamp Thanksgiving Dinner"** 상품이 보였어요 → **888-413-8869에 예약이 필요한지 전화로 확인.**' },
       { name: '🐛 June Bug Cafe (Yosemite Bug)', featured: true, state: ['최저가 · 예약 없음', 'green'], where: 'Midpines (Hwy 140)', price: '칠면조 플레이트 $28 (수프/샐러드 포함)', time: '15:00–20:00',
-        note: '프라임립 $49, 그린커리 $29 등. 카운터 주문, 예약 안 받음 → **일찍 가기.** 140번 숙소(Cedar Lodge 등)라면 딱.', links: [{ label: 'June Bug Cafe', url: 'https://www.yosemitebug.com/cafe' }] },
-      { name: '♨️ Rush Creek Lodge Holiday Meal', state: ['2026 메뉴 게시', 'blue'], where: 'Hwy 120 (Big Oak Flat 입구)', price: '성인 $60 + 세금 · 팁', time: '16:00–21:00',
+        note: '프라임립 $49, 그린커리 $29 등. 평소엔 예약 없이 선착순 → **일찍 가기** (Thanksgiving도 그런지는 209-989-3598로 확인). 140번 숙소(Cedar Lodge 등)라면 딱.', links: [{ label: 'June Bug Cafe', url: 'https://www.yosemitebug.com/cafe' }] },
+      { name: '♨️ Rush Creek Lodge Holiday Meal', state: ['날짜 표기 2025', 'yellow'], where: 'Hwy 120 (Big Oak Flat 입구)', price: '성인 $60 + 세금 · 팁', time: '16:00–21:00',
         note: '칠면조 · 숏립 부르기뇽 · 연어 · 파이. 날짜 표시가 아직 2025라 가격 · 시간 재확인 필요. 예약: OpenTable 또는 209-379-2373.', links: [{ label: 'Rush Creek 이벤트', url: 'https://www.rushcreeklodge.com/stay/holidays-events/' }] },
       { name: '🌲 Evergreen Lodge Holiday Meal', state: ['2025 정보', 'yellow'], where: 'Hwy 120 (Hetch Hetchy 쪽)', price: '성인 $65 + 세금 · 팁', time: '15:00–21:00',
         note: '2025 메뉴 기준 — 2026 확인 필요.', links: [{ label: 'Evergreen 이벤트', url: 'https://www.evergreenlodge.com/stay/holidays-events/' }] },
@@ -486,14 +514,14 @@ window.TRIP = {
         links: [{ label: 'Curry Village 식당', url: 'https://www.travelyosemite.com/dining/curry-village-dining' }] },
       { id: 'mountain-room', featured: 5, name: 'Mountain Room', emoji: '🥩', group: 'park', pick: 'good', area: 'Yosemite Valley Lodge', cuisine: '스테이크 · 시푸드', price: '$$$', img: 'og-tv-yvl-dining', ll: [37.74369, -119.59903],
         hours: '매일 17:00–21:00', reserve: 'OpenTable (연휴엔 예약)',
-        summary: 'Yosemite Falls 뷰. 메인 $28 (비건 스튜) – $45 (설로인), Beast Burger(엘크 · 소 · 멧돼지) $35. 중간 가격대 디너 1순위.',
+        summary: 'Yosemite Falls 뷰. 메인 $28 (비건 스튜) – $72 (필레) · 설로인 $45 · Beast Burger(엘크 · 소 · 멧돼지) $35. 중간 가격대 디너 1순위.',
         links: [{ label: '메뉴 · 예약', url: 'https://www.travelyosemite.com/dining/yosemite-valley-lodge' }] },
       { id: 'mountain-room-lounge', name: 'Mountain Room Lounge', emoji: '🔥', group: 'park', pick: 'good', area: 'Yosemite Valley Lodge', cuisine: '라운지 · 바', price: '$$', ll: [37.74369, -119.59903],
         hours: '평일 17:00–22:00 · 주말 12:00–22:00 (핫푸드 19:30 마감)', reserve: '필요 없음',
         summary: '벽난로 라운지. 칠리 $11 · 나초 $15 · 팔라펠 버거 $15.50. 저렴하게 저녁 + 한잔.' },
       { id: 'ahwahnee-dining', featured: 6, name: 'The Ahwahnee Dining Room', emoji: '🏰', group: 'park', pick: 'top', area: 'The Ahwahnee', cuisine: '파인 다이닝', price: '$$$$', img: 'ahwahnee-dining', ll: [37.74624, -119.57431],
         hours: '아침 7:00–10:00 · 점심 11:30–14:00 · 저녁 17:30–21:00', reserve: 'OpenTable 추천 (호텔 투숙과 별개)',
-        summary: '1927년 대연회장. **Thanksgiving Feast (11/26, 12–20시, $165 세금 · 팁 포함, 전화 예약 888-413-8869)** · 평소엔 **아침 뷔페 $32** · 점심 $17–30 · 디너 코스 $95 / $125.',
+        summary: '1927년 대연회장. **Thanksgiving Feast (11/26, 12–20시, $165 세금 · 팁 포함, 전화 예약 888-413-8869)** · 평소엔 **아침 뷔페 $32** · 점심 메인 $21.50–32 · 디너 코스 $95 / $125.',
         caveat: '디너 드레스 코드: 긴바지 + 칼라 셔츠 (등산복 · 반바지 · 티셔츠 · 모자 X). 아침 · 브런치는 캐주얼 OK.',
         links: [{ label: '공식 페이지', url: 'https://www.travelyosemite.com/dining/the-ahwahnee-dining-room' }] },
       { id: 'ahwahnee-bar', name: 'The Ahwahnee Bar', emoji: '🍸', group: 'park', pick: 'good', area: 'The Ahwahnee', cuisine: '지중해식 스몰 플레이트', price: '$$', ll: [37.74624, -119.57431],
@@ -567,19 +595,20 @@ window.TRIP = {
   prep: {
     callouts: [
       { icon: '✅', color: 'green', title: '2026년엔 입장 예약이 필요 없어요', text: '타임 엔트리 예약제는 2026년에 폐지. 입구에서 입장료만 내면 돼요 (**카드만, 현금 X**).' },
-      { icon: '💸', color: 'red', title: '외국인(비거주자)은 1인당 $100 추가 — 패스 하나로 해결', items: [
+      { icon: '💸', color: 'red', title: '비거주자는 1인당 $100 추가 — 패스 하나로 해결 (누가 살지는 신분 기준)', items: [
         '2026. 1. 1부터 요세미티 포함 11개 공원에서 **만 16세 이상 비거주자 1인당 $100** 추가 (차량 $35와 별도).',
-        '**연간 패스(America the Beautiful) 1장이 차 안의 모든 사람의 $100을 커버해요.** 패스 소지자가 사진 ID 들고 같이 타 있어야 함.',
-        '👉 누군가 **US 여권 · 영주권 · 미국 주 운전면허/ID**가 있으면 그 사람이 **Resident 패스 $80** — 총 $80.',
-        '👉 아무도 없으면 **Non-Resident 패스 $250** (그냥 내면 $35 + 3×$100 = $335).',
-        '⚠️ NPS 공식 문서는 거주 증명 서류로 "주 정부 발급 운전면허/ID"를 적어두지만 **F-1 등 비자 소지자에 대한 언급은 없어요** (회색지대). 실제 신분대로 정직하게 — 애매하면 Non-Resident 패스가 확실.',
+        '**연간 패스 1장(America the Beautiful 또는 Yosemite Annual)이 차 안 모든 사람의 $100을 커버해요.** 패스 소지자가 사진 ID를 들고 같이 타 있어야 해요.',
+        '⚠️ **자격은 신분으로 정해져요, 가진 카드가 아니라.** NPS: Resident 패스는 "US citizens and residents"용이고, 여권 · 영주권 · 주 운전면허는 **증명 서류**일 뿐이에요. NPS는 F-1/J-1 같은 비자 소지자를 따로 언급하지 않아요 (회색지대).',
+        '👉 **미국 시민 · 영주권자**가 있으면 그 사람이 **$70 Yosemite Annual** 또는 **$80 Resident**를 사서 소지자로 → 총 $70–80.',
+        '👉 **전원 비자**면 **$250 Non-Resident** (누구나 구매 가능 · 그냥 내면 $35 + 3×$100 = $335). 애매하면 **미리 사지 말고 입구에서 레인저에게** — 자격이 안 되면 업그레이드를 요구받아요 ($80 + $250).',
+        '디지털 패스 (recreation.gov): **구매한 계정 이름 = 소지자 사진 ID 이름**이어야 하고, 남에게 선물 구매 불가 · **환불 불가**. 신호가 없으니 오프라인 저장.',
       ] },
       { icon: '⛓️', color: 'yellow', title: '체인은 꼭 사서 트렁크에', text: 'NPS: "11–3월엔 체인 규제를 예상하라." 규제가 걸리면 **4WD · 렌터카 포함 모든 차가 체인을 갖고 있어야** 해요 (미착용 시 최대 $5,000).' },
     ],
     sections: [
       { icon: '🛣️', title: '루트 — 120 vs 140', items: [
-        '**Hwy 120 (Big Oak Flat):** 약 182mi · 무정체 약 4.5h. 가장 짧지만 Crane Flat 해발 ~6,190ft → **체인 규제가 먼저** 걸려요. 평일 식생 작업으로 15분 지연.',
-        '**Hwy 140 (Arch Rock):** 약 203mi. **전 구간 해발 4,000ft 이하** → 눈 · 체인 예보 · 야간 운전이면 이쪽. Ferguson Slide 구간 신호 대기 있음.',
+        '**Hwy 120 (Big Oak Flat):** 약 185mi · 무정체 약 4h (NPS: Bay Area에서 4–5h). 가장 짧지만 Crane Flat 해발 ~6,190ft → **체인 규제가 먼저** 걸려요. 평일 식생 작업으로 15분 지연.',
+        '**Hwy 140 (Arch Rock):** 약 203mi. **전 구간 해발 4,000ft 이하** → 눈 · 체인 예보 · 야간 운전이면 이쪽. Ferguson Slide 구간 신호 대기 · 2026년 낙석 · 산불로 두 번 폐쇄된 적 있음.',
         '**Hwy 41 (South):** 약 232mi · 5h+. Mariposa Grove 갈 때만.',
         '추천: **들어갈 땐 120, 나올 땐 140** (풍경이 달라요). 눈 예보면 140 왕복.',
       ], links: [{ label: 'NPS · 운전 · 소요시간', url: 'https://www.nps.gov/yose/planyourvisit/driving.htm' }] },
@@ -589,14 +618,15 @@ window.TRIP = {
         '참고 — 수 11–20시 · 금 13–19시 · 일 11–20시 혼잡',
       ], links: [{ label: 'AAA 2025 Thanksgiving 예보', url: 'https://newsroom.aaa.com/2025/11/aaa-thanksgiving-travel-forecast-2025/' }] },
       { icon: '⛓️', title: '체인 규제 & 구매', items: [
-        '**R-1:** 6,000lb 미만 승용차는 구동바퀴에 **M+S 표시** 타이어면 통과 (체인은 소지). 타이어 옆면 확인!',
+        '**R-1:** 6,000lb 미만 승용차는 구동바퀴 타이어가 **M+S 표시 + 홈 깊이 6/32인치(약 4.8mm) 이상**이면 통과 (체인은 소지). 닳은 타이어면 장착. 옆면 · 홈 확인!',
         '**R-2:** 4WD/AWD + 4바퀴 스노 타이어 아니면 **체인 장착** (일반 2WD 승용차는 장착).',
         '**R-3:** 모든 차 장착 (드물고, 보통 그 전에 도로 폐쇄).',
         '합법: 체인 · 케이블 · 타이어 삭스. 플라스틱/스트랩형은 불법.',
         '**Les Schwab** (Livermore I-580 바로 옆 · Oakdale · Merced): 안 쓴 체인은 **봄에 반납하면 전액 환불**.',
-        '타이어 사이즈(예: 215/55R17) 확인하고 사고, **집에서 한 번 미리 달아보기.** 공원 안은 렌트 거의 없음.',
+        '타이어 사이즈(예: 215/55R17) 확인하고 사고, **집에서 한 번 미리 달아보기** (연습해도 "안 쓴" 걸로 환불되는지는 매장에 확인). 공원 안은 렌트 거의 없음.',
+        '체인 규제 구간은 **시속 25–30마일**.',
       ], links: [{ label: 'NPS · 체인 규정', url: 'https://www.nps.gov/yose/planyourvisit/tirechains.htm' }, { label: 'Les Schwab 체인', url: 'https://www.lesschwab.com/more/tire-chains' }, { label: 'Caltrans 체인 규제', url: 'https://dot.ca.gov/travel/winter-driving-tips/chain-controls' }] },
-      { icon: '🌡️', title: '날씨 (Valley, 11/26–29)', items: [
+      { icon: '🌡️', title: '날씨 (Valley, 11/26–28)', items: [
         '평년: **낮 ~10°C (50°F) / 밤 ~-1°C (30°F)**',
         '과거 29년 중 14년은 이 4일 중 하루 이상 비 · 눈. **Valley에 눈 온 해는 약 5분의 1** (2019년엔 하루 23–36cm).',
         'NOAA 3–4주 전망 (11/21–12/4): 엘니뇨로 **캘리포니아 강수 평년 이상** 경향 → 폭풍 대비.',
@@ -614,11 +644,14 @@ window.TRIP = {
         '**Valley 셔틀 무료, 7:00–22:00 매일.** 가을 기준 Valleywide 22–32분 · East Valley 18–22분 간격.',
         '차에서 자는 건 등록된 캠프장에서만 가능.',
       ], links: [{ label: 'NPS · 셔틀', url: 'https://www.nps.gov/yose/planyourvisit/publictransportation.htm' }] },
-      { icon: '🐻', title: '곰 · 음식 보관 (법)', items: [
+      { icon: '🐻', title: '곰 · 음식 보관 · 공원 규칙', items: [
         '**밤에 차 안에 음식 · 쓰레기 · 향 나는 물건 금지** (치약 · 선크림 · 빈 아이스박스 포함). 최대 $5,000 벌금.',
-        '낮에는 창문 닫고 안 보이게만 OK. 밤엔 곰 사물함 · 숙소 방 안으로.',
+        '낮에는 창문 닫고 안 보이게만 OK. 밤엔 곰 사물함 또는 **일반 객실 안** (창문 · 문 닫기).',
+        '**텐트 캐빈(Curry)은 예외 — 안에 음식 · 음료 · 세면도구 절대 금지**, 전부 앞의 곰 사물함으로.',
+        '곰이 다가오면 **크고 공격적으로 소리 질러서** 쫓기.',
         '첫날 밤 전에 차 안 과자 봉지 · 컵 싹 치우기.',
         '곰 · 코요테와 50야드(46m) 이상 거리. 어떤 야생동물에게도 먹이 주기 금지.',
+        '**드론 금지** · 마리화나 금지 (연방 땅) · 돌 · 식물 채집 금지 · 초원(meadow) 밟지 않기 · 젖거나 언 화강암은 아주 미끄러워요.',
       ], links: [{ label: 'NPS · 곰 안전', url: 'https://www.nps.gov/yose/planyourvisit/bears.htm' }] },
       { icon: '📶', title: '통신 · 오프라인', items: [
         '셀 서비스 제한적 — Valley 동쪽만 4G (AT&T · T-Mobile · Verizon).',
@@ -627,7 +660,9 @@ window.TRIP = {
         'NPS 경고: GPS가 공원 안팎에서 틀린 길을 안내하기도 함 → 표지판 우선.',
       ] },
       { icon: '🚨', title: '비상 · 연락처', items: [
-        '긴급: **911** (전화 · 문자)',
+        '긴급: **911** (전화 · 문자) — **신호가 있어야 돼요** (Valley 동쪽만 4G, 120/140번 산길엔 끊기는 구간)',
+        'Yosemite Medical Clinic (Valley, Village와 Ahwahnee 사이): **209-372-4637** (연휴 운영시간 미확인)',
+        '눈 · 체인 규제로 갇히면: **차 안에 머물기**, 기름은 항상 절반 이상, 담요 · 물 · 간식은 차에.',
         '도로 · 체인 안내 (24h): **209-372-0200** → 1 → 1',
         'Caltrans 도로 상황: **1-800-427-7623** · [QuickMap](https://quickmap.dot.ca.gov/)',
         '공원 내 견인 · 긴급출동: **209-372-1060**',
@@ -651,7 +686,7 @@ window.TRIP = {
         '차량용 충전기 · 보조배터리',
         '담요 · 여분 물 · 간식 (폭설 지연 대비)',
         '타이어 · 와이퍼 · 배터리 점검, 산 들어가기 전 기름 가득',
-        '**모든 성인 사진 ID** · 패스 소지자는 거주 증명 서류',
+        '**모든 성인 사진 ID** · 패스 소지자는 구매 계정 이름과 같은 사진 ID',
         '유학생: 여권 (+ 학교 여행 가이드에 따른 I-20 등) · 면허 · 보험 · 차량 등록증',
         '**미국 발급 카드** (입구 · 주유기 카드 전용)',
       ] },
@@ -661,9 +696,9 @@ window.TRIP = {
         'Tioga · Glacier Point Road 열려 있나?',
         '**새 Yosemite Guide** (11/25부터 적용, 11/24 전후 게시) — 셔틀 · 식당 시간 · 트레일 폐쇄',
         '체인 구매 · 사이즈 확인 · 집에서 연습',
-        '패스: 누가 어떤 패스 살지 → recreation.gov에서 디지털 패스 구매 · 오프라인 저장',
+        '패스: **신분 기준**으로 누가 살지 결정 → 확실하면 소지자 본인 계정으로 recreation.gov 디지털 패스 · 오프라인 저장 / 애매하면 입구에서',
         '교통: 2026 AAA 예보 + 실시간 Google Maps로 출발 시간 결정',
-        '오프라인 지도 · NPS 앱 · 예약 확인서 저장',
+        '오프라인 지도 · NPS 앱 · 예약 확인서 저장 · **이 사이트 모든 페이지 한 번씩 열어두기** (신호 없어도 열려요)',
         '여행 안 가는 사람에게 일정 · 귀가 예정 시간 공유',
       ] },
     ],

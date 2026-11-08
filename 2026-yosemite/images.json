@@ -1,0 +1,285 @@
+{
+ "tunnel-view": {
+  "file": "Tunnel_View,_Yosemite_Valley,_Yosemite_NP_-_Diliff.jpg",
+  "title": "Tunnel View",
+  "pos": "center 60%"
+ },
+ "el-capitan": {
+  "file": "El_Capitan_en_Californie.jpg",
+  "title": "El Capitan"
+ },
+ "half-dome": {
+  "file": "Half_Dome_with_Eastern_Yosemite_Valley_(Zuschnitt).jpg",
+  "title": "Half Dome",
+  "pos": "center 40%"
+ },
+ "yosemite-falls": {
+  "file": "Yosemite_falls_winter_2010.JPG",
+  "title": "Yosemite Falls (winter)"
+ },
+ "bridalveil": {
+  "file": "Bridelveil_Falls_Yosemite.jpg",
+  "title": "Bridalveil Fall"
+ },
+ "vernal-fall": {
+  "file": "Vernal_Fall,_Yosemite_NP,_CA,_US_-_Diliff.jpg",
+  "title": "Vernal Fall"
+ },
+ "nevada-fall": {
+  "file": "Nevada_Fall,_Yosemite_NP,_CA,_US_-_Diliff.jpg",
+  "title": "Nevada Fall"
+ },
+ "mirror-lake": {
+  "file": "Yosemite_national_park_mirror_lake_2010u.JPG",
+  "title": "Mirror Lake"
+ },
+ "glacier-point": {
+  "file": "Glacier_Point_at_Sunset,_Yosemite_NP,_CA,_US_-_Diliff.jpg",
+  "title": "Glacier Point"
+ },
+ "tuolumne-grove": {
+  "file": "A_late_afternoon_in_Tuolumne_Grove_IMG_4198.jpg",
+  "title": "Tuolumne Grove"
+ },
+ "sentinel-dome": {
+  "file": "Sentinel_Dome,_Yosemite_NP.jpg",
+  "title": "Sentinel Dome"
+ },
+ "taft-point": {
+  "file": "Taft_Point_Panorama.jpg",
+  "title": "Taft Point"
+ },
+ "ahwahnee": {
+  "file": "Ahwahnee_Hotel_Half_Dome.jpg",
+  "title": "The Ahwahnee"
+ },
+ "valley-lodge": {
+  "file": "Yosemite_Lodge_dining_room.jpg",
+  "title": "Yosemite Valley Lodge"
+ },
+ "curry": {
+  "file": "Camp_Curry_sign.jpg",
+  "title": "Curry Village"
+ },
+ "wawona": {
+  "file": "Wawona_Hotel_in_2026.jpg",
+  "title": "Wawona Hotel"
+ },
+ "valley-view": {
+  "file": "Valley_View_Yosemite_August_2013_002.jpg",
+  "title": "Valley View"
+ },
+ "chapel": {
+  "file": "Yosemite_Valley_Chapel.jpg",
+  "title": "Yosemite Valley Chapel"
+ },
+ "four-mile": {
+  "file": "Four-mile-trail.jpg",
+  "title": "Four Mile Trail"
+ },
+ "groveland": {
+  "file": "Groveland_Historic_District-2.jpg",
+  "title": "Groveland"
+ },
+ "mariposa": {
+  "file": "Mariposa_County_Courthouse_January_2025.jpg",
+  "title": "Mariposa"
+ },
+ "fish-camp": {
+  "file": "Fish_Camp,_California.jpg",
+  "title": "Fish Camp"
+ },
+ "oakdale": {
+  "file": "Hershey_Plaza_Oakdale.jpg",
+  "title": "Oakdale"
+ },
+ "sentinel-bridge": {
+  "file": "Sentinel_Bridge_&_Half_Dome.jpg",
+  "title": "Sentinel Bridge & Half Dome",
+  "pos": "center 35%"
+ },
+ "cooks-meadow": {
+  "file": "Cook's_Meadow.jpg",
+  "title": "Cook's Meadow"
+ },
+ "columbia-rock": {
+  "file": "Yosemite_Village_from_Columbia_Rock_(5651027797).jpg",
+  "title": "Yosemite Village from Columbia Rock"
+ },
+ "mariposa-grove": {
+  "file": "Yosemite_National_Park_(CA,_USA),_Mariposa_Grove_of_Giant_Sequoias,_Grizzly_Giant_--_2022_--_2754.jpg",
+  "title": "Grizzly Giant, Mariposa Grove"
+ },
+ "village": {
+  "file": "Yosemite_Village_Historic_District.jpg",
+  "title": "Yosemite Village"
+ },
+ "museum": {
+  "file": "Yosemite_Museum_Exterior.jpg",
+  "title": "Yosemite Museum"
+ },
+ "curry-cabin": {
+  "file": "Curry-Village-Yosemite-wooden-duplex-cabin.jpg",
+  "title": "Curry Village cabin"
+ },
+ "curry-tent": {
+  "file": "Curry-Village-Yosemite-tent-cabin-interior.jpg",
+  "title": "Curry Village tent cabin"
+ },
+ "lower-falls": {
+  "file": "Yosemite_National_Park_(CA,_USA),_Yosemite_Valley,_Lower_Yosemite_Falls_--_2022_--_2850.jpg",
+  "title": "Lower Yosemite Fall",
+  "pos": "center 30%"
+ },
+ "valley-lodge-ext": {
+  "file": "Yosemite_Lodge_(3020262929).jpg",
+  "title": "Yosemite Valley Lodge"
+ },
+ "ahwahnee-dining": {
+  "file": "Ahwahnee_Dining_Room.jpg",
+  "title": "Ahwahnee Dining Room"
+ },
+ "el-cap-meadow": {
+  "file": "Yosemite_El_Capitan_Meadow_-_Flickr_-_Joe_Parks.jpg",
+  "title": "El Capitan Meadow"
+ },
+ "winter-tunnel": {
+  "file": "Winter_Morning_Sunrise_Tunnel_View_Yosemite_Valley_-_Yosemite_National_Park_(5763418254).jpg",
+  "title": "Tunnel View in winter"
+ },
+ "winter-falls": {
+  "file": "Winter_Snow_Capped_Sunrise_of_Yosemite_Falls_(5763397138).jpg",
+  "title": "Yosemite Falls in winter"
+ },
+ "bridalveil-winter": {
+  "file": "Bridalveil_fall_2010.JPG",
+  "title": "Bridalveil Fall"
+ },
+ "swinging-bridge": {
+  "file": "Yosemite_Park_at_Swinging_Bridge_2013.jpg",
+  "title": "Swinging Bridge"
+ },
+ "upper-falls-winter": {
+  "file": "Yosemite_upper_falls_winter_2010.JPG",
+  "title": "Upper Yosemite Fall in winter"
+ },
+ "hetch-hetchy": {
+  "file": "Hetch_Hetchy_Reservoir,_Yosemite_National_Park,_California_(21385946959).jpg",
+  "title": "Hetch Hetchy Reservoir"
+ },
+ "tioga": {
+  "file": "Tioga_pass,_Yosemite_(50171725533).jpg",
+  "title": "Tioga Road"
+ },
+ "shuttle": {
+  "file": "Yosemite_Shuttle_bus_with_Half_Dome_behind,_May_2022.JPG",
+  "title": "Yosemite Valley shuttle"
+ },
+ "mist-trail": {
+  "file": "Mist_Trail,_Yosemite_(29436659172).jpg",
+  "title": "Mist Trail"
+ },
+ "merced-reflect": {
+  "file": "Yosemite_Falls_reflected_in_the_Merced_River_(13906432333).jpg",
+  "title": "Yosemite Falls reflected in the Merced"
+ },
+ "half-dome-cables": {
+  "file": "Half_Dome--cables.jpeg",
+  "title": "Half Dome cables"
+ },
+ "royal-arches": {
+  "file": "Yosemite_-_Royal_Arches.jpg",
+  "title": "Royal Arches"
+ },
+ "og-yosemite-view": {
+  "src": "https://webbox.imgix.net/images/zlsvkhbnotwuyhhf/713ec5d7-d946-44af-96b2-07e5680d9fba.png?w=960&auto=format,compress",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.stayyosemiteviewlodge.com/",
+  "title": "Yosemite View Lodge"
+ },
+ "og-rush-creek": {
+  "src": "https://wsrv.nl/?url=admin.rushcreeklodge.com/wp-content/uploads/sites/3/1-Rush-Creek-Pool-Area-at-Sunset-Kim-Carroll.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.rushcreeklodge.com/",
+  "title": "Rush Creek Lodge"
+ },
+ "og-evergreen": {
+  "src": "https://wsrv.nl/?url=admin.evergreenlodge.com/wp-content/uploads/Evergreen-Lodge-Main-Plaza-at-Dusk-Kim-Carroll-3-15-800-x-600.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.evergreenlodge.com/",
+  "title": "Evergreen Lodge"
+ },
+ "og-tenaya": {
+  "src": "https://wsrv.nl/?url=www.visittenaya.com/wp-content/uploads/2026/06/Tenaya-Yosemite-Open-Graph.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.visittenaya.com/",
+  "title": "Tenaya at Yosemite"
+ },
+ "og-autocamp": {
+  "src": "https://wsrv.nl/?url=autocamp.com/wp-content/uploads/2024/10/Feinblatt_20190610_0027_WEB-ONLY-adj-1.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://autocamp.com/location/yosemite/",
+  "title": "AutoCamp Yosemite"
+ },
+ "og-redwoods": {
+  "src": "https://wsrv.nl/?url=redwoodsinyosemite.com/wp-content/uploads/2019/06/Camper-Cabins-Results-Page-Banner-Image-e1562829911570.jpeg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://redwoodsinyosemite.com/",
+  "title": "Redwoods In Yosemite"
+ },
+ "og-scenic-wonders": {
+  "src": "https://wsrv.nl/?url=www.scenicwonders.com/crm/uploads/blog_images/916e6e43-2623-4298-ae52-b216a7982afe.png&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.scenicwonders.com/",
+  "title": "Scenic Wonders (Yosemite West)"
+ },
+ "og-groveland-hotel": {
+  "src": "https://wsrv.nl/?url=assets.simplotel.com/simplotel/image/upload/x_0%2Cy_106%2Cw_2048%2Ch_1153%2Cr_0%2Cc_crop/q_80%2Cw_900%2Cdpr_1%2Cf_auto%2Cfl_progressive%2Cc_limit/the-groveland-hotel/groveland-hotel-historic-facade-main-street&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.theserenite.com/the-groveland-hotel/",
+  "title": "The Groveland Hotel"
+ },
+ "og-tv-yvl-dining": {
+  "src": "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/aramark-parent/yosemite-national-park/site-images/dining/yosemite-national-park-lodging-and-activities-california-united-states-grilled-steak-topped-with-herbs-served-with-mashed-potatoes-and-brussels-sprouts.jpg?cropY=725&cropW=5930&cropH=2162&width=1200&height=630",
+  "credit": "Travel Yosemite 공식 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.travelyosemite.com/dining/yosemite-valley-lodge",
+  "title": "Mountain Room (Yosemite Valley Lodge)"
+ },
+ "og-tv-village-dining": {
+  "src": "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/aramark-parent/yosemite-national-park/site-images/dining/village-dining-with-casual-and-grab-and-go-options-yosemite-national-park-lodging-and-activities-california-united-states.jpg?cropY=1597&cropW=7359&cropH=2683&width=1200&height=630",
+  "credit": "Travel Yosemite 공식 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.travelyosemite.com/dining/yosemite-village",
+  "title": "Degnan's Kitchen (Yosemite Village)"
+ },
+ "og-tv-curry-dining": {
+  "src": "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/aramark-parent/yosemite-national-park/site-images/lodging/curry-village-welcome-1.png?cropW=1920&cropH=700&width=1200&height=630",
+  "credit": "Travel Yosemite 공식 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.travelyosemite.com/dining/curry-village-dining",
+  "title": "Curry Village"
+ },
+ "og-cedar-room": {
+  "src": "https://wsrv.nl/?url=yosemiteresorts.com/wp-content/uploads/2025/07/CL_Double-Queen-LOdge.webp&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://yosemiteresorts.com/cedar-lodge/",
+  "title": "Cedar Lodge 퀸 2개 객실"
+ },
+ "og-junebug": {
+  "src": "https://wsrv.nl/?url=www.yosemitebug.com/wp-content/uploads/2018/03/DSCF9122.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.yosemitebug.com/cafe",
+  "title": "June Bug Cafe"
+ }
+}

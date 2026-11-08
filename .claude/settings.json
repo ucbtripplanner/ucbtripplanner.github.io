@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node tools/check_data.mjs:*)",
+      "Bash(node tools/gen_pages.mjs:*)",
+      "Bash(python3 tools/find_photo.py:*)",
+      "Bash(python3 tools/geocode.py:*)",
+      "Bash(python3 tools/build_images.py:*)",
+      "Bash(python3 tools/build_routes.py:*)",
+      "Bash(python3 tools/serve.py:*)",
+      "Bash(tools/screenshot.sh:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ]
+  }
+}

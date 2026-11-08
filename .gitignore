@@ -1,1 +1,8 @@
+# local scratch (screenshots, drafts, agent notes)
 .research/
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+# personal Claude Code settings (shared settings live in .claude/settings.json)
+.claude/settings.local.json

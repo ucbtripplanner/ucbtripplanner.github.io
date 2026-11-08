@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>mobile preview harness</title></head>
+<!-- Renders a page at true phone width (390px) inside an iframe. Used by tools/screenshot.sh mobile.
+     Open: /tools/mobile.html#%2F2026-yosemite%2Fcourse%2F  (URL-encoded path after #) -->
+<body style="margin:0;background:#888">
+  <iframe id="f" style="width:390px;height:2600px;border:0;background:#fff;display:block" src="about:blank"></iframe>
+  <script>
+    var p = decodeURIComponent(location.hash.slice(1) || '/2026-yosemite/');
+    if (p.charAt(0) === '/') document.getElementById('f').src = p;
+  </script>
+</body>
+</html>

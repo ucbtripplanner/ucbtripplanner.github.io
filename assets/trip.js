@@ -28,11 +28,16 @@
   const h2 = (icon, text, aside) => `<h2 class="h2">${icon ? `<span class="h-icon">${esc(icon)}</span>` : ''}${esc(text)}${aside ? `<span class="h2-aside">${aside}</span>` : ''}</h2>`;
   const ext = (url, label) => `<a class="ext" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`;
   const after = (fn) => setTimeout(fn, 0);
-  const DAYC = ['#2383e2', '#1f9d61', '#e8772e', '#9b5fd0'];
+  const DAYC = ['#2383e2', '#1f9d61', '#c4621b', '#9b5fd0'];
+  const MOBILE = !!(window.matchMedia && window.matchMedia('(max-width: 640px)').matches);
+  // rewrite a thumbnail URL to another width: Commons ".../960px-File.jpg", wsrv "&w=960", imgix "?w=960"
+  const sized = (u, w) => (u ? u.replace(/\/\d+px-(?=[^/]*$)/, `/${w}px-`).replace(/([?&]w=)\d+/, `$1${w}`) : u);
 
   // ================================================================ theme
   function applyTheme(t) {
     document.documentElement.dataset.theme = t;
+    const tc = document.querySelector('meta[name="theme-color"]');
+    if (tc) tc.content = t === 'dark' ? '#191919' : '#ffffff';
     document.querySelectorAll('.theme-btn').forEach((b) => {
       b.textContent = t === 'dark' ? '☀️' : '🌙';
       b.title = t === 'dark' ? '라이트 모드로' : '다크 모드로';
@@ -59,13 +64,13 @@
   }
   function thumb(im, emoji, alt, badge) {
     return `<div class="thumb${im ? '' : ' noimg'}">${im
-      ? `<img loading="lazy" src="${esc(im.src)}" alt="${esc(alt || '')}" style="object-position:${esc(im.pos || 'center')}" onerror="this.parentNode.classList.add('noimg');this.remove()">`
+      ? `<img loading="lazy" decoding="async" src="${esc(sized(im.src, MOBILE ? 500 : 960))}" alt="${esc(alt || '')}" style="object-position:${esc(im.pos || 'center')}" onerror="this.parentNode.classList.add('noimg');this.remove()">`
       : ''}<span class="thumb-emoji" aria-hidden="true">${esc(emoji || '🏞️')}</span>${badge ? `<span class="thumb-badge">${esc(badge)}</span>` : ''}</div>`;
   }
   const credit = (im) => (im && im.credit ? `<a class="cover-credit" href="${esc(im.page || im.src)}" target="_blank" rel="noopener">📷 ${esc(im.credit)}</a>` : '');
   function cover(im) {
     if (!im) return '<div class="cover cover-blank"></div>';
-    return `<div class="cover"><img src="${esc(im.big || im.src)}" alt="" style="object-position:${esc(im.pos || 'center')}">${credit(im)}</div>`;
+    return `<div class="cover"><img src="${esc(MOBILE ? im.src : (im.big || im.src))}" alt="" fetchpriority="high" style="object-position:${esc(im.pos || 'center')}">${credit(im)}</div>`;
   }
   const callout = (c) => `<div class="callout ${c.color || 'gray'}"><div class="callout-icon">${esc(c.icon || '💡')}</div><div class="callout-body">${
     c.title ? `<div class="callout-title">${md(c.title)}</div>` : ''}${c.text ? `<p>${md(c.text)}</p>` : ''}${list(c.items)}</div></div>`;
@@ -125,7 +130,7 @@
   const editUrl = T.repo && T.dataPath ? `https://github.com/${T.repo}/edit/main/${T.dataPath}` : null;
 
   const TIERS = { must: ['필수', 'red'], rec: ['추천', 'green'], opt: ['선택', 'gray'], skip: ['이번엔 패스', 'brown'] };
-  const STATUS = { cand: ['후보', 'gray'], top: ['유력', 'blue'], booked: ['예약 완료', 'green'], full: ['매진', 'red'], closed: ['영업 안 함', 'brown'] };
+  const STATUS = { cand: ['후보', 'gray'], top: ['유력', 'blue'], booked: ['예약 완료', 'green'], full: ['매진', 'red'], na: ['이번 날짜 불가', 'red'], closed: ['영업 안 함', 'brown'] };
   const PICKS = { top: ['강추', 'orange'], good: ['괜찮음', 'green'], backup: ['백업', 'gray'] };
   const mapTag = (m, k) => (m[k] ? tag(m[k][0], m[k][1]) : '');
   const groupTag = (groups, k) => { const g = (groups || []).find((x) => x.id === k); return g ? tag(g.label, g.color || 'blue') : ''; };
@@ -195,7 +200,7 @@
       sub = it.area || '';
       tags = mapTag(STATUS, it.status) + groupTag(T.stayGroups, it.group);
       const pr = it.priceShort || it.price;
-      line = `<div class="gcard-line">${[it.drive && '🚗 ' + it.drive, pr && '💵 ' + pr].filter(Boolean).map(md).join(' · ')}</div>`;
+      line = `<div class="gcard-line gcard-key">${[it.drive && '🚗 ' + it.drive, pr && '💵 ' + pr].filter(Boolean).map(md).join(' · ')}</div>`;
     } else {
       sub = [it.area, it.cuisine].filter(Boolean).join(' · ');
       tags = mapTag(PICKS, it.pick) + tag(it.price, 'gray') + groupTag(T.foodGroups, it.group);
@@ -241,7 +246,7 @@
     const kpage = T.pages[KINDS[kind].page];
     return `<div class="peek-top"><span class="peek-kind">${esc(kpage.icon)} ${esc(kpage.title)}</span>
         <a class="peek-open" href="${esc(itemHref(kind, it.id))}" title="페이지에서 열기" aria-label="페이지에서 열기">↗</a><button type="button" class="peek-close" aria-label="닫기">✕</button></div>
-      ${im ? `<div class="peek-hero"><img src="${esc(im.big || im.src)}" alt="${esc(it.name)}" style="object-position:${esc(im.pos || 'center')}">${credit(im)}</div>` : ''}
+      ${im ? `<div class="peek-hero"><img src="${esc(MOBILE ? im.src : (im.big || im.src))}" alt="${esc(it.name)}" style="object-position:${esc(im.pos || 'center')}">${credit(im)}</div>` : ''}
       <div class="peek-content"><div class="peek-icon"${im ? '' : ' style="margin-top:18px"'}>${esc(it.emoji || KINDS[kind].emoji)}</div>
         <h2 class="peek-title">${esc(it.name)}</h2>${it.en ? `<div class="peek-sub">${esc(it.en)}</div>` : ''}
         ${props(rows)}${body}</div>`;
@@ -255,13 +260,18 @@
     const it = findItem(kind, id);
     if (!it) return;
     peek.innerHTML = peekHtml(kind, it);
-    if (!peek.open) peek.showModal();
+    const url = KINDS[kind].page === PAGE ? '#' + encodeURIComponent(id) : location.pathname + location.search;
+    if (!peek.open) {
+      peek.showModal();
+      if (!(history.state && history.state.peek)) history.pushState({ peek: 1 }, '', url);
+    } else history.replaceState({ peek: 1 }, '', url);
     peek.scrollTop = 0;
-    if (KINDS[kind].page === PAGE && decodeURIComponent(location.hash.slice(1)) !== id) history.replaceState(null, '', '#' + encodeURIComponent(id));
   }
   peek.addEventListener('close', () => {
-    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (history.state && history.state.peek) history.back();
+    else if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   });
+  window.addEventListener('popstate', () => { if (peek.open && !(history.state && history.state.peek)) peek.close(); });
   peek.addEventListener('click', (e) => {
     if (e.target === peek || e.target.closest('.peek-close')) peek.close();
   });
@@ -286,7 +296,7 @@
       if (state.view === 'gallery') return `<div class="gallery">${items.map((it) => cardHtml(kind, it)).join('')}</div>`;
       return `<div class="table-wrap"><table class="dbtable"><thead><tr><th>이름</th>${cfg.cols.map((c) => `<th>${esc(c[0])}</th>`).join('')}<th>👍</th></tr></thead><tbody>${items.map((it) => {
         const im = img(it.img);
-        return `<tr><td class="name-cell"><button type="button" class="row-open" data-peek="${kind}:${esc(it.id)}">${im ? `<img src="${esc(im.src)}" alt="" loading="lazy">` : `<span class="row-emoji">${esc(it.emoji || KINDS[kind].emoji)}</span>`}<span>${esc(it.name)}</span></button></td>${cfg.cols.map((c) => `<td>${c[1](it)}</td>`).join('')}<td>${votesHtml(it.votes)}</td></tr>`;
+        return `<tr><td class="name-cell"><button type="button" class="row-open" data-peek="${kind}:${esc(it.id)}">${im ? `<img src="${esc(sized(im.src, 330))}" alt="" loading="lazy">` : `<span class="row-emoji">${esc(it.emoji || KINDS[kind].emoji)}</span>`}<span>${esc(it.name)}</span></button></td>${cfg.cols.map((c) => `<td>${c[1](it)}</td>`).join('')}<td>${votesHtml(it.votes)}</td></tr>`;
       }).join('')}</tbody></table></div>`;
     }
     const controls = () => `<div class="views" role="tablist">
@@ -327,7 +337,7 @@
 
   // ---------------------------------------------------------------- checklists
   function staticChecklist(items) {
-    return `<ul class="todo">${items.map((i) => `<li class="${i.done ? 'done' : ''}"><span class="box" aria-hidden="true"></span><span class="todo-text">${md(i.text)}${i.who ? `<span class="todo-who">${avatar(i.who)}</span>` : ''}${i.note ? `<span class="todo-note">${md(i.note)}</span>` : ''}</span></li>`).join('')}</ul>`;
+    return `<ul class="todo">${items.map((i) => `<li class="${i.done ? 'done' : ''}"><span class="box" aria-hidden="true"></span><span class="todo-text">${i.due ? `<span class="todo-due${i.done ? '' : ' open'}">${esc(i.due)}</span>` : ''}${md(i.text)}${i.who ? `<span class="todo-who">${avatar(i.who)}</span>` : ''}${i.note ? `<span class="todo-note">${md(i.note)}</span>` : ''}</span></li>`).join('')}</ul>`;
   }
   function localChecklist(cid, items) {
     const key = 'chk:' + T.id + ':' + cid;
@@ -372,7 +382,7 @@
         let title = md(it.title), th = '';
         if (s && s.ref) {
           title = `<button type="button" class="ref" data-peek="${esc(it.ref)}">${esc(s.name)}</button>`;
-          if (s.im) th = `<button type="button" class="t-thumb" data-peek="${esc(it.ref)}" aria-label="${esc(s.name)} 자세히"><img src="${esc(s.im.src)}" alt="" loading="lazy"></button>`;
+          if (s.im) th = `<button type="button" class="t-thumb" data-peek="${esc(it.ref)}" aria-label="${esc(s.name)} 자세히"><img src="${esc(sized(s.im.src, 330))}" alt="" loading="lazy"></button>`;
         }
         const alts = (it.alts || []).map((a) => {
           const r = a.ref && findItem(...a.ref.split(':'));
@@ -403,9 +413,26 @@
   function initMap(id, opts) {
     const el = document.getElementById(id);
     if (!el) return;
-    if (!window.L) { el.innerHTML = '<p class="empty" style="padding:20px">지도를 불러오지 못했어요.</p>'; return; }
+    if (!window.L) {
+      // Leaflet loads async (so a slow CDN never blanks the page) — wait for it up to 15s
+      opts._t0 = opts._t0 || Date.now();
+      if (Date.now() - opts._t0 > 15000) { el.innerHTML = '<p class="empty" style="padding:20px">지도를 불러오지 못했어요 (오프라인?). 아래 목록은 그대로 쓸 수 있어요.</p>'; return; }
+      if (!el.firstChild) el.innerHTML = '<p class="empty" style="padding:20px">지도 불러오는 중…</p>';
+      setTimeout(() => initMap(id, opts), 250);
+      return;
+    }
+    el.innerHTML = '';
     const L = window.L;
-    const map = L.map(el, { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
+    const touch = L.Browser.mobile;
+    // on phones one-finger drag would trap page scrolling → map moves only after a tap
+    const map = L.map(el, { scrollWheelZoom: false, dragging: !touch, tap: false, zoomControl: true, attributionControl: true });
+    if (touch) {
+      const hint = document.createElement('div');
+      hint.className = 'map-hint';
+      hint.textContent = '👆 탭하면 지도를 움직일 수 있어요';
+      el.appendChild(hint);
+      map.on('click', () => { map.dragging.enable(); hint.remove(); });
+    }
     map.attributionControl.setPrefix('');
     const bases = {
       osm: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -429,7 +456,7 @@
 
     const pinIcon = (n, color) => L.divIcon({ className: '', html: `<div class="pin" style="background:${color}"><span>${n}</span></div>`, iconSize: [28, 28], iconAnchor: [14, 34], popupAnchor: [0, -30] });
     const smallIcon = (emoji) => L.divIcon({ className: '', html: `<div class="pin-sm">${emoji}</div>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -12] });
-    const popupHtml = (s, sub) => `${s.im ? `<img class="pop-img" src="${esc(s.im.src)}" alt="">` : ''}<div class="pop-body"><div class="pop-title">${esc(s.name)}</div>${sub ? `<div class="pop-sub">${esc(sub)}</div>` : ''}${s.ref ? `<div class="pop-actions"><button type="button" data-peek="${s.kind}:${esc(s.ref.id)}">자세히</button><a href="${esc(itemHref(s.kind, s.ref.id))}">${esc(T.pages[KINDS[s.kind].page].title)} 페이지 →</a></div>` : ''}</div>`;
+    const popupHtml = (s, sub) => `${s.im ? `<img class="pop-img" src="${esc(sized(s.im.src, 500))}" alt="">` : ''}<div class="pop-body"><div class="pop-title">${esc(s.name)}</div>${sub ? `<div class="pop-sub">${esc(sub)}</div>` : ''}${s.ref ? `<div class="pop-actions"><button type="button" data-peek="${s.kind}:${esc(s.ref.id)}">자세히</button><a href="${esc(itemHref(s.kind, s.ref.id))}">${esc(T.pages[KINDS[s.kind].page].title)} 페이지 →</a></div>` : ''}</div>`;
 
     // extra layers: all stays / food / places with coordinates
     Object.keys(extra).forEach((k) => {
@@ -480,14 +507,26 @@
       if (state.day === 'all' && T.geo && T.geo.home) pts = pts.concat([T.geo.home.ll]);
       if (!pts.length) return;
       if (pts.length === 1) map.setView(pts[0], 13); else map.fitBounds(L.latLngBounds(pts), { padding: [36, 36], maxZoom: 14 });
-      markers.forEach((m) => m.marker.setOpacity(state.day === 'all' || m.day === state.day ? 1 : 0.25));
+      markers.forEach((m) => {
+        const on = state.day === 'all' || m.day === state.day;
+        m.marker.setOpacity(on ? 1 : 0.15);
+        m.marker.setZIndexOffset(on ? 1000 + m.day : -1000);
+        const mel = m.marker.getElement();
+        if (mel) mel.style.pointerEvents = on ? '' : 'none';
+      });
+    }
+    // zoom to the Yosemite Valley stops (the "all" view is dominated by the long drive)
+    const VALLEY = [37.7456, -119.5936];
+    function zoomValley() {
+      const pts = markers.filter((m) => (state.day === 'all' || m.day === state.day) && km(m.s.ll, VALLEY) < 20).map((m) => m.s.ll);
+      if (pts.length) map.fitBounds(L.latLngBounds(pts), { padding: [30, 30], maxZoom: 15 });
     }
     function bar() {
       const p = state.plan;
       const planTabs = opts.planTabs && plans.length > 1 ? plans.map((x) => `<button type="button" class="pill" data-mplan="${esc(x.id)}" aria-pressed="${x.id === p.id}">${esc(x.short || x.label)}</button>`).join('') + '<span class="sep"></span>' : '';
       const days = `<button type="button" class="pill" data-mday="all" aria-pressed="${state.day === 'all'}">전체 동선</button>` + (p ? p.days.map((d, i) => `<button type="button" class="pill" data-mday="${i}" aria-pressed="${state.day === i}"><span class="dot" style="background:${DAYC[i % DAYC.length]}"></span>Day ${i + 1}</button>`).join('') : '');
       const layers = '<span class="sep"></span>' + [['stay', '🏨 숙소'], ['food', '🍽️ 식당'], ['place', '📍 다른 스팟']].map(([k, label]) => `<button type="button" class="pill" data-mlayer="${k}" aria-pressed="${state.layers[k]}">${label}</button>`).join('')
-        + `<span class="sep"></span><button type="button" class="pill" data-mbase="1" aria-pressed="${baseKey === 'topo'}">🏔️ 지형도</button>`;
+        + `<span class="sep"></span><button type="button" class="pill" data-mzoom="1">🔍 Valley 확대</button><button type="button" class="pill" data-mbase="1" aria-pressed="${baseKey === 'topo'}">🏔️ 지형도</button>`;
       document.getElementById(id + '-bar').innerHTML = planTabs + days + layers;
     }
     function side() {
@@ -496,7 +535,7 @@
       document.getElementById(id + '-side').innerHTML = p.days.map((d, di) => {
         const ms = markers.filter((m) => m.day === di);
         if (state.day !== 'all' && state.day !== di) return '';
-        return `<div class="map-side-day"><span class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${DAYC[di % DAYC.length]}"></span>DAY ${di + 1} · ${esc(d.title)}</div>${ms.map((m) => `<button type="button" class="map-stop" data-mstop="${markers.indexOf(m)}"><span class="n" style="background:${DAYC[di % DAYC.length]}">${m.n}</span><span>${esc(m.s.name)}${m.time ? `<span class="t">${esc(m.time)}</span>` : ''}</span></button>`).join('')}`;
+        return `<div class="map-side-day"><span class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${DAYC[di % DAYC.length]}"></span>DAY ${di + 1} · ${esc(d.title)}</div>${ms.map((m) => `<button type="button" class="map-stop" data-mstop="${markers.indexOf(m)}"><span class="n" style="background:${DAYC[di % DAYC.length]}">${m.n}</span><span class="ms-txt">${esc(m.s.name)}${m.time ? `<span class="t">${esc(m.time)}</span>` : ''}</span>${m.s.im ? `<img class="ms-img" src="${esc(sized(m.s.im.src, 330))}" alt="" loading="lazy">` : ''}</button>`).join('')}`;
       }).join('');
     }
     function redraw(refit) { drawPlan(); bar(); side(); if (refit !== false) fit(); }
@@ -507,6 +546,7 @@
       const ly = e.target.closest('[data-mlayer]');
       const st = e.target.closest('[data-mstop]');
       const bs = e.target.closest('[data-mbase]');
+      if (e.target.closest('[data-mzoom]')) zoomValley();
       if (bs) {
         map.removeLayer(bases[baseKey]);
         baseKey = baseKey === 'topo' ? 'osm' : 'topo';
@@ -574,7 +614,7 @@
           const snow = dl.snowfall_sum[i] > 0 ? ` · ❄️ ${dl.snowfall_sum[i]}cm` : '';
           return `<div class="wx-day${tripDays.has(dl.time[i]) ? ' trip' : ''}"><div class="wx-d">${m}/${dd} (${wd})</div><div class="wx-ico" title="${esc(lbl)}">${ico}</div>
             <div class="wx-t">${Math.round(dl.temperature_2m_max[i])}° <span class="lo">/ ${Math.round(dl.temperature_2m_min[i])}°</span></div>
-            <div class="wx-s">☔ ${dl.precipitation_probability_max[i] ?? '–'}%${snow}</div><div class="wx-s">🌅 ${hm(dl.sunrise[i])} · 🌇 ${hm(dl.sunset[i])}</div></div>`;
+            <div class="wx-s">☔ ${dl.precipitation_probability_max[i] ?? '–'}%${snow}</div><div class="wx-s">🌅 ${hm(dl.sunrise[i])}</div><div class="wx-s">🌇 ${hm(dl.sunset[i])}</div></div>`;
         }).join('')}</div>
         <div class="wx-note">${tripIdx.length ? '여행 날짜 예보 (파란 칸)' : `지금 ${esc(W.name)} 앞으로 7일 — 여행 날짜 예보는 출발 약 2주 전부터 여기에 자동으로 떠요`} · °C · <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>${W.nws ? ` · <a href="${esc(W.nws)}" target="_blank" rel="noopener">NWS 상세 예보</a>` : ''}</div>`;
       } catch (e) {
@@ -625,6 +665,19 @@
       h += `<div class="stages">${T.stages.map((s) => `<div class="stage ${s.state || ''}"><span class="st-ico">${s.state === 'done' ? '✅' : s.state === 'now' ? '👉' : '⬜'}</span><b>${esc(s.label)}</b>${s.note ? esc(s.note) : ''}</div>`).join('')}</div>`;
     }
     (T.homeCallouts || []).forEach((c) => { h += callout(c); });
+    // everyone's avatar on each option — greyed out until that person 👍s it (votes: ['mk', ...])
+    const voters = (T.members || []).filter((m) => m.id !== 'plus');
+    const voteRow = (v) => `<span class="votes vote-row" title="찜하려면 data.js에서 votes에 내 id 추가">${voters.map((m) => `<span class="avatar${(v || []).includes(m.id) ? '' : ' ghost'}" style="background:${esc(m.color)}" title="${esc(m.name)}">${esc(m.initial || m.name[0])}</span>`).join('')}</span>`;
+    if (T.decisions && T.decisions.length) {
+      const doneN = T.decisions.filter((d) => d.done).length;
+      h += h2('🤔', '정해야 할 것', `${doneN}/${T.decisions.length} 결정`);
+      h += T.decisions.map((d) => toggle(`<b>${d.done ? '✅ ' : ''}${esc(d.title)}</b><span class="decision-meta">${d.status ? tag(d.status[0], d.status[1]) : ''}${d.owner ? avatar(d.owner) : ''}${d.due ? `<span class="faint small">~${esc(d.due)}</span>` : ''}</span>`,
+        `${d.desc ? `<p class="muted">${md(d.desc)}</p>` : ''}${d.options ? `<div class="compare">${d.options.map((o) => `<div class="compare-opt${o.pick ? ' pick' : ''}"><div class="compare-h">${o.pick ? '✅ ' : ''}${esc(o.label)}</div>${voteRow(o.votes)}${o.pros ? `<div class="pc-h">👍 장점</div>${list(o.pros)}` : ''}${o.cons ? `<div class="pc-h">👎 단점</div>${list(o.cons)}` : ''}</div>`).join('')}</div>` : ''}`, d.open)).join('');
+    }
+    if (T.todo && T.todo.length) {
+      h += h2('✅', '할 일 · 마감', `${T.todo.filter((t) => t.done).length}/${T.todo.length}`);
+      h += staticChecklist(T.todo);
+    }
     if (plans.length) {
       h += h2('🗺️', '전체 동선', `<a href="${T.base}${T.pages.course.href}">코스 자세히 →</a>`);
       h += mapBlock({ planTabs: true });
@@ -634,15 +687,10 @@
       const p = T.pages[k];
       return `<a class="gcard" href="${T.base}${p.href}">${thumb(img(p.cover), p.icon, p.title)}<div class="gcard-body"><div class="gcard-title">${esc(p.icon)} ${esc(p.title)}</div><p class="gcard-text">${esc(p.blurb || '')}</p><div class="gcard-tags">${tag(countOf[k] ? countOf[k]() : '', 'gray')}</div></div></a>`;
     }).join('')}</div>`;
-    if (T.decisions && T.decisions.length) {
-      const doneN = T.decisions.filter((d) => d.done).length;
-      h += h2('🤔', '정해야 할 것', `${doneN}/${T.decisions.length} 결정`);
-      h += T.decisions.map((d) => toggle(`<b>${d.done ? '✅ ' : ''}${esc(d.title)}</b><span class="decision-meta">${d.status ? tag(d.status[0], d.status[1]) : ''}${d.owner ? avatar(d.owner) : ''}${d.due ? `<span class="faint small">~${esc(d.due)}</span>` : ''}</span>`,
-        `${d.desc ? `<p class="muted">${md(d.desc)}</p>` : ''}${d.options ? `<div class="compare">${d.options.map((o) => `<div class="compare-opt${o.pick ? ' pick' : ''}"><div class="compare-h">${o.pick ? '✅ ' : ''}${esc(o.label)} ${votesHtml(o.votes)}</div>${o.pros ? `<div class="pc-h">👍 장점</div>${list(o.pros)}` : ''}${o.cons ? `<div class="pc-h">👎 단점</div>${list(o.cons)}` : ''}</div>`).join('')}</div>` : ''}`, d.open)).join('');
-    }
-    if (T.todo && T.todo.length) {
-      h += h2('✅', '할 일', `${T.todo.filter((t) => t.done).length}/${T.todo.length}`);
-      h += staticChecklist(T.todo);
+    if (T.budget) {
+      const B = T.budget;
+      h += h2('💸', '1인 예상 경비', B.aside || '');
+      h += `${B.note ? `<p class="muted">${md(B.note)}</p>` : ''}<div class="table-wrap budget"><table class="dbtable"><thead><tr><th></th>${B.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${B.rows.map((r) => `<tr><td><b>${esc(r[0])}</b>${r[r.length - 1] && r.length > B.cols.length + 1 ? `<div class="faint small">${md(r[r.length - 1])}</div>` : ''}</td>${r.slice(1, B.cols.length + 1).map((c) => `<td class="num">${md(c)}</td>`).join('')}</tr>`).join('')}${B.total ? `<tr class="total"><td><b>합계 (1인)</b></td>${B.total.map((c) => `<td class="num"><b>${md(c)}</b></td>`).join('')}</tr>` : ''}</tbody></table></div>`;
     }
     if (T.weather) { h += h2('🌤️', '요세미티 날씨'); h += weatherBlock(); }
     h += h2('📝', '최근 변경');
@@ -740,7 +788,7 @@
     let h = (F.callouts || []).map(callout).join('');
     if (F.thanksgiving && F.thanksgiving.length) {
       const tgCard = (t) => `<div class="tg"><div class="tg-head"><b>${esc(t.name)}</b> ${t.state ? tag(t.state[0], t.state[1]) : ''}</div>
-        <div class="muted small">${[t.where, t.price, t.time].filter(Boolean).map(esc).join(' · ')}</div>${t.note ? `<p>${md(t.note)}</p>` : ''}${linksHtml(t.links)}</div>`;
+        ${t.price ? `<div class="tg-price">💵 ${md(t.price)}</div>` : ''}<div class="muted small">${[t.where, t.time].filter(Boolean).map(esc).join(' · ')}</div>${t.note ? `<p>${md(t.note)}</p>` : ''}${linksHtml(t.links)}</div>`;
       const tf = F.thanksgiving.filter((t) => t.featured);
       const tr = F.thanksgiving.filter((t) => !t.featured);
       h += h2('🦃', 'Thanksgiving 저녁 (11/26 목)', tf.length ? '셋 중 하나' : '');
@@ -791,4 +839,7 @@
   }
   fromHash();
   window.addEventListener('hashchange', fromHash);
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  }
 })();
