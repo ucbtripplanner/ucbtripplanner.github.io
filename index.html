@@ -1,29 +1,37 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UCB Trip Planner</title>
-  <meta name="description" content="UC Berkeley 친구들 여행 계획 모음">
+  <meta name="description" content="UC Berkeley 친구들의 여행 계획 모음">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UCB Trip Planner">
+  <meta property="og:description" content="UC Berkeley 친구들의 여행 계획 모음">
+  <meta property="og:url" content="https://ucbtripplanner.github.io/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧳</text></svg>">
+  <script>try{if(localStorage.getItem('utp:theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
-<body>
-  <main class="wrap">
-    <h1>UCB Trip Planner</h1>
-    <p class="lead">여행 계획 모음 — 일정, 숙소, 할 일을 한곳에.</p>
-
-    <section>
-      <h2>여행</h2>
-      <div class="trips">
-        <a class="trip" href="2026-yosemite/">
-          <h3>2026 Thanksgiving · Yosemite <span class="chip todo">계획 중</span></h3>
-          <div class="muted small">2026년 11월 말 · 2박 3일</div>
-        </a>
-      </div>
-    </section>
-
-    <footer>github.com/ucbtripplanner</footer>
-  </main>
+<body data-page="hub">
+  <div id="app"></div>
+  <noscript><p>이 페이지는 JavaScript가 필요해요. <a href="/2026-yosemite/">2026 Yosemite</a></p></noscript>
+  <script src="/2026-yosemite/images.js"></script>
+  <script>
+    window.HUB = {
+      title: 'UCB Trip Planner',
+      desc: 'UC Berkeley 친구들의 여행 계획 모음. 일정 · 숙소 · 맛집 후보를 같이 모으고 정해요.',
+      cover: 'half-dome',
+      trips: [
+        {
+          href: '/2026-yosemite/', icon: '🏔️', title: 'Thanksgiving 2026 · Yosemite', cover: 'tunnel-view', badge: '계획 중',
+          when: '2026년 11월 26–29일 중 2박 3일', desc: '버클리에서 차로 떠나는 첫 요세미티. 근본 코스로.',
+          tags: [['🚗 자차', 'gray'], ['👥 3–4명', 'blue'], ['🌲 국립공원', 'green']],
+        },
+      ],
+    };
+  </script>
+  <script src="/assets/trip.js"></script>
 </body>
 </html>
