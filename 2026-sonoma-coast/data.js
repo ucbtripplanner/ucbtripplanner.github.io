@@ -29,6 +29,7 @@ window.TRIP = {
   start: '2026-11-26',
   end: '2026-11-28',
   updated: '2026-11-11',
+  archived: { date: '11/11', reason: '레드우드 · 굴 · 해산물을 빼면 첫날(Point Reyes · 물범)만 남아서, 2박보다는 당일치기로 충분해요.' },
   labels: { drive: '주요 스팟까지', season: '그 주', open: '체크인 조건', entrance: '체크인' },
   mapFocus: { label: '해안 · 러시안리버 확대', ll: [38.42, -122.97], km: 35 },
 

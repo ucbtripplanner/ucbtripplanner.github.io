@@ -109,13 +109,14 @@
         <h1 class="page-title">${esc(H.title)}</h1>
         <p class="page-desc">${md(H.desc)}</p>
         ${h2('🗂️', '여행')}
-        <div class="gallery gallery-lg">${H.trips.map((t) => `
+        <div class="gallery gallery-lg">${H.trips.filter((t) => !t.archived).map((t) => `
           <a class="gcard" href="${esc(t.href)}">${thumb(image(t.cover, HI), t.icon, t.title, t.badge)}
             <div class="gcard-body"><div class="gcard-title">${esc(t.icon)} ${esc(t.title)}</div>
             <div class="gcard-sub">${esc(t.when)}</div>${t.desc ? `<p class="gcard-text">${md(t.desc)}</p>` : ''}
             <div class="gcard-tags">${(t.tags || []).map((x) => tag(x[0], x[1])).join('')}</div></div></a>`).join('')}
         </div>
         ${hubCompare(H)}
+        ${hubArchived(H)}
         ${hubFooter()}
       </main>`;
     applyTheme(document.documentElement.dataset.theme);
@@ -123,12 +124,19 @@
   }
   // side-by-side comparison of the trip options (HUB.trips[i].compare)
   function hubCompare(H) {
-    const rows = H.trips.filter((t) => t.compare);
+    const rows = H.trips.filter((t) => t.compare && !t.archived);
     if (rows.length < 2) return '';
     const cols = [['drive', '🚗 편도'], ['cost', '💸 1인 경비'], ['highlights', '✨ 하이라이트'], ['thanksgiving', '🦃 Thanksgiving 디너'], ['risk', '⚠️ 주의'], ['bestFor', '👍 이런 사람에게']];
     return `${h2('⚖️', '한눈에 비교', H.compareNote ? esc(H.compareNote) : '')}
       <div class="table-wrap compare-table"><table class="dbtable"><thead><tr><th>여행</th>${cols.map((c) => `<th>${esc(c[1])}</th>`).join('')}</tr></thead>
       <tbody>${rows.map((t) => `<tr><td class="name-cell"><a class="row-open" href="${esc(t.href)}"><span class="row-emoji">${esc(t.icon)}</span><span>${esc(t.short || t.title)}${t.badge ? ` <span class="tag gray">${esc(t.badge)}</span>` : ''}</span></a></td>${cols.map((c) => `<td><div class="cell">${md(t.compare[c[0]] || '')}</div></td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
+  // trips set aside (HUB.trips[i].archived = { date, reason }) — kept reachable, folded away
+  function hubArchived(H) {
+    const a = H.trips.filter((t) => t.archived);
+    if (!a.length) return '';
+    return `<details class="more-block archived-block"><summary><span class="more-title">🗄️ 접어둔 후보 <span class="more-n">${a.length}</span></span><span class="more-hint">${esc(H.archivedHint || '이번엔 안 가기로 한 곳')}</span></summary>
+      <div class="more-body">${a.map((t) => `<a class="more-row" href="${esc(t.href)}"><span class="row-emoji">${esc(t.icon)}</span><span class="more-row-main"><b>${esc(t.title)}</b><span class="muted small">${md(t.archived.reason || '')}${t.archived.date ? ` · ${esc(t.archived.date)}` : ''}</span></span></a>`).join('')}</div></details>`;
   }
   function hubFooter() {
     const imgs = [...used.values()].filter((i) => i.credit);
@@ -176,7 +184,7 @@
   }
   function header() {
     return `${cover(img(P.cover))}<div class="page"><div class="page-icon">${esc(P.icon)}</div>
-      <h1 class="page-title">${esc(PAGE === 'home' ? T.title : P.title)}</h1>${P.desc ? `<p class="page-desc">${md(P.desc)}</p>` : ''}`;
+      <h1 class="page-title">${esc(PAGE === 'home' ? T.title : P.title)}</h1>${P.desc ? `<p class="page-desc">${md(P.desc)}</p>` : ''}${T.archived ? calloutBox({ icon: '🗄️', color: 'gray', title: `접어둔 후보예요${T.archived.date ? ` (${T.archived.date})` : ''}`, text: `${T.archived.reason || ''} 정보는 조사한 시점 그대로라 최신이 아닐 수 있어요. → [지금 후보 보기](/)` }) : ''}`;
   }
   function footer() {
     const imgs = [...used.values()].filter((i) => i.credit);

@@ -28,6 +28,7 @@ window.TRIP = {
   start: '2026-11-26',
   end: '2026-11-28',
   updated: '2026-11-11',
+  archived: { date: '11/11', reason: '레드우드 · 와이너리 · 해산물을 빼면 해안 절벽만 남는데 편도 4h15라서 이번엔 안 가기로 했어요.' },
   labels: { drive: '주요 스팟까지', season: '그 주', open: '체크인 조건', entrance: '체크인' },
   mapFocus: { label: '멘도시노 해안 확대', ll: [39.37, -123.79], km: 40 },
 

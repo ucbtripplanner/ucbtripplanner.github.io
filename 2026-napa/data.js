@@ -30,6 +30,7 @@ window.TRIP = {
   start: '2026-11-26',
   end: '2026-11-28',
   updated: '2026-11-11',
+  archived: { date: '11/11', reason: '핵심인 와이너리가 Thanksgiving엔 대부분 닫고, 가까워서 주말에 언제든 갈 수 있어서 이번엔 빼기로 했어요.' },
   labels: { drive: '주요 스팟까지', season: '목–토 영업', open: '체크인 조건', entrance: '체크인' },
   mapFocus: { label: '나파밸리 확대', ll: [38.45, -122.42], km: 35 },
 

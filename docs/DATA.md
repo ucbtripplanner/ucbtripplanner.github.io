@@ -18,6 +18,7 @@ After editing run `node tools/check_data.mjs`.
 | `pageOrder`, `pages` | see below | subpages + their covers |
 | `labels` | `{ drive: 'Valley까지', season: '11월 말', open: '11월 말 영업', entrance: '입구' }` | per-trip wording of a few property labels (defaults are generic) |
 | `mapFocus` | `{ label: 'Valley 확대', ll: [37.7456, -119.5936], km: 20, auto: false }` | the map's "🔍" button zooms to stops within `km` of `ll`; `auto: true` opens the map already zoomed there |
+| `archived` | `{ date: '11/11', reason: '…' }` | trip set aside: every page shows a gray "접어둔 후보" banner with the reason. Also set `archived` on its card in the root `index.html` (`HUB.trips[i]`) so it moves into the hub's collapsed "접어둔 후보" list and out of the comparison table; drop its pages from `PRECACHE` in `sw.js` |
 
 ### `pages`
 

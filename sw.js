@@ -5,7 +5,7 @@
  * Open every page once (with signal) before driving in, and they'll all open offline.
  * Bump VERSION if you change this file's caching rules.
  */
-const VERSION = 'utp-v3';
+const VERSION = 'utp-v4';
 const CORE = `${VERSION}-core`;
 const RUNTIME = `${VERSION}-rt`;
 const MAX_RUNTIME = 600;
@@ -14,11 +14,6 @@ const PRECACHE = [
   '/2026-yosemite/', '/2026-yosemite/course/', '/2026-yosemite/places/', '/2026-yosemite/stay/',
   '/2026-yosemite/food/', '/2026-yosemite/prep/',
   '/2026-yosemite/data.js', '/2026-yosemite/images.js', '/2026-yosemite/geo.js',
-  '/2026-la/', '/2026-la/course/', '/2026-la/places/', '/2026-la/stay/', '/2026-la/food/', '/2026-la/prep/',
-  '/2026-la/data.js', '/2026-la/images.js', '/2026-la/geo.js',
-  '/2026-mendocino/', '/2026-mendocino/course/', '/2026-mendocino/places/', '/2026-mendocino/stay/', '/2026-mendocino/food/', '/2026-mendocino/prep/', '/2026-mendocino/data.js', '/2026-mendocino/images.js', '/2026-mendocino/geo.js',
-  '/2026-napa/', '/2026-napa/course/', '/2026-napa/places/', '/2026-napa/stay/', '/2026-napa/food/', '/2026-napa/prep/', '/2026-napa/data.js', '/2026-napa/images.js', '/2026-napa/geo.js',
-  '/2026-sonoma-coast/', '/2026-sonoma-coast/course/', '/2026-sonoma-coast/places/', '/2026-sonoma-coast/stay/', '/2026-sonoma-coast/food/', '/2026-sonoma-coast/prep/', '/2026-sonoma-coast/data.js', '/2026-sonoma-coast/images.js', '/2026-sonoma-coast/geo.js',
   '/2026-monterey/', '/2026-monterey/course/', '/2026-monterey/places/', '/2026-monterey/stay/', '/2026-monterey/food/', '/2026-monterey/prep/', '/2026-monterey/data.js', '/2026-monterey/images.js', '/2026-monterey/geo.js',
 ];
 

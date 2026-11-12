@@ -4,15 +4,21 @@ Public trip-planning site for a group of friends, served by GitHub Pages at
 **https://ucbtripplanner.github.io** from the `main` branch of `ucbtripplanner/ucbtripplanner.github.io`.
 UI language is **Korean** (casual, friendly "~해요" tone). Talk to the user in the language they use.
 
-Trips (same dates — **Thu 11/26 – Sat 11/28/2026, fixed** — same group of 3 (+ maybe 1), driving from Berkeley; six alternatives):
-- **`2026-yosemite/`** — first-timers, classic Yosemite Valley course (120 in, 140 out).
-- **`2026-la/`** — classic LA course: I-5 down Thu (Santa Monica sunset, Thanksgiving dinner), Hollywood → DTLA → Griffith Fri,
-  US-101 coast home Sat (Santa Barbara · Solvang · Madonna Inn). Lodging base: Koreatown.
-- **`2026-mendocino/`** — Hwy 128 redwoods → Mendocino/Fort Bragg coast (headlands, Skunk Train, Glass Beach, Festival of Lights).
-- **`2026-napa/`** — Calistoga base: geyser, mud baths, Castello, Yountville/Oxbow (tastings 21+; designated driver rules).
-- **`2026-sonoma-coast/`** — Point Reyes → Bodega Bay/Sonoma Coast (seals, tide pools) → Russian River redwoods, Tomales Bay oysters.
-- **`2026-monterey/`** — Monterey Bay Aquarium, Asilomar/Pacific Grove, 17-Mile Drive, Carmel, Point Lobos + a Big Sur day.
-The hub (`index.html`) shows all six as 후보 A–F with a side-by-side "한눈에 비교" table (`HUB.trips[i].compare`).
+Trips (same dates — **Thu 11/26 – Sat 11/28/2026, fixed** — same group of 3 (+ maybe 1), driving from Berkeley).
+**Active shortlist (since 11/11): two candidates.**
+- **`2026-yosemite/`** (후보 A) — first-timers, Yosemite Valley: "하이킹은 하루 1개, 나머지는 구경" (120 in, 140 out).
+- **`2026-monterey/`** (후보 B) — Monterey Bay Aquarium, Moss Landing otters, Asilomar, Point Lobos + Big Sur day, 17-Mile, Carmel.
+
+**Archived (접어둔 후보, 11/11)** — `2026-la/`, `2026-mendocino/`, `2026-napa/`, `2026-sonoma-coast/`. Pages still work but show a
+"접어둔 후보" banner (`archived: { date, reason }` in their data.js); the hub lists them in a collapsed toggle
+(`HUB.trips[i].archived`) and leaves them out of the comparison table and the offline precache. Don't spend effort on them unless asked.
+
+**Group tastes (apply to every plan):** no seafood-centric meals (esp. oysters) · no redwood/sequoia groves (already seen, boring) ·
+wineries are not a draw · no museums, galleries, history tours, missions, architecture sightseeing. They like nature/scenery, wildlife
+(the aquarium is OK), golden-hour views, fun activities, non-seafood food (Korean welcome), ≤ one moderate hike per day.
+Disliked things may appear only as an `alts` option or rain fallback, never as a default slot or featured pick.
+
+The hub (`index.html`) shows the active trips as cards + a side-by-side "한눈에 비교" table (`HUB.trips[i].compare`).
 
 Each trip folder is self-contained; replace `2026-yosemite` with the trip you're editing in the paths below.
 

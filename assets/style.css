@@ -367,6 +367,12 @@ dialog.peek::backdrop { background: rgba(15, 15, 15, .32); }
 .more-hint { color: var(--text-3); font-size: 14px; }
 .more-body { padding: 0 18px 18px; }
 .more-body .views { margin-top: 0; }
+.archived-block { margin-top: 28px; }
+.more-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 8px; border-radius: 6px; color: inherit; text-decoration: none; border-top: 1px solid var(--line); }
+.more-row:first-child { border-top: 0; }
+.more-row:hover { background: var(--hover); }
+.more-row .row-emoji { font-size: 18px; line-height: 1.4; }
+.more-row-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 
 /* ================= compare / decisions ================= */
 .compare { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 8px 0; }

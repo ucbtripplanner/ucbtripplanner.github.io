@@ -28,6 +28,7 @@ window.TRIP = {
   start: '2026-11-26',
   end: '2026-11-28',
   updated: '2026-11-08',
+  archived: { date: '11/11', reason: '미술관 · 역사 건물 비중이 크고 운전이 길어서 (편도 6h · 귀가 8h) 이번엔 안 가기로 했어요.' },
   labels: { drive: '주요 스팟까지', season: '그 주', open: '체크인 조건', entrance: '체크인' },
   mapFocus: { label: 'LA만 보기', ll: [34.07, -118.33], km: 35, auto: true },
 

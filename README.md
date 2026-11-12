@@ -4,12 +4,12 @@
 
 | 여행 | 날짜 | 페이지 |
 |---|---|---|
-| 🏔️ Thanksgiving 2026 · Yosemite | 2026-11-26 (목) – 11-28 (토) | [/2026-yosemite/](https://ucbtripplanner.github.io/2026-yosemite/) |
-| 🌴 Thanksgiving 2026 · LA | 2026-11-26 (목) – 11-28 (토) | [/2026-la/](https://ucbtripplanner.github.io/2026-la/) |
-| 🌊 Thanksgiving 2026 · Mendocino · Fort Bragg | 2026-11-26 (목) – 11-28 (토) | [/2026-mendocino/](https://ucbtripplanner.github.io/2026-mendocino/) |
-| 🍇 Thanksgiving 2026 · Calistoga · Napa Valley | 2026-11-26 (목) – 11-28 (토) | [/2026-napa/](https://ucbtripplanner.github.io/2026-napa/) |
-| 🦭 Thanksgiving 2026 · Bodega Bay · Russian River | 2026-11-26 (목) – 11-28 (토) | [/2026-sonoma-coast/](https://ucbtripplanner.github.io/2026-sonoma-coast/) |
-| 🦦 Thanksgiving 2026 · Monterey · Carmel | 2026-11-26 (목) – 11-28 (토) | [/2026-monterey/](https://ucbtripplanner.github.io/2026-monterey/) |
+| 🏔️ **후보 A** · Yosemite | 2026-11-26 (목) – 11-28 (토) | [/2026-yosemite/](https://ucbtripplanner.github.io/2026-yosemite/) |
+| 🦦 **후보 B** · Monterey · Carmel | 2026-11-26 (목) – 11-28 (토) | [/2026-monterey/](https://ucbtripplanner.github.io/2026-monterey/) |
+| 🗄️ ~~LA~~ (접어둠) | 2026-11-26 (목) – 11-28 (토) | [/2026-la/](https://ucbtripplanner.github.io/2026-la/) |
+| 🗄️ ~~Mendocino · Fort Bragg~~ (접어둠) | 2026-11-26 (목) – 11-28 (토) | [/2026-mendocino/](https://ucbtripplanner.github.io/2026-mendocino/) |
+| 🗄️ ~~Calistoga · Napa Valley~~ (접어둠) | 2026-11-26 (목) – 11-28 (토) | [/2026-napa/](https://ucbtripplanner.github.io/2026-napa/) |
+| 🗄️ ~~Bodega Bay · Russian River~~ (접어둠) | 2026-11-26 (목) – 11-28 (토) | [/2026-sonoma-coast/](https://ucbtripplanner.github.io/2026-sonoma-coast/) |
 
 ## 수정하는 법
 
