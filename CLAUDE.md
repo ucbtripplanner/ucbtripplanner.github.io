@@ -4,10 +4,15 @@ Public trip-planning site for a group of friends, served by GitHub Pages at
 **https://ucbtripplanner.github.io** from the `main` branch of `ucbtripplanner/ucbtripplanner.github.io`.
 UI language is **Korean** (casual, friendly "~해요" tone). Talk to the user in the language they use.
 
-Trips (same dates — **Thu 11/26 – Sat 11/28/2026, fixed** — same group of 3 (+ maybe 1), driving from Berkeley; two alternatives):
+Trips (same dates — **Thu 11/26 – Sat 11/28/2026, fixed** — same group of 3 (+ maybe 1), driving from Berkeley; six alternatives):
 - **`2026-yosemite/`** — first-timers, classic Yosemite Valley course (120 in, 140 out).
 - **`2026-la/`** — classic LA course: I-5 down Thu (Santa Monica sunset, Thanksgiving dinner), Hollywood → DTLA → Griffith Fri,
   US-101 coast home Sat (Santa Barbara · Solvang · Madonna Inn). Lodging base: Koreatown.
+- **`2026-mendocino/`** — Hwy 128 redwoods → Mendocino/Fort Bragg coast (headlands, Skunk Train, Glass Beach, Festival of Lights).
+- **`2026-napa/`** — Calistoga base: geyser, mud baths, Castello, Yountville/Oxbow (tastings 21+; designated driver rules).
+- **`2026-sonoma-coast/`** — Point Reyes → Bodega Bay/Sonoma Coast (seals, tide pools) → Russian River redwoods, Tomales Bay oysters.
+- **`2026-monterey/`** — Monterey Bay Aquarium, Asilomar/Pacific Grove, 17-Mile Drive, Carmel, Point Lobos + a Big Sur day.
+The hub (`index.html`) shows all six as 후보 A–F with a side-by-side "한눈에 비교" table (`HUB.trips[i].compare`).
 
 Each trip folder is self-contained; replace `2026-yosemite` with the trip you're editing in the paths below.
 
@@ -27,7 +32,7 @@ Each trip folder is self-contained; replace `2026-yosemite` with the trip you're
 index.html              hub (trip list + inline cover images; add new trips here)
 assets/style.css, trip.js
 sw.js                   service worker (offline)
-2026-yosemite/, 2026-la/   (same layout)
+2026-*/ (yosemite, la, mendocino, napa, sonoma-coast, monterey — same layout)
   data.js               ✏️ THE content file
   images.json → images.js    photo registry (generated)
   routes.json → geo.js       map driving routes (generated)
@@ -102,7 +107,8 @@ Copy `2026-yosemite/` to e.g. `2027-tahoe/`, rewrite `data.js` (`id`, `base: '/2
 pages, content), `images.json`, `routes.json`; run `build_images.py`, `build_routes.py`, `gen_pages.mjs`, `check_data.mjs`
 (each with the trip folder as argument); add a card to `window.HUB.trips` in the root `index.html` (cover as an inline image
 object); add the new pages to `PRECACHE` in `sw.js` and bump `VERSION`. The 2026-la trip was built this way:
-research agents → itinerary judge → section writers → adversarial fact-check (see `2026-la/research/`).
+research agents → itinerary judge → section writers (`_build/` fragments → `python3 tools/assemble_build.py <trip>`) →
+adversarial fact-check → fixer (see `<trip>/research/README.md`). The four trips added on 11/10–11 used one workflow for all of it.
 
 ## Repo access
 

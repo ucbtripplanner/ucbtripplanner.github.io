@@ -6,10 +6,14 @@
 |---|---|---|
 | 🏔️ Thanksgiving 2026 · Yosemite | 2026-11-26 (목) – 11-28 (토) | [/2026-yosemite/](https://ucbtripplanner.github.io/2026-yosemite/) |
 | 🌴 Thanksgiving 2026 · LA | 2026-11-26 (목) – 11-28 (토) | [/2026-la/](https://ucbtripplanner.github.io/2026-la/) |
+| 🌊 Thanksgiving 2026 · Mendocino · Fort Bragg | 2026-11-26 (목) – 11-28 (토) | [/2026-mendocino/](https://ucbtripplanner.github.io/2026-mendocino/) |
+| 🍇 Thanksgiving 2026 · Calistoga · Napa Valley | 2026-11-26 (목) – 11-28 (토) | [/2026-napa/](https://ucbtripplanner.github.io/2026-napa/) |
+| 🦭 Thanksgiving 2026 · Bodega Bay · Russian River | 2026-11-26 (목) – 11-28 (토) | [/2026-sonoma-coast/](https://ucbtripplanner.github.io/2026-sonoma-coast/) |
+| 🦦 Thanksgiving 2026 · Monterey · Carmel | 2026-11-26 (목) – 11-28 (토) | [/2026-monterey/](https://ucbtripplanner.github.io/2026-monterey/) |
 
 ## 수정하는 법
 
-**여행마다 내용은 전부 `<여행 폴더>/data.js` 한 파일에 있어요** (`2026-yosemite/data.js`, `2026-la/data.js`).
+**여행마다 내용은 전부 `<여행 폴더>/data.js` 한 파일에 있어요** (예: `2026-la/data.js`). 메인 페이지의 **한눈에 비교** 표는 `index.html`의 `compare`.
 
 - **GitHub 웹에서:** 사이트 오른쪽 위 ✏️ → `data.js` 편집 → Commit. 1–2분 뒤 반영.
 - **Claude Code로:** 이 레포를 열고 "숙소 Cedar Lodge 예약 완료로 바꿔줘", "이 식당 추가해줘", "출발 전에 도로 상황 다시 확인해줘"처럼 말하면 돼요. 에이전트용 가이드는 [`CLAUDE.md`](CLAUDE.md)에 있어요 (다른 에이전트는 [`AGENTS.md`](AGENTS.md)).
@@ -17,14 +21,14 @@
   - 찜하기 → 항목의 `votes: ['mk', 'ms', 'jp']`
   - 숙소 상태 → `status: 'cand' | 'top' | 'booked' | 'full' | 'na' | 'closed'`
   - 할 일 완료 → `done: true`
-- 수정 후 확인: `node tools/check_data.mjs 2026-la` (또는 `2026-yosemite`) → `✓ OK`
+- 수정 후 확인: `node tools/check_data.mjs <여행 폴더>` (예: `2026-napa`) → `✓ OK`
 
-필드 설명은 [`docs/DATA.md`](docs/DATA.md), 출처가 달린 리서치 노트와 출발 전 확인 목록은 [`2026-yosemite/research/`](2026-yosemite/research/).
+필드 설명은 [`docs/DATA.md`](docs/DATA.md), 출처가 달린 리서치 노트와 출발 전 확인 목록(`OPEN_QUESTIONS.md`)은 각 여행 폴더의 `research/`에 있어요.
 
 ## 로컬에서 보기
 
 ```sh
-python3 tools/serve.py          # → http://127.0.0.1:8765/2026-yosemite/
+python3 tools/serve.py          # → http://127.0.0.1:8765/
 ```
 
 ## 구조
@@ -32,14 +36,14 @@ python3 tools/serve.py          # → http://127.0.0.1:8765/2026-yosemite/
 ```
 index.html               여행 목록 (메인)
 assets/style.css, trip.js 공통 디자인 + 렌더러 (data.js → 화면)
-sw.js                    오프라인 캐시 (요세미티는 신호가 거의 없어요)
-2026-yosemite/
+sw.js                    오프라인 캐시 (공원·해안은 신호가 약해요)
+2026-*/                  여행마다 같은 구조 (yosemite, la, mendocino, napa, sonoma-coast, monterey)
   data.js                ✏️ 여행 내용 전부
   images.json → images.js   사진 목록 (Wikimedia Commons, 라이선스 자동 표시)
   routes.json → geo.js      지도 운전 경로
   index.html, course/ …     페이지 껍데기 (tools/gen_pages.mjs가 생성)
   research/              리서치 노트 · OPEN_QUESTIONS.md
-tools/                   사진 찾기 · 좌표 · 검증 · 미리보기 · 스크린샷 스크립트
+tools/                   사진 찾기 · 좌표 · 검증 · 미리보기 · 스크린샷 · 조립 스크립트
 docs/DATA.md             data.js 필드 설명
 .claude/                 Claude Code 설정 · 작업 스킬
 ```

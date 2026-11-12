@@ -1,0 +1,144 @@
+# Open questions — Napa Valley · Calistoga (Thu 11/26 – Sat 11/28/2026)
+
+Research ran 2026-11-10 → 11-11, followed by an adversarial cross-check and fixes on 11/11. When you confirm something here, update `../data.js` and tick it off.
+All prices are snapshots from 11/10–11.
+
+## Book / decide now (11/11–14)
+- [ ] **UpValley Inn & Hot Springs** (Booking.com, standard 2 queens).
+  - Rate: **"No prepayment · pay at the property · Free cancellation before Nov 23"**.
+  - Price: 2 nights $738 (3 people) / $758 (4 people) before tax, about **$850 / $873** all-in.
+  - The room showed **"1 left"** at 11/11 10:50.
+  - The booker must be **21+** (Booking).
+  - Don't pick a Partner Offer or prepaid rate.
+  - Booking.com and Choice blocked the automated re-check, so confirm the price and terms in the confirmation email.
+- [ ] (Optional) **Inn at the Vines**: hold it at no cost (about $435, free cancellation until 11/25 16:00). This is V1, the fallback if nobody in the group is 21+.
+  - Booking lists **no** age rule, and that does not mean there is no restriction. Phone to confirm the minimum check-in age.
+- [ ] **Thanksgiving dinner:** Calistoga Inn & Brewery, Thu 18:00 on Resy (V1: 15:00). It is $95 for 3 courses, with a 3% credit-card surcharge.
+  - Backup: Evangeline, $89, mostly an outdoor heated tent, Thanksgiving time not posted.
+  - Backup: Lovina, $125 with service included.
+  - Backup: Sam's Social Club, $110, phone only; the page still has 2024 text saying $95.
+- [ ] **Golden Haven mud bath**, by phone only at (707) 942-8000. Book Thu 14:00 (V1: **13:00**) as one 2-person room plus one single. With 4 people, book two 2-person rooms.
+  - Ask whether they are open on Thanksgiving.
+  - Ask whether spa guests can park.
+  - The cancellation policy is 72 hours.
+- [ ] **Castello di Amorosa**, Fri 10:00 Tasting Experience, by about 11/14.
+  - Every person's name goes on the booking.
+  - Online fee $4.95. Full refund up to 24 h before.
+  - Re-check the $60 / $25 prices in the booking widget.
+- [ ] (Optional) Five Senses Fri 18:30 (Resy) · Ad Hoc Sat 11:30 lunch (V8, Resy).
+
+## Deadlines
+- **11/17**: Calistoga Motor Lodge charges the card.
+- **11/18**: last free cancellation for CML and Jack London Lodge.
+- **11/20 (Fri)**: decide headcount (3 or 4) and base (UpValley or V1).
+  - Update the hotel, Calistoga Inn, Golden Haven, Castello and Five Senses bookings.
+  - Cancel the hotel you won't use.
+- **11/22**: last free cancellation for UpValley. Booking says "before Nov 23", which means the last free day is 11/22. Same date for Stevenson Manor, Napa Valley Hotel & Suites, GoodSpring and BW Garden Inn.
+- **Mon 11/23, 14:00: Golden Haven change or cancel cutoff** (72-hour policy for a Thu 14:00 booking).
+  - If rain means moving to V2 (Fri 09:15), decide before this.
+  - If the booking is already Fri 09:15, the cutoff is Tue 11/24 09:15.
+  - Same-day cancellation or no-show = full price. That's about $445 for 3 people or $552 for 4.
+- **11/25**: Inn at the Vines and Holiday Inn Express (16:00), and DoubleTree (any time before the arrival day).
+- **Castello**: changes are free until 24 h before (Thu 11/26 10:00).
+
+## Check before departure (11/19–25)
+- [ ] **Old Faithful:** Thanksgiving hours. The site says "Holiday hours may vary"; call (707) 942-6463.
+- [ ] **V. Sattui:** Thanksgiving hours. The site only says "Open Daily (except for Christmas Day)".
+  - Ask whether the deli and picnic area work without a tasting reservation.
+  - If it is closed, buy food at **Napa Safeway, Jefferson St** (open Thanksgiving until 18:00) and picnic at Old Faithful, which allows outside picnics.
+- [ ] **Golden Haven** (before 11/23 14:00): confirm Thanksgiving opening and spa-guest parking.
+  - If spa guests can't park, ask UpValley whether you can park or drop bags before the 16:00 check-in.
+  - The "Why Wait?" 12:30 early check-in exists; its price is unverified.
+- [ ] **Minimum check-in age** at Inn at the Vines, DoubleTree and CML, needed only if nobody in the group is 21+. Booking lists none, and the official Best Western and Hilton pages blocked automated checks.
+- [ ] **Castello**:
+  - The $60 adult / $25 ages 2–20 prices come from a 2026-05-16 Wayback copy; check them in the widget.
+  - The FAQ says $25 is General Admission with a cup of grape juice. Check whether the Libero non-alcoholic flight is included.
+- [ ] **Calistoga Shuttle on Fri 11/27.** It is not on Vine's holiday list. The normal Friday service is 7–21, with Castello and Bothe in its area.
+  - UpValley guests get free passes at check-in.
+- [ ] **Dinner walk:** UpValley (1865 Lincoln Ave) → Calistoga Inn (1250 Lincoln Ave), about 15 min.
+  - Lincoln Ave is SR-29 here.
+  - It is UNVERIFIED whether the sidewalk is continuous, including across the Napa River bridge. Check Street View.
+- [ ] **Weather:**
+  - NWS Calistoga forecast (covers 11/26 from about 11/19).
+  - CPC 3–4 week outlook (11/13, 11/20).
+  - If rain is forecast, use V3. Before 11/23 14:00, also decide whether to move the mud bath (V2).
+- [ ] **Traffic:**
+  - AAA/INRIX 2026 Thanksgiving forecast (about 11/17). The site uses the 2025 pattern, where Saturday 13–20 is worst and the plan leaves at 13:45, inside that window.
+  - The 52 min Oxbow → Berkeley time is free-flow OSRM. "1h–1h20" is an estimate.
+  - Pitt at Cal (Berkeley, Sat 11/28): kickoff time.
+- [ ] **Roads:**
+  - Caltrans QuickMap for I-80 / SR-37 / SR-29 / SR-12. The SR-29 Vallejo paving was "expected to be complete by November 9".
+  - CHP 2026 holiday enforcement period.
+- [ ] **Fire, air and power:**
+  - PG&E PSPS Address Alerts for 1865 Lincoln Ave.
+  - Spare the Air alerts.
+  - AirNow / CAL FIRE.
+- [ ] **Thursday hours still UNVERIFIED:**
+  - Petrified Forest, Sterling, CIA Greystone.
+  - Gott's, Model Bakery, Bouchon Bakery, Oakville Grocery, Cal Mart, Café Sarafornia, Buster's, Daikon.
+  - Oxbow (closed on Thanksgiving 2025).
+- [ ] **Other UNVERIFIED:**
+  - Balloon (V7) holiday price and check-in time.
+  - Sharpsteen Museum hours and fee.
+  - Calistoga street-parking rules.
+  - Oxbow parking fee.
+
+## Corrections from the cross-check (don't reintroduce)
+- **Golden Haven cancellation:**
+  - The official page says "Please be aware of our **72-hours cancellation policy** … cancel the same day will be charged the full treatment price".
+  - Don't write "only same-day = full" or "72시간?".
+  - itinerary.md's "No 72-h text found" is wrong.
+- **Golden Haven duration:** the Mud Bath Experience is "an hour-long, 3 step treatment", so a 14:00 start ends about 15:00. A 15:00 dinner after a 14:00 mud bath doesn't work.
+- **V1 timing:**
+  - The mud bath is at **13:00**, dinner at 15:00, and the group must **leave Calistoga by 16:10** (SR-29, 35 min, arriving about 16:45).
+  - Leaving at 16:35 means arriving about 17:10, which is **after** the 16:51 sunset (USNO; civil twilight ends about 17:20).
+  - Never write "16:35 출발 · 해 지기 전".
+- **Vine on Thanksgiving:**
+  - No Vine buses, Calistoga Shuttle or St. Helena Shuttle.
+  - The **Yountville Bee "special service may operate"**, so don't write "Bee 포함 전부 X".
+  - On Fri 11/27, local routes run a Saturday schedule.
+- **Calistoga Welcome Center:** 1457 Lincoln Ave, daily 10–16, closed on major holidays (visitcalistoga.com/welcome-center).
+- **Napa Valley Museum Yountville:**
+  - Wed–Sun 10–16. Adults $20, youth $10. Closed on Thanksgiving.
+  - Mary Blair runs through 1/10.
+  - Not "시간 · 요금 미확인".
+- **Five Senses:**
+  - The official 10/12 menu PDF has prices: rolls $12–28, bowls $25, ramen $28, bento $32, chirashi $40, sashimi $50/$100. That's about $40–65 per person with tax and tip.
+  - There is a 3% credit-card surcharge.
+  - Hours are Wed–Sun 16–20:30.
+- **Castello $25 for ages 2–20:** this is "General Admission … includes a cup of grape juice" (FAQ). Don't call it "$25 무알코올 Libero". Libero is the non-alcoholic option inside the Tasting Experience; whether $25 includes it is unconfirmed.
+- **Age rules:** Booking simply doesn't list an age rule for Inn at the Vines or CML, and the research has nothing on DoubleTree. Write "표기 없음 / 미확인 → 전화", never "나이 제한 없음".
+- **Free parking:**
+  - Confirmed on the official sites only for UpValley ("complimentary self-parking") and CML.
+  - Inn at the Vines and DoubleTree = Booking only.
+  - Don't write "추천 4곳은 주차 무료".
+- **Golden Haven parking:**
+  - Spa-guest parking is UNVERIFIED.
+  - "Walk over from UpValley" doesn't fit Thursday: the car arrives with the luggage at 13:30, and check-in is 16:00.
+- **Saturday return:**
+  - The 13:45 departure is **inside** the AAA 2025 worst window (Sat 13–20).
+  - "~14:45–15:05 도착" is an estimate.
+  - Don't write "정체 전에 내려와요".
+- **UpValley price claim:** it is the cheapest refundable **2-queen** room in Calistoga, not the cheapest refundable room. Stevenson Manor (1 king, max 3, about $837) is cheaper.
+- **UpValley shuttle:** guests get **complimentary Calistoga Shuttle passes** at check-in (FAQ). The shuttle is door-to-door, with a 10–30 min wait.
+- **Balloon (V7):** the pre-dawn drive from UpValley to Vintner's Golf Club (7901 Solano Ave) is **~26 min** (OSRM), not 22 min (22 min is to Bouchon Bakery).
+- **Wine Train (11/11):**
+  - Thanksgiving is "From $449.69".
+  - **Gourmet Express Lunch is "From $248.80"**, not $337.43.
+  - Santa's Cookie Car is "From $143.59".
+  - Prices are dynamic.
+- **Budget:**
+  - Columns:
+    - 아끼면 = V1 + no mud bath + Calistoga Inn at 15:00 + Oxbow on Friday night.
+    - 보통 = the default plan.
+    - 여유 = CML + Indian Springs + Ad Hoc.
+  - Don't pair V1 with Evangeline (no posted Thanksgiving time, dinner from 17:00) or Buster's (Calistoga, so a 35-min night drive).
+  - The food total includes Sarafornia, Model Bakery and Five Senses. The mud bath includes an 18–20% tip (estimate).
+  - Totals for 3 people: about $475–550 / $850–920 / $1,090–1,200. For 4 people, 보통 is about $770–840.
+- **Lincoln Ave is SR-29:** in Calistoga, SR-29 runs along Lincoln Ave between Foothill Blvd and Silverado Trail (cahighways.org/ROUTE029). The dinner walk is on the SR-29 sidewalk, so say "인도로만". Don't contrast it with "SR-29 갓길".
+- **Thursday lunch fallback:** V. Sattui's Thanksgiving hours are unposted, and Oakville Grocery's are unverified. The confirmed fallback is Napa Safeway (Thu until 18:00), then a picnic at Old Faithful ("Bring a picnic … we provide glasses, utensils and napkins").
+- **Photos:**
+  - Golden Haven uses the official mud-tub image (`mud-baths-2.jpg`), not the facial close-up.
+  - Inn at the Vines and DoubleTree cards have **no photo**. The earlier Downtown Napa street and American Canyon sign photos weren't the hotels, and both official sites block og:image fetches.
+  - The stay cover is now Lincoln Ave near Calistoga Inn. The places cover is an autumn Napa panorama, so it no longer repeats the first card.
+- **De-duplication:** full UpValley booking instructions live only in the UpValley stay card (caveat). Toll payment details live on the prep page. Other places link there.

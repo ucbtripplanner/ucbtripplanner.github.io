@@ -1,0 +1,254 @@
+{
+ "food-grotto": {
+  "src": "https://wsrv.nl/?url=www.oldfishermansgrotto.com/wp-content/uploads/2025/04/old-fishermans-grotto-outside-d.webp&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.oldfishermansgrotto.com/",
+  "title": "Old Fisherman's Grotto 외관 (Fisherman's Wharf)"
+ },
+ "food-sardine-factory": {
+  "file": "Sardine_Factory_-_panoramio.jpg",
+  "title": "The Sardine Factory, Cannery Row"
+ },
+ "food-peter-bs": {
+  "src": "https://wsrv.nl/?url=www.portolahotel.com/images/content/dining/peter-bs/about/peter-exterior.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.portolahotel.com/dining/peter-bs-brewpub",
+  "title": "Peter B's Brewpub 파티오"
+ },
+ "food-carmel-bakery": {
+  "file": "Schweinger_Building_(Carmel_Bakery),_Carmel-by-the-Sea,_California.jpg",
+  "title": "Carmel Bakery (Schweinger Building), Ocean Ave"
+ },
+ "food-nepenthe": {
+  "file": "View_from_Nepenthe.jpg",
+  "title": "Nepenthe에서 본 빅서 해안"
+ },
+ "food-fish-house": {
+  "src": "https://wsrv.nl/?url=montereyfishhouse.com/wp-content/uploads/2026/07/IMG_8909.jpeg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://montereyfishhouse.com/",
+  "title": "Monterey's Fish House 오이스터 바",
+  "pos": "center 70%"
+ },
+ "food-korea-house": {
+  "file": "Hot_stone_pot_bibimbap_with_beef_(Bulgogi_dolsot_bibimbap)_-_Kogi_2023-10-16.jpg",
+  "title": "돌솥비빔밥 (예시 사진)"
+ },
+ "food-tuck-box": {
+  "file": "Tuck_Box_and_patio.jpg",
+  "title": "The Tuck Box, Carmel-by-the-Sea"
+ },
+ "food-phils": {
+  "src": "https://wsrv.nl/?url=img1.wsimg.com/isteam/ip/769753cc-0386-4f35-aa63-aa00aaa8da04/philsfishmarket_cioppino02.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://philsfishmarket.com/",
+  "title": "Phil's Fish Market 치오피노"
+ },
+ "food-asilomar-dinner": {
+  "file": "Crocker_Dining_Hall.jpg",
+  "title": "Crocker Dining Hall, Asilomar"
+ },
+ "food-mission-ranch": {
+  "file": "2015-09-18_Mission_Ranch_Restaurant,_Carmel.jpg",
+  "title": "Mission Ranch Restaurant, Carmel"
+ },
+ "food-gayles": {
+  "src": "https://wsrv.nl/?url=www.gaylesbakery.com/wp-content/uploads/2023/08/homepage-hero-original.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.gaylesbakery.com/",
+  "title": "Gayle's Bakery, Capitola"
+ },
+ "food-big-sur-bakery": {
+  "file": "Apricot_strudel_at_Big_Sur_Bakery.jpg",
+  "title": "Big Sur Bakery 살구 슈트루델"
+ },
+ "food-ttobongee": {
+  "file": "Yangnyeom_Chicken_Korean_fried_chicken.jpg",
+  "title": "양념치킨 (예시 사진)"
+ },
+ "cover-home": {
+  "file": "Lone_Cypress_17-Mile_Drive_2013.jpg",
+  "title": "Lone Cypress, 17-Mile Drive",
+  "pos": "center 55%"
+ },
+ "cover-course": {
+  "file": "Bixby_Creek_Bridge,_California,_USA_-_May_2013.jpg",
+  "title": "Bixby Creek Bridge, Big Sur",
+  "pos": "center 45%"
+ },
+ "cover-places": {
+  "file": "Point_Lobos_3.jpg",
+  "title": "Point Lobos State Natural Reserve",
+  "pos": "center 50%"
+ },
+ "cover-stay": {
+  "file": "Wooden_pathway_at_the_Asilomar_State_Beach.jpg",
+  "title": "Asilomar State Beach 모래언덕 보드워크",
+  "pos": "center 65%"
+ },
+ "cover-food": {
+  "file": "Old_Fisherman's_Wharf,_Monterey,_California_LCCN2013630517.tif",
+  "title": "Old Fisherman's Wharf, Monterey",
+  "pos": "center 60%"
+ },
+ "cover-prep": {
+  "file": "Central_Californian_Coastline,_Big_Sur_-_May_2013.jpg",
+  "title": "Highway 1 빅서 해안",
+  "pos": "center 50%"
+ },
+ "moss-landing": {
+  "file": "Moss_Landing_sea_otters_(48749700123).jpg",
+  "title": "Moss Landing 해달 무리"
+ },
+ "aquarium": {
+  "file": "Monterey_Bay_Aquarium_Kelp_Forest_exhibit_11.jpg",
+  "title": "Monterey Bay Aquarium · Kelp Forest"
+ },
+ "pg-coast": {
+  "file": "Lovers_Point_Park_-_Pacific_Grove,_CA_-_DSC06531.JPG",
+  "title": "Lovers Point, Pacific Grove"
+ },
+ "asilomar-beach": {
+  "file": "Asilomar_State_Beach_-_2023-02-22_-_1.jpg",
+  "title": "Asilomar State Beach 석양",
+  "pos": "center 60%"
+ },
+ "fishermans-wharf": {
+  "file": "Fisherman's_Wharf_Monterey_September_2013_003.jpg",
+  "title": "Old Fisherman's Wharf, Monterey"
+ },
+ "point-lobos": {
+  "file": "Point_Lobos_September_2012_003.jpg",
+  "title": "Point Lobos State Natural Reserve"
+ },
+ "bixby-bridge": {
+  "file": "Bixby_Creek_Bridge_2013.jpg",
+  "title": "Bixby Creek Bridge, Big Sur"
+ },
+ "mcway-falls": {
+  "file": "McWay_Falls_Big_Sur_May_2011_002.jpg",
+  "title": "McWay Falls, Julia Pfeiffer Burns SP"
+ },
+ "carmel-village": {
+  "file": "Carmel-by-the-Sea_32.jpg",
+  "title": "Carmel-by-the-Sea 동화풍 집"
+ },
+ "carmel-beach": {
+  "file": "Sunset_-_Carmel_Beach,_California_-_DSC07159.JPG",
+  "title": "Carmel Beach 석양"
+ },
+ "cannery-row": {
+  "file": "DSC26380,_Cannery_Row,_Monterey,_California,_USA_(5797352420).jpg",
+  "title": "Cannery Row, Monterey"
+ },
+ "seventeen-mile": {
+  "file": "17-Mile_Drive_Bird_Rock_02_2013.jpg",
+  "title": "17-Mile Drive · Bird Rock 바다사자"
+ },
+ "carmel-mission": {
+  "file": "Mission_San_Carlos_Borromeo_(2025).jpg",
+  "title": "Carmel Mission Basilica"
+ },
+ "elkhorn-slough-safari": {
+  "file": "Harbor_or_Pacific_Common_Seal_-_Phoca_vitulina_richardsi,_Elkhorn_Slough,_Moss_Landing,_California.jpg",
+  "title": "Elkhorn Slough 물범 (Moss Landing)"
+ },
+ "natural-bridges": {
+  "file": "Natural_bridges_state_beach_Santa_Cruz_California.jpg",
+  "title": "Natural Bridges State Beach, Santa Cruz"
+ },
+ "garrapata": {
+  "file": "Garrapata_State_Park_Soberanes_Point_2019.jpg",
+  "title": "Garrapata SP · Soberanes Point"
+ },
+ "pfeiffer-big-sur": {
+  "file": "Big_Sur_-_Redwoods.JPG",
+  "title": "Big Sur 레드우드"
+ },
+ "whale-watch": {
+  "file": "Humpback_Whale_Fluke.jpg",
+  "title": "Monterey Bay 혹등고래"
+ },
+ "pg-museum": {
+  "file": "Pacific_Grove_Museum_of_Natural_History,_January_2016.jpg",
+  "title": "Pacific Grove Museum of Natural History"
+ },
+ "point-pinos": {
+  "file": "Lighthouse_California-06613_-_Point_Pinos_Lighthouse_(21542810640).jpg",
+  "title": "Point Pinos Lighthouse"
+ },
+ "pg-monarch": {
+  "file": "Monarch_Butterflies_Overwintering_in_Pacific_Grove,_California_(31524122682).jpg",
+  "title": "Pacific Grove 제왕나비 월동"
+ },
+ "tor-house": {
+  "file": "Tor_House_and_Hawk_Tower.jpg",
+  "title": "Tor House & Hawk Tower"
+ },
+ "carmel-river-beach": {
+  "file": "Carmel_River_State_Beach_view_from_Scenic_Road.jpg",
+  "title": "Carmel River State Beach"
+ },
+ "point-sur": {
+  "file": "Point_Sur_Light_Station_–_the_rock.jpg",
+  "title": "Point Sur Light Station"
+ },
+ "monterey-shp": {
+  "file": "Custom_House_Monterey,_CA_(cropped).jpg",
+  "title": "Custom House, Monterey State Historic Park"
+ },
+ "santa-cruz-boardwalk": {
+  "file": "Santa_Cruz_Beach_Boardwalk_2018.jpg",
+  "title": "Santa Cruz Beach Boardwalk"
+ },
+ "pfeiffer-beach": {
+  "file": "Pfeiffer_Beach_-_Keyhole_Arch_-_panoramio.jpg",
+  "title": "Pfeiffer Beach · Keyhole Arch"
+ },
+ "andrew-molera": {
+  "file": "Andrew_molera_state_park.jpg",
+  "title": "Andrew Molera State Park"
+ },
+ "steinbeck-center": {
+  "file": "National_Steinbeck_Center_-_Salinas,_California.jpg",
+  "title": "National Steinbeck Center, Salinas"
+ },
+ "stay-asilomar": {
+  "file": "California-06573_-_Main_Reception_Building_(21719205552).jpg",
+  "title": "Asilomar 메인 리셉션 건물",
+  "pos": "center 60%"
+ },
+ "stay-ramada": {
+  "src": "https://wsrv.nl/?url=www.wyndhamhotels.com/content/dam/property-images/en-us/ra/us/ca/monterey/02163/02163_exterior_day_1.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.wyndhamhotels.com/ramada/monterey-california/ramada-monterey/rooms-rates",
+  "title": "Ramada Monterey 외관 (N Fremont St)"
+ },
+ "stay-days-inn-fw": {
+  "src": "https://wsrv.nl/?url=www.wyndhamhotels.com/content/dam/property-images/en-us/di/us/ca/monterey/04963/04963_exterior_day_1.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.wyndhamhotels.com/days-inn/monterey-california/days-inn-monterey-fishermans-wharf-aquarium/overview",
+  "title": "Days Inn Fisherman's Wharf 외관 (Munras Ave)"
+ },
+ "stay-villa-franca": {
+  "src": "https://wsrv.nl/?url=www.villafrancainn.com/site/assets/files/10909/budget_downtown_monterey_hotel.1200x0.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.villafrancainn.com/",
+  "title": "Villa Franca Inn 파이어핏 마당"
+ },
+ "stay-deer-haven": {
+  "src": "https://wsrv.nl/?url=deerhaveninn.com/wp-content/uploads/2011/08/xp3-dot-us_DSC_7709-1-1.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://www.deerhaveninn.com/",
+  "title": "Deer Haven Inn 입구 (Crocker Ave)"
+ }
+}

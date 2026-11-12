@@ -18,6 +18,7 @@
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => (
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   // tiny inline markup: **bold**, `code`, [text](https://url) or [text](/internal/path)
+  const plain = (s) => String(s || '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\[([^\]]+)\]\([^)\s]+\)/g, '$1');
   const md = (s) => esc(s)
     .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -114,10 +115,20 @@
             <div class="gcard-sub">${esc(t.when)}</div>${t.desc ? `<p class="gcard-text">${md(t.desc)}</p>` : ''}
             <div class="gcard-tags">${(t.tags || []).map((x) => tag(x[0], x[1])).join('')}</div></div></a>`).join('')}
         </div>
+        ${hubCompare(H)}
         ${hubFooter()}
       </main>`;
     applyTheme(document.documentElement.dataset.theme);
     return;
+  }
+  // side-by-side comparison of the trip options (HUB.trips[i].compare)
+  function hubCompare(H) {
+    const rows = H.trips.filter((t) => t.compare);
+    if (rows.length < 2) return '';
+    const cols = [['drive', '🚗 편도'], ['cost', '💸 1인 경비'], ['highlights', '✨ 하이라이트'], ['thanksgiving', '🦃 Thanksgiving 디너'], ['risk', '⚠️ 주의'], ['bestFor', '👍 이런 사람에게']];
+    return `${h2('⚖️', '한눈에 비교', H.compareNote ? esc(H.compareNote) : '')}
+      <div class="table-wrap compare-table"><table class="dbtable"><thead><tr><th>여행</th>${cols.map((c) => `<th>${esc(c[1])}</th>`).join('')}</tr></thead>
+      <tbody>${rows.map((t) => `<tr><td class="name-cell"><a class="row-open" href="${esc(t.href)}"><span class="row-emoji">${esc(t.icon)}</span><span>${esc(t.short || t.title)}${t.badge ? ` <span class="tag gray">${esc(t.badge)}</span>` : ''}</span></a></td>${cols.map((c) => `<td><div class="cell">${md(t.compare[c[0]] || '')}</div></td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
   function hubFooter() {
     const imgs = [...used.values()].filter((i) => i.credit);
@@ -215,7 +226,7 @@
     }
     const v = votesHtml(it.votes);
     return `<button type="button" class="gcard" data-peek="${kind}:${esc(it.id)}">${thumb(im, it.emoji || KINDS[kind].emoji, it.name, badgeOverride || it.badge)}
-      <div class="gcard-body"><div class="gcard-title">${esc(it.name)}</div>${sub ? `<div class="gcard-sub">${esc(sub)}</div>` : ''}
+      <div class="gcard-body"><div class="gcard-title">${esc(it.name)}</div>${sub ? `<div class="gcard-sub">${esc(plain(sub))}</div>` : ''}
       <div class="gcard-tags">${tags}</div>${it.summary ? `<p class="gcard-text">${md(it.summary)}</p>` : ''}${line}${v ? `<div class="gcard-foot">${v}</div>` : ''}</div></button>`;
   }
 
@@ -463,7 +474,7 @@
 
     const pinIcon = (n, color) => L.divIcon({ className: '', html: `<div class="pin" style="background:${color}"><span>${n}</span></div>`, iconSize: [28, 28], iconAnchor: [14, 34], popupAnchor: [0, -30] });
     const smallIcon = (emoji) => L.divIcon({ className: '', html: `<div class="pin-sm">${emoji}</div>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -12] });
-    const popupHtml = (s, sub) => `${s.im ? `<img class="pop-img" src="${esc(sized(s.im.src, 500))}" alt="">` : ''}<div class="pop-body"><div class="pop-title">${esc(s.name)}</div>${sub ? `<div class="pop-sub">${esc(sub)}</div>` : ''}${s.ref ? `<div class="pop-actions"><button type="button" data-peek="${s.kind}:${esc(s.ref.id)}">자세히</button><a href="${esc(itemHref(s.kind, s.ref.id))}">${esc(T.pages[KINDS[s.kind].page].title)} 페이지 →</a></div>` : ''}</div>`;
+    const popupHtml = (s, sub) => `${s.im ? `<img class="pop-img" src="${esc(sized(s.im.src, 500))}" alt="">` : ''}<div class="pop-body"><div class="pop-title">${esc(s.name)}</div>${sub ? `<div class="pop-sub">${esc(plain(sub))}</div>` : ''}${s.ref ? `<div class="pop-actions"><button type="button" data-peek="${s.kind}:${esc(s.ref.id)}">자세히</button><a href="${esc(itemHref(s.kind, s.ref.id))}">${esc(T.pages[KINDS[s.kind].page].title)} 페이지 →</a></div>` : ''}</div>`;
 
     // extra layers: all stays / food / places with coordinates
     Object.keys(extra).forEach((k) => {
@@ -815,7 +826,7 @@
     let h = calloutsTop(F.callouts);
     if (F.thanksgiving && F.thanksgiving.length) {
       const tgCard = (t) => `<div class="tg"><div class="tg-head"><b>${esc(t.name)}</b> ${t.state ? tag(t.state[0], t.state[1]) : ''}</div>
-        ${t.price ? `<div class="tg-price">💵 ${md(t.price)}</div>` : ''}<div class="muted small">${[t.where, t.time].filter(Boolean).map(esc).join(' · ')}</div>${t.note ? `<p>${md(t.note)}</p>` : ''}${linksHtml(t.links)}</div>`;
+        ${t.price ? `<div class="tg-price">💵 ${md(t.price)}</div>` : ''}<div class="muted small">${[t.where, t.time].filter(Boolean).map(md).join(' · ')}</div>${t.note ? `<p>${md(t.note)}</p>` : ''}${linksHtml(t.links)}</div>`;
       const tf = F.thanksgiving.filter((t) => t.featured);
       const tr = F.thanksgiving.filter((t) => !t.featured);
       h += h2('🦃', F.thanksgivingTitle || 'Thanksgiving 저녁 (11/26 목)', tf.length ? (F.thanksgivingAside || '셋 중 하나') : '');
