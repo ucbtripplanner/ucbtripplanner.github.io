@@ -62,6 +62,13 @@ window.TRIP_IMAGES = {
   "page": "https://commons.wikimedia.org/wiki/File:Tuck_Box_and_patio.jpg",
   "title": "The Tuck Box, Carmel-by-the-Sea"
  },
+ "food-crema": {
+  "src": "https://wsrv.nl/?url=cremapg.com/wp-content/uploads/2026/06/breakfast-spread-scaled.jpg&w=960&output=jpg&q=78",
+  "credit": "공식 사이트 이미지",
+  "license": "링크 미리보기",
+  "page": "https://cremapg.com/",
+  "title": "Crema 브런치 (와플 · 부리토 · 수프)"
+ },
  "food-phils": {
   "src": "https://wsrv.nl/?url=img1.wsimg.com/isteam/ip/769753cc-0386-4f35-aa63-aa00aaa8da04/philsfishmarket_cioppino02.jpg&w=960&output=jpg&q=78",
   "credit": "공식 사이트 이미지",
@@ -431,5 +438,13 @@ window.TRIP_IMAGES = {
   "license": "링크 미리보기",
   "page": "https://www.deerhaveninn.com/",
   "title": "Deer Haven Inn 입구 (Crocker Ave)"
+ },
+ "food-toribashi": {
+  "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Tonkotsu_ramen_in_Tokyo.jpg/960px-Tonkotsu_ramen_in_Tokyo.jpg",
+  "big": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Tonkotsu_ramen_in_Tokyo.jpg/1280px-Tonkotsu_ramen_in_Tokyo.jpg",
+  "credit": "Syced",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tonkotsu_ramen_in_Tokyo.jpg",
+  "title": "돈코츠 라멘 (예시 사진)"
  }
 };

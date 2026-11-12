@@ -21,6 +21,14 @@ timings (07:45 start, tide pools until 17:15) and route keys (`go-101`, `bigsur-
 
 `_build/` is bootstrap-only. **Edit `data.js` directly from now on** and don't re-assemble over it.
 
+**5. Group-taste pass (11/11, later):** the group dislikes seafood, redwoods/big trees, wineries, history/museums/missions and
+galleries/architecture, and loves the aquarium, wildlife, scenery and golden-hour views. Default meals became Grotto's turkey
+course (kept, verified seafood-free) → Ttobongee Chicken (Fri) → Crema ocean-view breakfast + Toribashi ramen (Sat); Sat 10:00
+Carmel Mission became Carmel River State Beach (pinned at the Carmelo St lot); Fri 15:00 Carmel village became Carmel Beach +
+Scenic Pathway. Sources and the full list are in
+`dining.md` / `sights.md` (section "11/11 taste update") and `OPEN_QUESTIONS.md`. **Where these notes still recommend seafood
+or the Mission, `data.js` wins.**
+
 | File | What |
 |---|---|
 | [itinerary.md](itinerary.md) | The judged final plan: verdict, day-by-day, shortlists, map routes, decisions, book-now list, variants, budget, risks, and the 11/11 spot-check log |

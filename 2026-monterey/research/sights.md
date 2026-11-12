@@ -820,3 +820,31 @@ If doing Plan 2 on Saturday as the going-home day: from Carmel at ~17:00 to Berk
   - [Monterey climate normals (NOAA, via Wikipedia)](https://en.wikipedia.org/wiki/Monterey,_California)
 - Drive times: [OSRM demo router](https://router.project-osrm.org/) (free-flow)
 - Coordinates: Wikipedia API · OpenStreetMap (Nominatim via `tools/geocode.py --any`; Photon/komoot)
+
+---
+
+## 11/11 taste update — Saturday morning & Friday afternoon (re-checked 2026-11-11)
+
+The group skips history/missions/galleries/architecture and redwoods; it likes nature, wildlife, scenery and golden hour.
+
+- **Sat 10:05 default: Carmel River State Beach (#25).** parks.ca.gov page_id=567 (11/11): "8 AM – Sunset", day use; parking "at the
+  end of Carmelo street", restrooms, drinking water, hiking trails. "The Carmel River creates a lagoon – a popular habitat for
+  waterfowl and songbirds"; a bird sanctuary in the lagoon with "scenic panoramic views of the Monterey Bay National Marine
+  Sanctuary". Monastery Beach: swimming, wading or walking near the water "can be extremely dangerous" → view only. No fee posted.
+  ~~Pin at the OSM beach node [36.53458, -121.92796]~~ — **corrected (11/11 fixer):** that point is the OSM beach relation's
+  centroid in Carmel Meadows, *south* of the lagoon, and OSRM routed to it via Hwy 1 → Ribera Rd → Calle la Cruz (7.5 min / 3.3 mi
+  from the Tuck Box). The pin is now the **Carmelo St lot** (OSM way 204510594, `amenity=parking`, operator "State of California")
+  at [36.5389, -121.9279], north of the lagoon. OSRM from there: 17-Mile Carmel Gate (OSM node 6850839982) → lot 4.9 min / 1.55 mi,
+  Tuck Box → lot 4.6 min, lot → Toribashi 12.0 min, Carmel Gate → PG Monarch Sanctuary 12.3 min. Sat high tide 12:14 +6.0 ft
+  (NOAA) → stay on high, dry sand.
+- **PG Monarch Sanctuary (#14) re-checked:** the page moved to https://www.pgmuseum.org/monarchs and still says "Last updated
+  11/06/26 … The monarch population is low … especially in Pacific Grove. There are no large clusters"; afternoon visitors may see
+  monarchs "fluttering around the nectar beds". Hours sunrise–sunset incl. holidays; docents ~11–3 Oct–Feb. → alt only.
+- **Fri 15:00 default: Carmel Beach (#21) + Scenic Road walk (#22)** until sunset 16:53, replacing the Carmel village walk.
+  City of Carmel (https://ci.carmel.ca.us/post/carmel-beach, 11/11): nine access stairways from the **Scenic Pathway** to the
+  beach, all open except 10th and 12th Ave; don't shortcut down the bluffs; marked Scenic Rd spaces (8th → Martin Way) have no
+  time limit 5 AM–midnight; restrooms at the foot of Ocean Ave and at Scenic Rd & Santa Lucia Ave.
+- Carmel Mission (#23) and the PG Museum stay only as Friday rain-plan fallbacks; Pfeiffer Big Sur (redwoods) only as the
+  **second** McWay-closed alt, now `tier: 'opt'` (the first alt is "turn back from Nepenthe → longer Carmel Beach golden hour").
+- Saturday order after the fixer pass: 07:00 checkout → 07:10 Crema (Lovers Point) → 08:10–09:40 17-Mile → 09:50 Carmel River SB
+  → 11:00 Toribashi → 12:00 home. OSRM: Asilomar → Crema 4.7 min, Crema → 17-Mile PG Gate 4.8 min. The Friday rain plan now leads with a second aquarium visit (open all three days; same-day re-entry only).

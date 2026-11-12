@@ -1,7 +1,8 @@
 # Open questions — re-check before the trip (Thu 11/26 – Sat 11/28/2026)
 
 Research snapshot: **2026-11-07**, then adversarially re-verified the same day (8 agents). Course re-planned on
-**2026-11-11** for "하이킹은 적당히, 구경 위주" (see [hiking-sightseeing.md](hiking-sightseeing.md)). Everything below was
+**2026-11-11** for "하이킹은 적당히, 구경 위주", then the same day for the group's tastes (no sequoia groves, indoor exhibits or
+history tours as default slots; see [hiking-sightseeing.md](hiking-sightseeing.md) §7). Everything below was
 **not confirmable** on 11/7–11/11 or changes over time. When you confirm one, update `data.js` and tick it here.
 
 ## Book / call now
@@ -15,6 +16,7 @@ Research snapshot: **2026-11-07**, then adversarially re-verified the same day (
 - **11/17–19** — in-park (Valley Lodge, Curry) cancellations most likely to appear (their 7-day refund cutoff).
 - **~11/24** — new Yosemite Guide (valid from 11/25): shuttle frequency, restaurant/store hours, trail closures.
 - **Now** — Mountain Room dinner Fri 11/27 17:45 (OpenTable). If rain is forecast, also the Valley Floor Tour 10:00 (24 h cancellation for a full refund).
+- **~11/25** — Curry ice rink, Fri 11/27 12:00–14:30 session, 3 adults with rentals (online; 24 h cancellation for a full refund). Book after the weather check.
 
 ## Check 1–2 days before (11/24–25)
 - [ ] Glacier Point Road & Tioga Road reopened? **NPS 11/11: "Temporarily closing on Thursday, November 12 at 5 pm due to a forecast of snow."** Open on 11/26 in only 1 of 9 seasons 2016–2025. The course doesn't depend on it (🏔️ variant if it reopens) — 209-372-0200 (1, 1)
@@ -22,15 +24,16 @@ Research snapshot: **2026-11-07**, then adversarially re-verified the same day (
 - [ ] Chain controls on Hwy 120 (Big Oak Flat Rd) / Hwy 140; Caltrans QuickMap. Hwy 140 closed twice in 2026 (April rockslide, Sept fire).
 - [ ] El Capitan Bridge weekday 15-min delays and the weekday pedestrian ban — do they apply on Thanksgiving (Thu) / Fri? Affects the El Portal drive back on Thu, the Valley Lodge → Ahwahnee Feast drive, and the Sat bridge photo ("limited access on weekends").
 - [ ] NWS forecast + snow level. 11/11: Winter Storm Watch 11/13–17 (6–12 in above 6,000 ft); CPC 11/19–25 above-normal precipitation; NOAA 3–4 week outlook (11/21–12/4) above-normal precipitation (El Niño).
-- [ ] **Tuolumne Grove trail surface + trailhead lot** (Thu optional hike): microspikes OK, or snowshoe-deep? → skip if deep. The trailhead is "on Tioga Rd, just north of Crane Flat" (Fall Guide) and Tioga Rd is temporarily closed from 11/12 5 pm — **where the closure gate is and whether the lot is open/plowed after the 11/13–17 storm is unknown** (NPS only says winter ski/snowshoe routes start from the grove lots). Ask 209-372-0200 on 11/25. Phone line / webcams; the Big Oak Flat Information Station bookstore may be closed Thu (2025 winter Guide: "Closed Wed & Thurs"), so ask the day before.
-- [ ] **New Yosemite Guide (from 11/25):** shuttle intervals and whether purple still stops at #2 and #16 (Fri plan rides purple #2 → #16, green #16 → #3); Ahwahnee tour time + meeting spot (11/11: Travel Yosemite "Front Lawn" + Fall Guide "flagpole" → site says Front Lawn flagpole; the **back lawn** is the separate 3:30–4:30 Guided Nature Walk, max 25); Valley Floor Tour departures (10 & 1 per Fall Guide vs 10 & 2 per NPS calendar); Welcome Center / film / Museum on Thanksgiving; Evening Program days.
-- [ ] **Ansel Adams Gallery open Thu 11/26?** (2025: "closed Nov 27") — the course puts the Village indoor block on Friday.
+- [ ] **Tuolumne Grove trail surface + trailhead lot** — *only if the group takes the "세쿼이아 숲 보고 싶으면" alt (no longer a default stop since 11/11):* microspikes OK, or snowshoe-deep? → skip if deep. The trailhead is "on Tioga Rd, just north of Crane Flat" (Fall Guide) and Tioga Rd is temporarily closed from 11/12 5 pm — **where the closure gate is and whether the lot is open/plowed after the 11/13–17 storm is unknown** (NPS only says winter ski/snowshoe routes start from the grove lots). Ask 209-372-0200 on 11/25. Phone line / webcams; the Big Oak Flat Information Station bookstore may be closed Thu (2025 winter Guide: "Closed Wed & Thurs"), so ask the day before.
+- [ ] **New Yosemite Guide (from 11/25):** shuttle intervals; Fri plan rides **green #11 Four Mile Trailhead → #16** (10:00), **purple #16 → #19** (Curry) and **purple #19 → #1/#2** (Village) — check those stops are still served (Housekeeping Camp is closed; #12 is on the way); ice rink sessions; Valley Floor Tour departures (10 & 1 per Fall Guide vs 10 & 2 per NPS calendar); Pizza Deck / Degnan's hours. Rain-plan only now: Ahwahnee tour time + meeting spot (Front Lawn flagpole; the back lawn is the 3:30 Guided Nature Walk), Welcome Center / film / Museum on Thanksgiving, Ansel Adams Gallery on 11/26 (2025: "closed Nov 27").
+- [ ] **Curry ice rink (Fri 13:00 default):** price (not shown on Travel Yosemite or in the booking API on 11/11); whether joining a 12:00–14:30 session late is fine — FareHarbor booking notes: "allow at least 15 minutes for check-in prior to skating", so after the 12:15 Pizza Deck lunch the group skates only ~13:15–14:30 (~75 min; alt: skate first from ~12:20, late lunch 14:30); "if conditions allow" is the **Fall Guide** wording (the Travel Yosemite rink page has no weather statement, 11/11) → call 209-372-8210 the day before. 11/11 booking calendar: Thu/Fri 12:00 · 15:30 · 19:00, Sat + 8:30.
+- [ ] **El Capitan Meadow turnout** (Thu 15:15 late-afternoon stop — sun ~13° up at 15:15, so not golden hour yet; computed): space on Thanksgiving afternoon unknown — if full, drive on to Valley View.
 - [ ] Valley Lodge **and Curry**: can guests park before the 16:00 check-in (Thu 13:50 park-once plan)? NPS: "If you have lodging or campground reservations, park your car at your lodge or campground"; Travel Yosemite: "Free parking is available at Curry Village for all hotel guests" — neither says *before* check-in.
 - [ ] El Portal lodging: Thursday ~13:00 the Valley day-use lots are likely full (NPS: after 8 am on holiday weekends "inability to find a place to park"; when full, cars are "diverted back out of Yosemite Valley near El Capitan"). Site plan: car-only viewpoints Thu, Lower Fall + Cook's Meadow Fri morning. Southside picnic-area parking (Swinging Bridge, Cathedral Beach — first-come, dawn to dusk) capacity unknown.
-- [ ] Priest Station and Degnan's Thanksgiving hours (Thu lunch is a packed picnic at Cathedral Beach; Degnan's is only the alt).
-- [ ] Non-guest access to the Ahwahnee Great Lounge (the tour covers it either way).
+- [ ] Priest Station and Degnan's Thanksgiving hours (Thu lunch is a packed picnic at Cathedral Beach; Degnan's is only the alt / cold-weather warm-up).
+- [ ] Non-guest access to the Ahwahnee Great Lounge (rain plan only).
 - [ ] Half Dome View pullout (Big Oak Flat Rd): which side of the road; space at The Cascades picnic area on Hwy 140; waterfall flow after the 11/13–17 storms (Yosemite Falls webcam).
-- [ ] Curry ice rink prices (booking engine) — now only an alt.
+- [ ] Rim of the World (Thu optional 5-min alt on Hwy 120): parking / which side of the road.
 - [ ] 2026 AAA/INRIX Thanksgiving traffic forecast (site uses the 2025 pattern).
 - [ ] Rush Creek / Evergreen Thanksgiving pages still show 2025 dates — only relevant if plans change.
 
@@ -38,9 +41,11 @@ Research snapshot: **2026-11-07**, then adversarially re-verified the same day (
 - **Entrance pass eligibility** for F-1/J-1 students: NPS lists accepted documents (US passport, state DL/ID, green card) but says Resident passes are for "US citizens and residents" and never mentions visas. Decide by status; if unsure buy the $250 Non-Resident pass or ask the ranger. Passes are non-refundable; the digital pass name must match the holder's ID.
 - Ahwahnee Feast dress code (not stated; regular dinner requires long pants + collared shirt).
 - In-park store hours in late Nov (posted 8–8 may be summer hours); Thanksgiving-day hours of small gateway restaurants (none posted).
+- **Official sources disagree (11/11):** Base Camp Eatery breakfast — Fall Guide "opens 7 am starting Oct 25" … 10:30 vs Travel Yosemite "Breakfast 7:00 AM - 11:00 AM"; Mountain Room Lounge weekdays — Fall Guide "Mon to Fri: 5 pm – 10 pm" vs Travel Yosemite "Monday - Friday 4:00 PM - 10:00 PM". The site shows the Guide times with a note; the course's 08:00 breakfasts work under either. Re-check in the 11/25 Guide.
 - Whether a practice chain fitting at home still counts as "unused" for the Les Schwab spring refund.
 
 ## Things that turned out wrong in the first draft (fixed — don't reintroduce)
+- Group tastes (11/11): sequoia groves (Tuolumne / Mariposa), indoor exhibits (Welcome Center film, Museum, Ansel Adams Gallery) and the Ahwahnee history tour are **alts / rain plan only**, not default slots. No seafood-centric meals as defaults (Mountain Room = steakhouse → order steak).
 - The Ahwahnee **history tour** meets at the **Front Lawn / flagpole**; the **back lawn** is the 3:30 Guided Nature Walk (fixed 11/11).
 - Curry Village shuttle stops: **#14 = eastbound, #19 = westbound**. Curry → Village is purple #19 → #2; Village → Curry is #2 → #14.
 - Pizza Deck late-fall hours are **12–9 pm** (Fall Guide "starting Oct 26: 12 pm – 9 pm"), not 8 pm.

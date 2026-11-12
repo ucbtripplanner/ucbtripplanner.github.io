@@ -478,5 +478,14 @@ window.TRIP_IMAGES = {
   "license": "링크 미리보기",
   "page": "https://www.yosemitebug.com/cafe",
   "title": "June Bug Cafe"
+ },
+ "curry-half-dome": {
+  "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Half-dome%2C_seen_from_the_Curry_Village_area_02.jpg/960px-Half-dome%2C_seen_from_the_Curry_Village_area_02.jpg",
+  "big": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Half-dome%2C_seen_from_the_Curry_Village_area_02.jpg/1280px-Half-dome%2C_seen_from_the_Curry_Village_area_02.jpg",
+  "credit": "EF5",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Half-dome,_seen_from_the_Curry_Village_area_02.jpg",
+  "title": "Half Dome — Curry Village에서 (아이스링크 쪽 뷰)",
+  "pos": "center 40%"
  }
 };

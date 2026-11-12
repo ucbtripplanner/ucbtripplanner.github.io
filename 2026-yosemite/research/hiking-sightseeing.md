@@ -14,13 +14,16 @@ about 5–6 mi of walking per day at most, and the rest of the time on drive-up 
 
 ---
 
-## 0. Result (what the site now says)
+## 0. Result (what the site now says — after the §7 taste re-plan, same day)
 
 | Day | The one real hike | Walking/day *(analysis)* | Sunset / night |
 |---|---|---|---|
-| Thu 11/26 | Tuolumne Grove (optional): 2 mi RT, +500 ft on the way back, ~1.5 h | ≈6–6.5 mi (≈4–4.5 without the grove) | Tunnel View 16:41 · moonrise 18:49 (flat horizon; later above the Valley walls) |
-| Fri 11/27 | Vernal Fall Footbridge: 1.6 mi RT, +400 ft (Fall Guide: 380 ft), 1–1.5 h | ≈6–6.5 mi (≈5–5.5 without stargazing; green #3 → #5 saves ~1 mi) | Sentinel Bridge 16:41 · stars 19:00–20:05 |
+| Thu 11/26 | none — Tuolumne Grove is now only an alt ("세쿼이아 숲 보고 싶으면") | ≈4–4.5 mi | El Cap Meadow golden hour 15:15 → Tunnel View 16:41 · moonrise 18:49 |
+| Fri 11/27 | Vernal Fall Footbridge: 1.6 mi RT, +400 ft (Fall Guide: 380 ft), 1–1.5 h | ≈5 mi (Happy Isles → Curry by purple shuttle saves ~0.8) | Sentinel Bridge 16:41 · stars 19:00–20:05 |
 | Sat 11/28 | none (sightseeing only) | ≈0.5–2 mi | leave ~10:05 via Hwy 140, Berkeley ~16:30 (Bay Area legs ~14–16:00 fall inside the 2025 Saturday worst window) |
+
+The table and bullets below this line up to §6 describe the first 11/11 re-plan; §7 lists what changed after the group's
+taste update (no sequoia groves, no indoor exhibits / history tours as default slots, no seafood-centric meals).
 
 - Real hikes went from 4 to 2, and total climbing from about 2,600 ft to about 900 ft.
 - **Alternatives kept as `alts` or `variants`:**
@@ -218,5 +221,66 @@ Analysis data:
 - [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/)
 - [OSRM](https://router.project-osrm.org/)
 - OpenStreetMap Nominatim
+
+## 7. Taste re-plan (11/11, later the same day)
+
+**Group tastes given:** no seafood-centric meals (esp. oysters); redwoods / giant sequoia groves already seen and "boring"; wineries,
+history tours, galleries, museums, missions and architecture are not a draw. They like scenery, wildlife, golden-hour views, fun
+activities, good non-seafood food (Korean welcome), and at most one real hike a day. Disliked items may stay only as alts / rain plan.
+
+### What changed in `../data.js`
+
+| Was (default slot) | Now | Why / source |
+|---|---|---|
+| Thu 06:30 Berkeley → 10:20 Tuolumne Grove (~1.5 h hike) | **07:30** departure; grove is an alt on the Half Dome View stop ("원래대로 06:30 출발" if they want it) | taste (sequoias). Freed ~1 h 40 m → 1 h later start, a ~50 min picnic, and a 15–20 min El Cap Meadow stop |
+| Thu 14:30 alt "Welcome Center · Exploration Center (실내)" | alt is now Degnan's Kitchen warm-up | Fall Guide: Degnan's "7 am – 6 pm … Peet's coffee … Indoor seating & WiFi" ✅ |
+| Thu 15:40 drive with a 2-min El Cap Meadow pass | **15:15 El Capitan Meadow golden hour** (15–20 min) → Valley View → Tunnel View 16:00 | El Cap upper wall lit until ~16:42 *(analysis, §3)*; NPS yv.htm: "a view straight up El Capitan" ✅. Climbers: no claim — "있을 수도" only (Ask-a-Climber ended Oct 30, Fall Guide ✅) |
+| Fri 09:15 Village indoor (film, Museum, Indian Village, Ansel Adams Gallery) | **Swinging Bridge morning walk** (Yosemite Falls across the river; scouts the night stargazing spot) → green shuttle **#11 Four Mile Trailhead → #16** | NPS yv.htm: "The area around Sentinel Meadow, the Yosemite Chapel, and Yosemite Valley Lodge are favorite places to stop to look at Yosemite Falls." ✅ · Fall Guide stop list: #11 "Four Mile Trailhead", Green Shuttle ONLY; #12, #14–19 all shuttles ✅ · #11 bus-stop pin [37.73398, −119.60166] = OSM `highway/bus_stop` "Four Mile Trailhead" (`tools/geocode.py`), ~300 m from the Swinging Bridge picnic area |
+| Fri 10:45 Footbridge | **10:30** Footbridge (unchanged hike) | 15 min earlier only; still after the cold early morning (shaded all day, §3) |
+| Fri 12:50 Ahwahnee Bar lunch | **12:15 Curry Pizza Deck** (Ahwahnee Bar = indoor alt) | next to Happy Isles and the rink; Fall Guide: Pizza Deck "starting Oct 26: 12 pm – 9 pm … Outdoor seating" ✅ |
+| Fri 14:00 Ahwahnee history tour + Great Lounge | **13:00 Curry Village ice rink** (12:00–14:30 session) → 14:40 Degnan's warm-up (optional) → Sentinel Bridge | see "Ice rink" below. Tour kept only in the rain plan; `ahwahnee`, `village`, `valley-floor-tour` → `tier: 'opt'` |
+| Fri 19:00 alts: Evening Program, night skating | alts: El Cap Meadow (El Portal), **Walking Starry Skies**, **Yosemite After Dark**, night skating | see "Night programs" below |
+| Mountain Room "스테이크 · 시푸드" | "스테이크하우스" + "we order steak / burger" | Fall Guide: "Upscale casual steakhouse. Reservations recommended: OpenTable.com." and "Final seating 30 min before closing" ✅ |
+| Ahwahnee Feast note | adds "고기 위주 (칠면조 · 프라임립 · 햄), 해산물은 철갑상어 하나" | [2026 menu PDF](https://assets.milestoneinternet.com/aramark-parent/yosemite-national-park/pdf/ahwahnee-thanksgiving-w-allergens.pdf) ✅: Brined Turkey Roast, Slow Roasted Prime Rib, Pan-Seared Sturgeon, Honey Mustard Pineapple Glazed Ham, Quinoa; 4 pies + pumpkin cheesecake |
+| Mariposa Grove `opt` | `skip` | half-day + sequoias |
+
+Unchanged on purpose: Half Dome View pullout, Bridalveil, Cathedral Beach picnic (now ~50 min), Lower Fall, Cook's Meadow, Tunnel View
+sunset 16:41, Thanksgiving dinner ~18:30 (Ahwahnee Feast / Base Camp / June Bug — all non-seafood plans), the Vernal Fall Footbridge,
+Sentinel Bridge sunset, Swinging Bridge stargazing, Saturday (El Cap Meadow, Valley View, Hwy 140, 1850 Brewing brewpub lunch), the
+lodging variants (times shifted), chain/snow notes. Other featured food (Degnan's, Base Camp, Pizza Deck, Coffee Corner, Priest Station,
+1850, Happy Burger, June Bug, Village Store) is deli / burger / pizza / diner — nothing seafood-centric. Korean: no Korean restaurant
+is tagged in OSM between Merced and Mariposa (Overpass query, 11/11), so the site only suggests 김밥 / 컵라면 (thermos) for the Thursday picnic.
+
+### Hwy 120 in vs Hwy 140 (re-checked without the grove) → keep 120 in, 140 out
+
+- Still the shorter way in (~182 vs ~203 mi, OSRM in logistics.md; re-run 11/11: 181.6 mi), and the Half Dome View pullout is on 120 ("a stunning view of El Capitan and Half Dome", NPS Accessibility Guide 2022 ✅). Rim of the World is a 5-min optional alt ("a scenic overlook on Highway 120 leading up to Yosemite", [Wikipedia · Rim Fire](https://en.wikipedia.org/wiki/Rim_Fire); parking **UNVERIFIED**).
+- Fall Guide: "Drive 40 minutes from the Big Oak Flat Entrance (120W), 20 minutes from the Arch Rock Entrance (140)" ✅.
+- [NPS tire chains](https://www.nps.gov/yose/planyourvisit/tirechains.htm) ✅: "chains are required on the Wawona Road (Highway 41), Big Oak Flat Road (Highway 120 from the west), and Badger Pass Road more often than on the El Portal Road (Highway 140)". → the snow variant (140 both ways) stays; with a 07:30 start it reaches the Valley ~12:00 *(analysis)*.
+- Dropping the grove also removes the one stop that depended on the Tioga Rd trailhead lot (plowing after the 11/12 closure **UNVERIFIED**).
+
+### Ice rink (Curry Village)
+
+- [Travel Yosemite](https://www.travelyosemite.com/winter/curry-village-ice-skating-rink) (read 11/11) ✅: "November 13, 2026 - March 1, 2027"; weekdays 12:00–2:30, 3:30–6:00, 7:00–9:30 pm; weekends & holidays add 8:30–11:00 am; "Since 1928 … spectacular outdoor skating rink … a cozy fire pit, and breathtaking views of Half Dome"; 209-372-8210. **No price on the page.**
+- Fall Guide: "Ice Rink (opens Nov 13, if conditions allow) 2.5-hour sessions at 12 pm, 3:30 pm, 7 pm. Additional 8:30 am session on weekends." ✅
+- Booking calendar (FareHarbor item 762840, public API read 11/11) ✅: Thu 11/26 and Fri 11/27 have 12:00, 15:30, 19:00 sessions (no 8:30 — Fri after Thanksgiving is not treated as a holiday); Sat 11/28 adds 8:30. None sold out. Rates: Adult (13+) with / without rentals (+ BOGO 50% types); **prices not exposed → UNVERIFIED**. Cancellation: "Cancellations must be made 24 hours prior to arrival to receive a full refund." Booking note: "allow at least 15 minutes for check-in".
+- Pin [37.73854, −119.57351] = OSM `leisure/ice_rink` "Curry Village Ice Skating Rink" (`tools/geocode.py`). No Commons photo of the rink → card uses `Half-dome,_seen_from_the_Curry_Village_area_02.jpg` (EF5, CC0).
+
+- Booking note, exact wording (FareHarbor item 762840 `booking_notes`, re-read 11/11) ✅: "Plan to arrive early and allow at least 15 minutes for check-in prior to skating to ensure you can maximize your time at the rink." Travel Yosemite: "Ticket sales at the kiosk open 15 minutes prior to each session." → after the 12:15 Pizza Deck lunch the group skates ~13:15–14:30 (~75 min of the 2.5 h session) *(analysis)*; the course note now says so and offers "skate first from ~12:20, late lunch at 14:30" as the swap. Joining a session late: **UNVERIFIED**.
+- The weather caveat is the **Fall Guide's** ("if conditions allow"); the Travel Yosemite rink page has no weather/conditions statement (re-read 11/11) → the site credits the Guide.
+- Afternoon skating doesn't fit the stronger Friday alts *(analysis)*: Columbia Rock (2–3 h from 10:15 + lunch + green #7 → #14) reaches the rink ~13:45–14:15 → the site now recommends the 19:00 session; with the Glacier Point variant (back ~18:00) the 19:00 session only works with dinner at Curry Pizza Deck instead of Mountain Room, otherwise skip skating that day.
+
+### Fixer pass 11/11 (timing / wording)
+
+- **Curry guests, Thu:** the old variant (bus back 14:50, car out 15:10, El Cap Meadow 10 min) squeezed Lower Fall + Cook's Meadow into ~50 min and reached Tunnel View ~16:20, losing the early-arrival buffer. Now: walk 13:50–15:10 → purple #2 → #14 (or ~25 min on foot from Sentinel Bridge) → car out 15:30 → El Cap Meadow · Valley View only from the car (Saturday 09:15 covers El Cap Meadow) → Tunnel View ~16:00 *(analysis)*.
+- **"골든아워" removed for the Thu 15:15 El Cap stop:** computed sun altitude at the Valley on 11/26 is ~13.4° at 15:15 and ~9.5° at 15:40 (sunset 16:42) → golden hour (< ~6°) starts ~16:05, which the group spends at Tunnel View. Wording is now "오후 햇살" *(computed, NOAA-style approximation)*.
+- **Mountain Room** [2025 fall/winter menu PDF](https://assets.milestoneinternet.com/aramark-parent/yosemite-national-park/pdf/2025-fallwinter-mountain-room-menu-1-1.pdf) (linked from Travel Yosemite's Valley Lodge dining page on 11/11) ✅: Marinated Cucumber 15 ("Persian cucumber, sweet baby bell pepper, radish, Ssamjang dressing, puffed vermicelli rice noodles"); only seafood = Trout 39 and Charred Jumbo Shrimp 20 ("Crispy Oyster Mushrooms" are mushrooms); Prime Filet 72, Prime Sirloin 45, Beast Burger 35, Braised Mushroom Stew 28.
+- **Hours that disagree (11/11):** Base Camp breakfast — Fall Guide "opens 7 am starting Oct 25" … 10:30 vs [Travel Yosemite](https://www.travelyosemite.com/dining/yosemite-valley-lodge) "Breakfast 7:00 AM - 11:00 AM"; Mountain Room Lounge — Fall Guide "Mon to Fri: 5 pm – 10 pm" vs Travel Yosemite "Monday - Friday 4:00 PM - 10:00 PM". Site keeps the Guide times + a note.
+- **Distance:** home/course/prep all say ~182 mi via 120 (OSRM, matches `geo.js`), ~203 mi via 140.
+
+### Night programs (Fri 11/27 alts)
+
+- [Travel Yosemite programs](https://www.travelyosemite.com/things-to-do/naturalist-walks-programs) ✅: **Yosemite After Dark** $25, "7:30pm - 9:00pm during colder months", ~1.5 mi, Yosemite Valley Lodge Amphitheater; **Walking Starry Skies** $25, "WINTER ONLY", 8–9 pm or 9–10 pm, meets at Shuttle Stop #6; Evening Programs free, Sun/Wed/Thu/Fri/Sat 7:00–7:30 pm, Lodge Cliff Room. "Cancellations within 24 hours forfeit value."
+- FareHarbor calendars (11/11) ✅: After Dark (item 762670) 19:30–21:00 and Walking Starry Skies (762765) 20:00–21:00 on 11/25–28, not sold out.
+- Moonrise 20:05 on 11/27 (§3) → the DIY 19:00 stargazing stays the default; the guided walk is an alt.
 
 What still needs checking before departure is in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).
