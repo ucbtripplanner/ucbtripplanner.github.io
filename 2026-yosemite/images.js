@@ -138,6 +138,14 @@ window.TRIP_IMAGES = {
   "page": "https://commons.wikimedia.org/wiki/File:Valley_View_Yosemite_August_2013_002.jpg",
   "title": "Valley View"
  },
+ "cathedral-beach": {
+  "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Cathedral_Beach_in_Yosemite_National_Park.jpeg/960px-Cathedral_Beach_in_Yosemite_National_Park.jpeg",
+  "big": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Cathedral_Beach_in_Yosemite_National_Park.jpeg/1280px-Cathedral_Beach_in_Yosemite_National_Park.jpeg",
+  "credit": "Todd Petrie",
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Cathedral_Beach_in_Yosemite_National_Park.jpeg",
+  "title": "Cathedral Beach"
+ },
  "chapel": {
   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Yosemite_Valley_Chapel.jpg/960px-Yosemite_Valley_Chapel.jpg",
   "big": "https://upload.wikimedia.org/wikipedia/commons/d/da/Yosemite_Valley_Chapel.jpg",

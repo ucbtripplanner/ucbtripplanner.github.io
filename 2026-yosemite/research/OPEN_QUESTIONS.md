@@ -1,7 +1,8 @@
 # Open questions — re-check before the trip (Thu 11/26 – Sat 11/28/2026)
 
-Research snapshot: **2026-11-07**, then adversarially re-verified the same day (8 agents). Everything below was
-**not confirmable** on 11/7 or changes over time. When you confirm one, update `data.js` and tick it here.
+Research snapshot: **2026-11-07**, then adversarially re-verified the same day (8 agents). Course re-planned on
+**2026-11-11** for "하이킹은 적당히, 구경 위주" (see [hiking-sightseeing.md](hiking-sightseeing.md)). Everything below was
+**not confirmable** on 11/7–11/11 or changes over time. When you confirm one, update `data.js` and tick it here.
 
 ## Book / call now
 - [ ] **Cedar Lodge** 2Q $388 (2 nights) — "1 left" on 11/7 17:00. Booking engines block bots; check by hand. Backup: Yosemite View Lodge $680.
@@ -13,13 +14,23 @@ Research snapshot: **2026-11-07**, then adversarially re-verified the same day (
 - **11/19** — last day to cancel Cedar Lodge / Yosemite View Lodge for $15 (7 days before 11/26). After: 25% of first night + $15.
 - **11/17–19** — in-park (Valley Lodge, Curry) cancellations most likely to appear (their 7-day refund cutoff).
 - **~11/24** — new Yosemite Guide (valid from 11/25): shuttle frequency, restaurant/store hours, trail closures.
+- **Now** — Mountain Room dinner Fri 11/27 17:45 (OpenTable). If rain is forecast, also the Valley Floor Tour 10:00 (24 h cancellation for a full refund).
 
 ## Check 1–2 days before (11/24–25)
-- [ ] Glacier Point Road & Tioga Road open? (both open 11/6; historically closed by ~11/12) — 209-372-0200 (1, 1)
-- [ ] Mist Trail (section beside Vernal Fall) open? Closed by 11/27 in 3 of the last 10 years.
+- [ ] Glacier Point Road & Tioga Road reopened? **NPS 11/11: "Temporarily closing on Thursday, November 12 at 5 pm due to a forecast of snow."** Open on 11/26 in only 1 of 9 seasons 2016–2025. The course doesn't depend on it (🏔️ variant if it reopens) — 209-372-0200 (1, 1)
+- [ ] Mist Trail (section beside Vernal Fall) open? Open on 11/11; Fall Guide: "may close in November"; closed by 11/28 in 4 of the last 10 seasons. Only the "빡세게" alt (top of Vernal) depends on it — the Vernal Fall Footbridge (Fri main hike) stays reachable.
 - [ ] Chain controls on Hwy 120 (Big Oak Flat Rd) / Hwy 140; Caltrans QuickMap. Hwy 140 closed twice in 2026 (April rockslide, Sept fire).
-- [ ] El Capitan Bridge weekday 15-min delays — do they apply on Thanksgiving (Thu) / Fri?
-- [ ] NWS forecast + snow level; NOAA 3–4 week outlook favored above-normal precipitation (El Niño).
+- [ ] El Capitan Bridge weekday 15-min delays and the weekday pedestrian ban — do they apply on Thanksgiving (Thu) / Fri? Affects the El Portal drive back on Thu, the Valley Lodge → Ahwahnee Feast drive, and the Sat bridge photo ("limited access on weekends").
+- [ ] NWS forecast + snow level. 11/11: Winter Storm Watch 11/13–17 (6–12 in above 6,000 ft); CPC 11/19–25 above-normal precipitation; NOAA 3–4 week outlook (11/21–12/4) above-normal precipitation (El Niño).
+- [ ] **Tuolumne Grove trail surface + trailhead lot** (Thu optional hike): microspikes OK, or snowshoe-deep? → skip if deep. The trailhead is "on Tioga Rd, just north of Crane Flat" (Fall Guide) and Tioga Rd is temporarily closed from 11/12 5 pm — **where the closure gate is and whether the lot is open/plowed after the 11/13–17 storm is unknown** (NPS only says winter ski/snowshoe routes start from the grove lots). Ask 209-372-0200 on 11/25. Phone line / webcams; the Big Oak Flat Information Station bookstore may be closed Thu (2025 winter Guide: "Closed Wed & Thurs"), so ask the day before.
+- [ ] **New Yosemite Guide (from 11/25):** shuttle intervals and whether purple still stops at #2 and #16 (Fri plan rides purple #2 → #16, green #16 → #3); Ahwahnee tour time + meeting spot (11/11: Travel Yosemite "Front Lawn" + Fall Guide "flagpole" → site says Front Lawn flagpole; the **back lawn** is the separate 3:30–4:30 Guided Nature Walk, max 25); Valley Floor Tour departures (10 & 1 per Fall Guide vs 10 & 2 per NPS calendar); Welcome Center / film / Museum on Thanksgiving; Evening Program days.
+- [ ] **Ansel Adams Gallery open Thu 11/26?** (2025: "closed Nov 27") — the course puts the Village indoor block on Friday.
+- [ ] Valley Lodge **and Curry**: can guests park before the 16:00 check-in (Thu 13:50 park-once plan)? NPS: "If you have lodging or campground reservations, park your car at your lodge or campground"; Travel Yosemite: "Free parking is available at Curry Village for all hotel guests" — neither says *before* check-in.
+- [ ] El Portal lodging: Thursday ~13:00 the Valley day-use lots are likely full (NPS: after 8 am on holiday weekends "inability to find a place to park"; when full, cars are "diverted back out of Yosemite Valley near El Capitan"). Site plan: car-only viewpoints Thu, Lower Fall + Cook's Meadow Fri morning. Southside picnic-area parking (Swinging Bridge, Cathedral Beach — first-come, dawn to dusk) capacity unknown.
+- [ ] Priest Station and Degnan's Thanksgiving hours (Thu lunch is a packed picnic at Cathedral Beach; Degnan's is only the alt).
+- [ ] Non-guest access to the Ahwahnee Great Lounge (the tour covers it either way).
+- [ ] Half Dome View pullout (Big Oak Flat Rd): which side of the road; space at The Cascades picnic area on Hwy 140; waterfall flow after the 11/13–17 storms (Yosemite Falls webcam).
+- [ ] Curry ice rink prices (booking engine) — now only an alt.
 - [ ] 2026 AAA/INRIX Thanksgiving traffic forecast (site uses the 2025 pattern).
 - [ ] Rush Creek / Evergreen Thanksgiving pages still show 2025 dates — only relevant if plans change.
 
@@ -30,6 +41,11 @@ Research snapshot: **2026-11-07**, then adversarially re-verified the same day (
 - Whether a practice chain fitting at home still counts as "unused" for the Les Schwab spring refund.
 
 ## Things that turned out wrong in the first draft (fixed — don't reintroduce)
+- The Ahwahnee **history tour** meets at the **Front Lawn / flagpole**; the **back lawn** is the 3:30 Guided Nature Walk (fixed 11/11).
+- Curry Village shuttle stops: **#14 = eastbound, #19 = westbound**. Curry → Village is purple #19 → #2; Village → Curry is #2 → #14.
+- Pizza Deck late-fall hours are **12–9 pm** (Fall Guide "starting Oct 26: 12 pm – 9 pm"), not 8 pm.
+- Columbia Rock is **not** "the best winter hike": NPS says the lower part gets winter sun, but the Fall Guide lists it as "Most Challenging … Very steep, rugged" and the 2025 winter Guide says "likely snowy or icy … Use extreme caution" (fixed 11/11). It's a midday-only alt now.
+- Valley shuttle stops #3–#11 are **green (Valleywide) only**; #9 El Capitan Meadow is closed (Fall Guide). Use the Guide intervals (22–32 / 18–22 min), not the summer web numbers.
 - Southside Dr is **eastbound** one-way (not westbound). Northside Dr is westbound.
 - Redwoods In Yosemite: 11/26 arrival requires **3 nights** → no 2-night Thu–Sat; deposit non-refundable within 30 days.
 - Yosemite West studios are **not** for 4 adults (operator says sofa beds are for kids). AutoCamp Airstream max **3 adults**.
